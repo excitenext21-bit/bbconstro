@@ -8,8 +8,6 @@ export const LeadershipSection: React.FC = () => {
       className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0f172a] border-b border-slate-200 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-
-
         {/* Split Layout: Text Left, Photo Right (Image 2 style) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
