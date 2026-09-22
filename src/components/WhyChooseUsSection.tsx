@@ -38,16 +38,8 @@ export const WhyChooseUsSection: React.FC = () => {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 xl:gap-14 items-center">
           
-          {/* Left Column: Tagline with Line, Large Headline & Intro Paragraph */}
+          {/* Left Column: Headline & Intro Paragraph */}
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col justify-center">
-            {/* Tagline matching reference: "OUR PHILOSOPHY ───" */}
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#c05e32] font-['Outfit']">
-                WHY CHOOSE US
-              </span>
-              <span className="w-10 h-[1.5px] bg-[#c05e32]/60" />
-            </div>
-
             {/* Main Headline: 38px, Outfit font, clean multi-line uppercase typography */}
             <h2
               className="text-[32px] sm:text-[38px] font-['Outfit'] uppercase tracking-[0.06em] text-[#00153f] leading-[1.18] mb-6"

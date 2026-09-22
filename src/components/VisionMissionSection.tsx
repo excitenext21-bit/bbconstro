@@ -26,11 +26,6 @@ export const VisionMissionSection: React.FC = () => {
 
           {/* Right Column: Content matching Image 1 layout with Image 3 copy */}
           <div className="bg-white flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20">
-            {/* Strategy Kicker from Image 3 */}
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#c05e32] mb-3 font-['Outfit']">
-              Our Strategy
-            </span>
-
             {/* Heading matching Image 1 font & style, keeping 38px font size */}
             <h2
               className="text-[30px] sm:text-[38px] uppercase tracking-[0.14em] font-['Outfit'] text-[#00153f] font-bold text-center mb-3"
@@ -59,11 +54,6 @@ export const VisionMissionSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[420px] lg:min-h-[480px]">
           {/* Left Column: Content matching Image 2 layout with Image 3 copy */}
           <div className="bg-white order-2 md:order-1 flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20">
-            {/* Strategy Kicker from Image 3 */}
-            <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#c05e32] mb-3 font-['Outfit']">
-              Our Commitment
-            </span>
-
             {/* Heading matching Image 2 font & style, keeping 38px font size */}
             <h2
               className="text-[30px] sm:text-[38px] uppercase tracking-[0.14em] font-['Outfit'] text-[#00153f] font-bold text-center mb-3"
