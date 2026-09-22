@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { StatsBar } from './components/StatsBar';
 import { AboutSection } from './components/AboutSection';
+import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { VisionMissionSection } from './components/VisionMissionSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
@@ -131,6 +132,12 @@ export default function App() {
             path="/about"
             element={
               <div className="py-8 animate-fadeIn">
+                <WhoWeAreSection
+                  onReadMore={() => {
+                    const el = document.getElementById('vision-mission');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                />
                 <VisionMissionSection />
                 <WhyChooseUsSection />
                 <TeamMembersSection
