@@ -8,6 +8,7 @@ import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { VisionMissionSection } from './components/VisionMissionSection';
 import { ValuesSection } from './components/ValuesSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
+import { WhyChooseUsView } from './components/WhyChooseUsView';
 import { LeadershipView } from './components/LeadershipView';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
@@ -141,6 +142,21 @@ export default function App() {
                 <ClientMarquee />
               </div>
             }
+          />
+
+          {/* Dedicated Why Choose Us Page (Under About Us) */}
+          <Route
+            path="/about/why-choose-us"
+            element={
+              <WhyChooseUsView
+                onOpenBooking={handleOpenBooking}
+                onContact={() => navigate('/contact')}
+              />
+            }
+          />
+          <Route
+            path="/why-choose-us"
+            element={<Navigate to="/about/why-choose-us" replace />}
           />
 
           {/* Dedicated Leadership Page (Under About Us) */}

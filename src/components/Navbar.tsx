@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[220px]">
                 <div className="bg-[#00143d] border border-slate-700/80 rounded-xl shadow-2xl p-2 space-y-1 backdrop-blur-md">
                   <Link
-                    to="/about#why-choose-us"
+                    to="/about/why-choose-us"
                     className="flex items-center gap-2.5 px-3.5 py-2 text-sm text-slate-200 hover:text-white hover:bg-[#041a4a] rounded-lg transition-colors"
                   >
                     <ShieldCheck className="w-4 h-4 text-[#f7985f] shrink-0" />
@@ -242,7 +242,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </Link>
                 <div className="pl-5 space-y-1 pb-1">
                   <Link
-                    to="/about#why-choose-us"
+                    to="/about/why-choose-us"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-2 py-1.5 px-3 text-xs text-slate-300 hover:text-[#f7985f] transition rounded-md hover:bg-slate-800/30"
                   >
