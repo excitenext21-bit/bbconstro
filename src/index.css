@@ -472,3 +472,47 @@
   background: #c05e32;
 }
 
+/* Who We Are Chevron Arrow Animations */
+@keyframes chevron-arrow-lead {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(28px);
+  }
+}
+
+@keyframes chevron-arrow-mid {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(18px);
+  }
+}
+
+@keyframes chevron-arrow-back {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.animate-chevron-front {
+  animation: chevron-arrow-lead 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-chevron-mid {
+  animation: chevron-arrow-mid 3.5s ease-in-out infinite 0.15s;
+  will-change: transform;
+}
+
+.animate-chevron-back {
+  animation: chevron-arrow-back 3.5s ease-in-out infinite 0.3s;
+  will-change: transform;
+}
+
+

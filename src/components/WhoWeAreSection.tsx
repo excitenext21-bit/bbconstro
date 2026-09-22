@@ -19,26 +19,29 @@ export const WhoWeAreSection: React.FC = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Far Right: Very Faint Slate Chevron (background depth) */}
-          <path
-            d="M 380,-20 L 600,250 L 380,520 L 520,520 L 740,250 L 520,-20 Z"
-            fill="#f0f4f8"
-            fillOpacity="0.2"
-          />
+          {/* Far Right: Faint Neutral Chevron (background depth) */}
+          <g className="animate-chevron-back">
+            <path
+              d="M 380,-20 L 600,250 L 380,520 L 520,520 L 740,250 L 520,-20 Z"
+              fill="#F5F5F5"
+            />
+          </g>
 
-          {/* Middle: Light Grey Chevron */}
-          <path
-            d="M 220,-20 L 440,250 L 220,520 L 360,520 L 580,250 L 360,-20 Z"
-            fill="#e2e8f0"
-            fillOpacity="0.2"
-          />
+          {/* Middle: Mid Neutral Chevron */}
+          <g className="animate-chevron-mid">
+            <path
+              d="M 220,-20 L 440,250 L 220,520 L 360,520 L 580,250 L 360,-20 Z"
+              fill="#EFEFEF"
+            />
+          </g>
 
-          {/* Front: Brand Copper Chevron */}
-          <path
-            d="M 0,-20 L 260,250 L 0,520 L 200,520 L 460,250 L 200,-20 Z"
-            fill="#c05e32"
-            fillOpacity="0.2"
-          />
+          {/* Front: Lead Chevron Arrow in #EAEAEA with dynamic forward-slide animation */}
+          <g className="animate-chevron-front">
+            <path
+              d="M 0,-20 L 260,250 L 0,520 L 200,520 L 460,250 L 200,-20 Z"
+              fill="#EAEAEA"
+            />
+          </g>
         </svg>
       </div>
 
