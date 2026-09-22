@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
 
 export interface BreadcrumbItem {
   label: string;
@@ -8,8 +6,8 @@ export interface BreadcrumbItem {
 }
 
 export interface InnerPageHeroProps {
-  breadcrumb: BreadcrumbItem[];
-  tagline: string;
+  breadcrumb?: BreadcrumbItem[];
+  tagline?: string;
   title: React.ReactNode;
   description: string;
   imageSrc?: string;
@@ -19,8 +17,6 @@ export interface InnerPageHeroProps {
 }
 
 export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
-  breadcrumb,
-  tagline,
   title,
   description,
   imageSrc = '/assets/why-choose-us-banner.jpg',
@@ -29,7 +25,7 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
   badge,
 }) => {
   return (
-    <section className="relative pt-12 pb-14 sm:pt-16 sm:pb-18 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
+    <section className="relative pt-14 pb-16 sm:pt-20 sm:pb-20 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
       {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
       <div
         className="absolute top-0 right-0 bottom-0 w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
@@ -56,40 +52,8 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
       />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 z-10">
-        {/* Breadcrumb */}
-        {breadcrumb.length > 0 && (
-          <nav className="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400 font-['Outfit'] mb-6">
-            {breadcrumb.map((item, idx) => {
-              const isLast = idx === breadcrumb.length - 1;
-              return (
-                <React.Fragment key={idx}>
-                  {item.path && !isLast ? (
-                    <Link to={item.path} className="hover:text-[#f7985f] transition-colors">
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span className={isLast ? 'text-[#f7985f] font-semibold' : ''}>
-                      {item.label}
-                    </span>
-                  )}
-                  {!isLast && <ChevronRight className="w-3.5 h-3.5 text-slate-600 shrink-0" />}
-                </React.Fragment>
-              );
-            })}
-          </nav>
-        )}
-
         {/* Page Heading & Copy: Placed cleanly on the left */}
         <div className="max-w-2xl lg:max-w-3xl">
-          {tagline && (
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#f7985f] font-['Outfit']">
-                {tagline}
-              </span>
-              <span className="w-10 h-[1.5px] bg-[#c05e32]/60" />
-            </div>
-          )}
-
           {typeof title === 'string' ? (
             <h1
               className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18] mb-4"

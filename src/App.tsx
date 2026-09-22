@@ -137,8 +137,6 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'About Us' }]}
-                  tagline="ABOUT B&B CONSTRO"
                   title="Pioneering Complex HVAC Systems & Climate Control"
                   description="Founded in Pune, B&B Constro is a premier HVAC engineering contractor delivering turnkey commercial VRV, industrial chillers, and precision climate solutions across Maharashtra."
                 />
@@ -187,8 +185,6 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Capabilities' }]}
-                  tagline="END-TO-END CAPABILITIES"
                   title="HVAC Services & Engineering Capabilities"
                   description="From central chiller plants and commercial VRV/VRF systems to cleanroom AHU pressurisation, basement ventilation, and 24/7 breakdown SLAs."
                 />
@@ -206,8 +202,6 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Success Stories' }]}
-                  tagline="PORTFOLIO & CASE STUDIES"
                   title="HVAC Success Stories & Client Milestones"
                   description="Over 250 diverse projects delivered with 99.8% cooling reliability across corporate towers, industrial cleanrooms, IT SEZs, and luxury residential estates."
                 />
@@ -229,8 +223,6 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'FAQs' }]}
-                  tagline="QUESTIONS & ANSWERS"
                   title="Frequently Asked Questions"
                   description="Learn about our 60-minute emergency response SLA, Lokring braze-free piping safety, Daikin/Voltas OEM spare supplies, and AMC service schedules."
                 />
@@ -252,8 +244,6 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'AMC Plans' }]}
-                  tagline="LIFECYCLE ASSURANCE"
                   title="Annual Maintenance Contracts (AMC)"
                   description="Structured multi-visit preventive maintenance programs ensuring peak cooling efficiency, 20% lower electricity draw, and zero unplanned system outages."
                 />
