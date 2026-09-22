@@ -8,12 +8,16 @@ export const WhyChooseUsSection: React.FC = () => {
       desc: 'Handling the extreme temperature fluctuations and humidity levels ensuring peak performance.',
       icon: ThermometerSun,
       iconColor: 'text-[#c05e32]', // Brand Copper
+      animClass: 'animate-why-climate',
+      bgGlow: 'from-[#c05e32]/25 to-transparent',
     },
     {
       title: 'Optimized Energy Performance',
       desc: 'Our systems are calibrated to maximize cooling output while minimizing power consumption.',
       icon: Zap,
       iconColor: 'text-[#f7985f]', // Brand Copper Glow
+      animClass: 'animate-why-energy',
+      bgGlow: 'from-[#f7985f]/30 to-transparent',
     },
   ];
 
@@ -23,12 +27,16 @@ export const WhyChooseUsSection: React.FC = () => {
       desc: 'Providing comprehensive maintenance and rapid response support lasting comfort with zero hassle.',
       icon: ShieldCheck,
       iconColor: 'text-[#00153f]', // Brand Navy
+      animClass: 'animate-why-shield',
+      bgGlow: 'from-[#00153f]/25 to-transparent',
     },
     {
       title: 'Disciplined Project Execution',
       desc: 'Ensuring, every installation is executed with adherence to timelines & safety with industry standards.',
       icon: CheckCircle2,
       iconColor: 'text-[#c05e32]', // Brand Copper
+      animClass: 'animate-why-discipline',
+      bgGlow: 'from-[#c05e32]/25 to-transparent',
     },
   ];
 
@@ -65,9 +73,14 @@ export const WhyChooseUsSection: React.FC = () => {
               const Icon = item.icon;
               return (
                 <div key={idx} className="group flex items-start gap-4 sm:gap-5">
-                  {/* Circular White Disk Icon Badge matching Image 1 */}
-                  <div className="w-12 h-12 rounded-full bg-white shadow-md shadow-slate-200/80 border border-slate-100 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
-                    <Icon className={`w-5 h-5 ${item.iconColor}`} strokeWidth={1.8} />
+                  {/* Circular White Disk Icon Badge matching Image 1 with Animated Icon */}
+                  <div className="relative shrink-0">
+                    <div
+                      className={`absolute -inset-1 rounded-full bg-gradient-to-br ${item.bgGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm pointer-events-none`}
+                    />
+                    <div className="relative w-12 h-12 rounded-full bg-white shadow-md shadow-slate-200/80 border border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-slate-300/60 group-hover:border-slate-200">
+                      <Icon className={`w-5 h-5 ${item.iconColor} ${item.animClass} transition-transform duration-300 group-hover:[animation-duration:1.4s]`} strokeWidth={1.8} />
+                    </div>
                   </div>
 
                   {/* Title & Description matching Image 1 Typography */}
@@ -93,9 +106,14 @@ export const WhyChooseUsSection: React.FC = () => {
               const Icon = item.icon;
               return (
                 <div key={idx} className="group flex items-start gap-4 sm:gap-5">
-                  {/* Circular White Disk Icon Badge matching Image 1 */}
-                  <div className="w-12 h-12 rounded-full bg-white shadow-md shadow-slate-200/80 border border-slate-100 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
-                    <Icon className={`w-5 h-5 ${item.iconColor}`} strokeWidth={1.8} />
+                  {/* Circular White Disk Icon Badge matching Image 1 with Animated Icon */}
+                  <div className="relative shrink-0">
+                    <div
+                      className={`absolute -inset-1 rounded-full bg-gradient-to-br ${item.bgGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm pointer-events-none`}
+                    />
+                    <div className="relative w-12 h-12 rounded-full bg-white shadow-md shadow-slate-200/80 border border-slate-100 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-slate-300/60 group-hover:border-slate-200">
+                      <Icon className={`w-5 h-5 ${item.iconColor} ${item.animClass} transition-transform duration-300 group-hover:[animation-duration:1.4s]`} strokeWidth={1.8} />
+                    </div>
                   </div>
 
                   {/* Title & Description matching Image 1 Typography */}
