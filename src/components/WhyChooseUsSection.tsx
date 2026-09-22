@@ -33,7 +33,7 @@ export const WhyChooseUsSection: React.FC = () => {
     <section
       id="why-choose-us"
       data-theme="light"
-      className="relative py-20 sm:py-24 lg:py-28 bg-[#fbf8f3] text-[#0f172a] border-t border-b border-[#e9e2d7] overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0f172a] border-t border-b border-slate-200 overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 xl:gap-14 items-center">
@@ -57,20 +57,20 @@ export const WhyChooseUsSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Column: 4 Columns inside a single bordered box with vertical dividers */}
+          {/* Right Column: 4 Columns inside a single sleek bordered box with vertical dividers */}
           <div className="lg:col-span-8 xl:col-span-8">
-            <div className="border border-[#dfd7cc] bg-white/60 backdrop-blur-xs grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#dfd7cc] shadow-sm">
+            <div className="border border-slate-200 bg-white grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 shadow-xs">
               {pillars.map((pillar, idx) => {
                 const Icon = pillar.icon;
                 return (
                   <div
                     key={idx}
-                    className="group px-6 py-10 sm:px-6 sm:py-12 flex flex-col items-center text-center transition-all duration-300 hover:bg-white hover:shadow-md"
+                    className="group px-6 py-10 sm:px-6 sm:py-12 flex flex-col items-center text-center transition-all duration-300 hover:bg-slate-50/50"
                   >
-                    {/* Centered Outline Icon in Brand Copper with Animation */}
+                    {/* Centered Outline Icon in Brand Copper with Sleek 1px Stroke & Animation */}
                     <div className="w-14 h-14 mb-6 flex items-center justify-center text-[#c05e32] transition-transform duration-300 group-hover:scale-110">
                       <Icon
-                        className={`w-9 h-9 stroke-[1.4] ${pillar.animClass} transition-colors duration-300 group-hover:text-[#c05e32]`}
+                        className={`w-9 h-9 stroke-[1] ${pillar.animClass} transition-colors duration-300 group-hover:text-[#c05e32]`}
                       />
                     </div>
 
