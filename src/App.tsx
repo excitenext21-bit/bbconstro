@@ -137,9 +137,6 @@ export default function App() {
                 <VisionMissionSection />
                 <ValuesSection />
                 <WhyChooseUsSection />
-                <TeamMembersSection
-                  onContactTeam={() => navigate('/contact')}
-                />
                 <ClientMarquee />
               </div>
             }
