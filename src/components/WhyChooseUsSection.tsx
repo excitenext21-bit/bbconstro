@@ -46,15 +46,15 @@ export const WhyChooseUsSection: React.FC = () => {
           
           {/* Left Column: Headline & Intro Paragraph */}
           <div className="lg:col-span-4 xl:col-span-4 flex flex-col justify-center">
-            {/* Main Headline: 38px, Outfit font, clean multi-line uppercase typography */}
+            {/* Main Headline: 38px, Outfit font, clean typography */}
             <h2
-              className="text-[32px] sm:text-[38px] font-['Outfit'] uppercase tracking-[0.06em] text-white leading-[1.18] mb-6"
+              className="text-[32px] sm:text-[38px] font-['Outfit'] tracking-tight text-white leading-[1.18] mb-6"
               style={{ fontSize: '38px' }}
             >
-              <span className="font-extrabold block text-white">DESIGNED FOR</span>
-              <span className="font-extrabold block text-white">WELLBEING.</span>
-              <span className="font-light block text-slate-200">BUILT FOR LONG-</span>
-              <span className="font-light block text-slate-200">TERM VALUE</span>
+              <span className="font-extrabold block text-white">Designed for</span>
+              <span className="font-extrabold block text-white">wellbeing.</span>
+              <span className="font-light block text-slate-200">Built for long-</span>
+              <span className="font-light block text-slate-200">term value</span>
             </h2>
 
             {/* Intro Copy */}
