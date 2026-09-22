@@ -19,13 +19,6 @@ export const WhoWeAreSection: React.FC = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Far Right: Faint Neutral Chevron (background depth) */}
-          <g className="animate-chevron-back">
-            <path
-              d="M 380,-20 L 600,250 L 380,520 L 520,520 L 740,250 L 520,-20 Z"
-              fill="#F5F5F5"
-            />
-          </g>
 
           {/* Middle: Mid Neutral Chevron */}
           <g className="animate-chevron-mid">
