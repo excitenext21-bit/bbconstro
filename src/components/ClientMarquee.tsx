@@ -61,23 +61,17 @@ export const ClientMarquee: React.FC = () => {
   const row2 = CLIENTS_FROM_IMAGE.slice(16, 32);
 
   return (
-    <section className="relative py-16 sm:py-24 bg-[#00153f] border-t border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
+    <section className="relative py-14 sm:py-20 bg-white border-t border-b border-slate-200 overflow-hidden">
       
       {/* Background Watermark Typography */}
-      <div className="watermark-text !left-8 sm:!left-14 lg:!left-20 !top-2 select-none pointer-events-none opacity-40">
+      <div className="watermark-text-light !left-8 sm:!left-14 lg:!left-20 !top-2 text-slate-900/[0.05] select-none pointer-events-none">
         CLIENTS
       </div>
-
-      {/* Ambient Brand Glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#c05e32]/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
 
       {/* Section Header */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
         <h2
-          className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-wider uppercase"
+          className="text-[32px] sm:text-[38px] font-extrabold text-[#00153f] font-['Outfit'] tracking-wider uppercase"
           style={{ fontSize: '38px' }}
         >
           OUR CLIENTS
@@ -86,7 +80,7 @@ export const ClientMarquee: React.FC = () => {
         {/* Accent Horizontal Line */}
         <div className="w-14 h-0.5 bg-[#c05e32] mx-auto mt-3 mb-4" />
 
-        <p className="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed font-light">
+        <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
           Trusted by Maharashtra&apos;s leading enterprises, industrial facilities, IT campuses, and luxury hospitality landmarks for mission-critical HVAC solutions.
         </p>
 
@@ -95,7 +89,7 @@ export const ClientMarquee: React.FC = () => {
           <button
             onClick={() => setViewMode(prev => (prev === 'grid' ? 'marquee' : 'grid'))}
             style={{ fontSize: '10.8px' }}
-            className="px-3 py-1.5 text-[10.8px] font-semibold tracking-wide text-slate-300 hover:text-[#f7985f] bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors flex items-center gap-1.5 cursor-pointer backdrop-blur-xs"
+            className="px-2.5 py-1 text-[10.8px] font-semibold tracking-wide text-slate-500 hover:text-[#00153f] bg-transparent border-0 border-none outline-none ring-0 shadow-none transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             {viewMode === 'grid' ? (
               <>
@@ -116,8 +110,8 @@ export const ClientMarquee: React.FC = () => {
       {viewMode === 'marquee' ? (
         <div className="relative space-y-4 py-2">
           {/* Gradient Fade Edges for Marquee ONLY */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#00153f] via-[#00153f]/85 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#00153f] via-[#00153f]/85 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-white via-white/85 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-white via-white/85 to-transparent z-10 pointer-events-none" />
 
           {/* Row 1: Leftward Scroll */}
           <div className="overflow-hidden">
@@ -126,7 +120,7 @@ export const ClientMarquee: React.FC = () => {
                 <div
                   key={`row1-${client.id}-${idx}`}
                   title={`${client.name} - ${client.sector}`}
-                  className="h-20 sm:h-24 w-36 sm:w-48 px-4 py-3 rounded-2xl bg-white hover:bg-slate-50 transition-all duration-300 flex items-center justify-center shrink-0 group cursor-pointer shadow-md hover:shadow-xl"
+                  className="h-20 sm:h-24 w-36 sm:w-48 px-4 py-3 rounded-2xl bg-white hover:bg-slate-50/80 transition-all duration-300 flex items-center justify-center shrink-0 group cursor-pointer"
                 >
                   <img
                     src={client.logoUrl}
@@ -146,7 +140,7 @@ export const ClientMarquee: React.FC = () => {
                 <div
                   key={`row2-${client.id}-${idx}`}
                   title={`${client.name} - ${client.sector}`}
-                  className="h-20 sm:h-24 w-36 sm:w-48 px-4 py-3 rounded-2xl bg-white hover:bg-slate-50 transition-all duration-300 flex items-center justify-center shrink-0 group cursor-pointer shadow-md hover:shadow-xl"
+                  className="h-20 sm:h-24 w-36 sm:w-48 px-4 py-3 rounded-2xl bg-white hover:bg-slate-50/80 transition-all duration-300 flex items-center justify-center shrink-0 group cursor-pointer"
                 >
                   <img
                     src={client.logoUrl}
@@ -162,13 +156,13 @@ export const ClientMarquee: React.FC = () => {
       ) : (
         /* Static Grid View matching the Screenshot Look and Feel */
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#02102e] rounded-3xl p-6 sm:p-10 border border-white/15 shadow-2xl">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 items-center justify-items-center">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 items-center justify-items-center">
               {CLIENTS_FROM_IMAGE.map((client) => (
                 <div
                   key={`grid-${client.id}`}
                   title={`${client.name} - ${client.sector}`}
-                  className="h-20 sm:h-24 w-full px-3 py-3 rounded-xl bg-white hover:bg-slate-50 flex items-center justify-center group cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105"
+                  className="h-20 sm:h-24 w-full px-3 py-3 rounded-xl flex items-center justify-center group cursor-pointer transition-all duration-300 hover:bg-slate-50/80"
                 >
                   <img
                     src={client.logoUrl}

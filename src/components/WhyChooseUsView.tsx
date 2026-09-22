@@ -1,7 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ShieldCheck, Zap, Clock, CheckCircle2 } from 'lucide-react';
 import { WhyChooseUsSection } from './WhyChooseUsSection';
 import { ClientMarquee } from './ClientMarquee';
+
+interface CountUpProps {
+  end: number;
+  prefix?: string;
+  suffix?: string;
+  isVisible: boolean;
+  duration?: number;
+}
+
+const CountUp: React.FC<CountUpProps> = ({ end, prefix = '', suffix = '', isVisible, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    let animationFrameId: number;
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Smooth cubic ease-out
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(easeOut * end);
+
+      setCount(current);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isVisible, end, duration]);
+
+  return (
+    <span className="tabular-nums">
+      {prefix}
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 interface WhyChooseUsViewProps {
   onOpenBooking?: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
@@ -9,6 +60,32 @@ interface WhyChooseUsViewProps {
 }
 
 export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
+  const statsSectionRef = useRef<HTMLElement>(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      setStatsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStatsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (statsSectionRef.current) {
+      observer.observe(statsSectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="animate-fadeIn">
       {/* Why Choose Us Hero Banner with Image */}
@@ -81,8 +158,11 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
         </div>
       </section>
 
-      {/* Counter Stat Section (Same bg-white as Our Clients section) */}
-      <section className="relative z-10 bg-white border-b border-slate-200 py-10 sm:py-12 text-[#0f172a] shadow-xs">
+      {/* Counter Stat Section (Same bg-white as Our Clients section with running numbers) */}
+      <section
+        ref={statsSectionRef}
+        className="relative z-10 bg-white border-b border-slate-200 py-10 sm:py-12 text-[#0f172a] shadow-xs"
+      >
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             <div className="flex items-center gap-3.5 group">
@@ -90,7 +170,9 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
                 <Clock className="w-5 h-5 animate-why-clock stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">60 Min</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">
+                  <CountUp end={60} suffix=" Min" isVisible={statsVisible} duration={1800} />
+                </p>
                 <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Rapid Breakdown SLA</p>
               </div>
             </div>
@@ -100,7 +182,9 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
                 <Zap className="w-5 h-5 animate-why-energy stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">28%</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">
+                  <CountUp end={28} suffix="%" isVisible={statsVisible} duration={2000} />
+                </p>
                 <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Average Energy Savings</p>
               </div>
             </div>
@@ -110,7 +194,9 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
                 <ShieldCheck className="w-5 h-5 animate-why-shield stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">Tier-1</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">
+                  <CountUp end={1} prefix="Tier-" isVisible={statsVisible} duration={1500} />
+                </p>
                 <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Daikin &amp; Voltas Certified</p>
               </div>
             </div>
@@ -120,7 +206,9 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
                 <CheckCircle2 className="w-5 h-5 animate-why-discipline stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">250+</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">
+                  <CountUp end={250} suffix="+" isVisible={statsVisible} duration={2200} />
+                </p>
                 <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Turnkey Deployments</p>
               </div>
             </div>
