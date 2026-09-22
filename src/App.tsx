@@ -133,12 +133,7 @@ export default function App() {
             path="/about"
             element={
               <div className="py-8 animate-fadeIn">
-                <WhoWeAreSection
-                  onReadMore={() => {
-                    const el = document.getElementById('vision-mission');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                />
+                <WhoWeAreSection />
                 <VisionMissionSection />
                 <ValuesSection />
                 <WhyChooseUsSection />
