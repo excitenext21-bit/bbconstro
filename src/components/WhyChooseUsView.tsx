@@ -2,17 +2,13 @@ import React from 'react';
 import { ShieldCheck, Zap, Clock, CheckCircle2 } from 'lucide-react';
 import { WhyChooseUsSection } from './WhyChooseUsSection';
 import { ClientMarquee } from './ClientMarquee';
-import { ConsultingBanner } from './ConsultingBanner';
 
 interface WhyChooseUsViewProps {
-  onOpenBooking: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
-  onContact: () => void;
+  onOpenBooking?: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
+  onContact?: () => void;
 }
 
-export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = ({
-  onOpenBooking,
-  onContact,
-}) => {
+export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
   return (
     <div className="animate-fadeIn">
       {/* Why Choose Us Hero Banner with Image */}
@@ -135,12 +131,6 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = ({
 
       {/* Client Marquee */}
       <ClientMarquee />
-
-      {/* Direct Consultation Banner */}
-      <ConsultingBanner
-        onOpenBooking={onOpenBooking}
-        onContact={onContact}
-      />
     </div>
   );
 };
