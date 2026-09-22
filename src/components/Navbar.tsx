@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <span>Why choose us</span>
                   </Link>
                   <Link
-                    to="/about#leadership"
+                    to="/about/leadership"
                     className="flex items-center gap-2.5 px-3.5 py-2 text-sm text-slate-200 hover:text-white hover:bg-[#041a4a] rounded-lg transition-colors"
                   >
                     <Users className="w-4 h-4 text-[#f7985f] shrink-0" />
@@ -250,7 +250,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <span>Why choose us</span>
                   </Link>
                   <Link
-                    to="/about#leadership"
+                    to="/about/leadership"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-2 py-1.5 px-3 text-xs text-slate-300 hover:text-[#f7985f] transition rounded-md hover:bg-slate-800/30"
                   >

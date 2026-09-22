@@ -8,7 +8,7 @@ import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { VisionMissionSection } from './components/VisionMissionSection';
 import { ValuesSection } from './components/ValuesSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
-import { LeadershipSection } from './components/LeadershipSection';
+import { LeadershipView } from './components/LeadershipView';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { CapabilitiesChamferSection } from './components/CapabilitiesChamferSection';
@@ -138,10 +138,24 @@ export default function App() {
                 <VisionMissionSection />
                 <ValuesSection />
                 <WhyChooseUsSection />
-                <LeadershipSection />
                 <ClientMarquee />
               </div>
             }
+          />
+
+          {/* Dedicated Leadership Page (Under About Us) */}
+          <Route
+            path="/about/leadership"
+            element={
+              <LeadershipView
+                onOpenBooking={handleOpenBooking}
+                onContact={() => navigate('/contact')}
+              />
+            }
+          />
+          <Route
+            path="/leadership"
+            element={<Navigate to="/about/leadership" replace />}
           />
 
           {/* Dedicated Services & Capabilities Page View */}
