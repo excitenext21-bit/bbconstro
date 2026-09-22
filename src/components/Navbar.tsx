@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { ChevronDown, Search, X, Menu, Phone, ShieldAlert } from 'lucide-react';
+import { ChevronDown, Search, X, Menu, Phone, ShieldAlert, ShieldCheck, Users } from 'lucide-react';
 import { LongTailArrowRight, LongTailArrowUp } from './LongTailArrow';
 import { STATUTORY_DATA } from '../data/hvacData';
 import { ActivePage } from '../types';
@@ -130,7 +130,40 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-8 text-[15px] text-slate-200">
             {navLink('/', 'Home')}
-            {navLink('/about', 'About Us')}
+            
+            {/* About Us with Dropdown: Why choose us & Leadership */}
+            <div className="relative group">
+              <Link
+                to="/about"
+                className={`flex items-center gap-1.5 hover:text-[#f7985f] transition font-semibold text-[15px] py-2 ${
+                  isCurrent('/about') ? 'text-[#f7985f]' : ''
+                }`}
+              >
+                <span>About Us</span>
+                <ChevronDown className="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-200" />
+              </Link>
+
+              {/* Dropdown Menu Popup */}
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[220px]">
+                <div className="bg-[#00143d] border border-slate-700/80 rounded-xl shadow-2xl p-2 space-y-1 backdrop-blur-md">
+                  <Link
+                    to="/about#why-choose-us"
+                    className="flex items-center gap-2.5 px-3.5 py-2 text-sm text-slate-200 hover:text-white hover:bg-[#041a4a] rounded-lg transition-colors"
+                  >
+                    <ShieldCheck className="w-4 h-4 text-[#f7985f] shrink-0" />
+                    <span>Why choose us</span>
+                  </Link>
+                  <Link
+                    to="/about#leadership"
+                    className="flex items-center gap-2.5 px-3.5 py-2 text-sm text-slate-200 hover:text-white hover:bg-[#041a4a] rounded-lg transition-colors"
+                  >
+                    <Users className="w-4 h-4 text-[#f7985f] shrink-0" />
+                    <span>Leadership</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             {navLink('/services', 'Capabilities', true)}
             {navLink('/projects', 'Success Stories', true)}
             {navLink('/faqs', 'FAQs', true)}
@@ -185,9 +218,49 @@ export const Navbar: React.FC<NavbarProps> = ({
         {mobileMenuOpen && (
           <div className="xl:hidden bg-[#00143d] border-t border-slate-800 px-6 py-6 animate-fadeIn space-y-3">
             <div className="grid grid-cols-1 gap-1 text-[15px] font-semibold text-slate-200">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-left py-2.5 px-3 rounded-lg hover:bg-slate-800/60 hover:text-[#f7985f] transition flex justify-between items-center ${
+                  isCurrent('/') ? 'text-[#f7985f] bg-slate-800/40' : ''
+                }`}
+              >
+                <span>Home</span>
+              </Link>
+
+              {/* About Us with Submenu in Mobile */}
+              <div className="space-y-1">
+                <Link
+                  to="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-left py-2.5 px-3 rounded-lg hover:bg-slate-800/60 hover:text-[#f7985f] transition flex justify-between items-center ${
+                    isCurrent('/about') ? 'text-[#f7985f] bg-slate-800/40' : ''
+                  }`}
+                >
+                  <span>About Us</span>
+                  <ChevronDown className="w-4 h-4 text-slate-500" />
+                </Link>
+                <div className="pl-5 space-y-1 pb-1">
+                  <Link
+                    to="/about#why-choose-us"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2 py-1.5 px-3 text-xs text-slate-300 hover:text-[#f7985f] transition rounded-md hover:bg-slate-800/30"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#f7985f]" />
+                    <span>Why choose us</span>
+                  </Link>
+                  <Link
+                    to="/about#leadership"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2 py-1.5 px-3 text-xs text-slate-300 hover:text-[#f7985f] transition rounded-md hover:bg-slate-800/30"
+                  >
+                    <Users className="w-3.5 h-3.5 text-[#f7985f]" />
+                    <span>Leadership</span>
+                  </Link>
+                </div>
+              </div>
+
               {[
-                { path: '/', label: 'Home' },
-                { path: '/about', label: 'About Us' },
                 { path: '/services', label: 'Capabilities', hasDropdown: true },
                 { path: '/projects', label: 'Success Stories', hasDropdown: true },
                 { path: '/amc', label: 'AMC Plans' },

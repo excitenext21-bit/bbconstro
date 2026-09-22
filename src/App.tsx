@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { StatsBar } from './components/StatsBar';
 import { AboutSection } from './components/AboutSection';
+import { AboutDropdownsSection } from './components/AboutDropdownsSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { CapabilitiesChamferSection } from './components/CapabilitiesChamferSection';
@@ -134,6 +135,7 @@ export default function App() {
                   onLearnMore={() => navigate('/contact')}
                   onBookAudit={() => handleOpenBooking('repair')}
                 />
+                <AboutDropdownsSection />
                 <ProcessSection
                   onStartProject={() => handleOpenBooking('new_install')}
                 />
