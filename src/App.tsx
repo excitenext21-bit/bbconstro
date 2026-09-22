@@ -13,7 +13,6 @@ import { TeamMembersSection } from './components/TeamMembersSection';
 import { ConsultingBanner } from './components/ConsultingBanner';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ClientMarquee } from './components/ClientMarquee';
-import { ProcessSection } from './components/ProcessSection';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
 import { AMCComparisonSection } from './components/AMCComparisonSection';
 import { BookingSystem } from './components/BookingSystem';
@@ -138,9 +137,6 @@ export default function App() {
                 />
                 <VisionMissionSection />
                 <WhyChooseUsSection />
-                <ProcessSection
-                  onStartProject={() => handleOpenBooking('new_install')}
-                />
                 <TeamMembersSection
                   onContactTeam={() => navigate('/contact')}
                 />
