@@ -131,10 +131,6 @@ export default function App() {
             path="/about"
             element={
               <div className="py-8 animate-fadeIn">
-                <AboutSection
-                  onLearnMore={() => navigate('/contact')}
-                  onBookAudit={() => handleOpenBooking('repair')}
-                />
                 <VisionMissionSection />
                 <WhyChooseUsSection />
                 <TeamMembersSection
