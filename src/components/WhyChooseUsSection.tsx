@@ -5,7 +5,7 @@ export const WhyChooseUsSection: React.FC = () => {
   const pillars = [
     {
       title: 'Climate-Resilient Engineering',
-      desc: 'Handling the extreme temperature fluctuations and humidity levels ensuring peak performance.',
+      desc: 'Handling extreme temperature fluctuations and humidity levels ensuring peak performance.',
       icon: ThermometerSun,
       animClass: 'animate-why-climate',
     },
@@ -23,7 +23,7 @@ export const WhyChooseUsSection: React.FC = () => {
     },
     {
       title: 'Disciplined Project Execution',
-      desc: 'Ensuring, every installation is executed with adherence to timelines & safety with industry standards.',
+      desc: 'Ensuring every installation is executed with adherence to timelines & safety with industry standards.',
       icon: CheckCircle2,
       animClass: 'animate-why-discipline',
     },
@@ -33,77 +33,76 @@ export const WhyChooseUsSection: React.FC = () => {
     <section
       id="why-choose-us"
       data-theme="light"
-      className="relative py-20 sm:py-24 lg:py-28 bg-[#faf8f5] text-[#0f172a] border-t border-b border-slate-200 overflow-hidden"
+      className="relative py-20 sm:py-24 lg:py-28 bg-[#F7F5F0] text-[#0f172a] border-t border-b border-[#E2DCCE] overflow-hidden"
     >
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 z-10">
-
-        {/* Two-Part Layout: Heading Left + 4 Pillars Right (matching reference) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
-
-          {/* Left Column: Label + Large Heading (reference style) */}
-          <div className="lg:col-span-3 lg:sticky lg:top-28">
-            {/* Small label with horizontal rule */}
-            <div className="flex items-center gap-3 mb-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#c05e32] font-['Outfit'] whitespace-nowrap">
-                Why Choose Us
-              </p>
-              <div className="h-px flex-1 bg-[#c05e32]/40" />
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          {/* Left Column: Eyebrow with Line, Big Heading, Intro description matching reference */}
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            {/* Eyebrow with horizontal line matching reference */}
+            <div className="flex items-center gap-3.5 mb-5">
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-[#8e3f1a] font-['Outfit']">
+                OUR PHILOSOPHY
+              </span>
+              <span className="w-12 h-[1.5px] bg-[#c05e32]/40" />
             </div>
 
-            {/* Large Bold Heading */}
+            {/* Main Heading: 38px, clean, uppercase, matching reference style */}
             <h2
-              className="font-['Outfit'] font-extrabold uppercase tracking-[0.04em] text-[#00153f] leading-[1.1]"
+              className="text-[30px] sm:text-[36px] lg:text-[38px] font-extrabold uppercase tracking-[0.06em] text-[#00153f] font-['Outfit'] leading-[1.18] mb-6"
               style={{ fontSize: '38px' }}
             >
-              Designed for
-              <br />
-              Comfort.
-              <br />
-              <span className="text-[#00153f]/70 font-light">Built for</span>
-              <br />
-              <span className="text-[#00153f]/70 font-light">Long-Term</span>
-              <br />
-              <span className="text-[#00153f]/70 font-light">Value</span>
+              DESIGNED FOR CLIMATE.{' '}
+              <span className="block font-light text-[#00153f]/80">
+                BUILT FOR SUSTAINED VALUE
+              </span>
             </h2>
+
+            {/* Intro paragraph from existing content */}
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal text-justify sm:text-left">
+              At <strong className="text-[#00153f] font-semibold">B&amp;B Constro</strong>, we deliver reliable environmental control across India&apos;s demanding climates. We transform complex climate requirements into sustained efficiency and complete comfort.
+            </p>
           </div>
 
-          {/* Right Column: 4 Pillars with Vertical Dividers (matching reference) */}
-          <div className="lg:col-span-9">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative">
-
+          {/* Right Column: 4-column connected box with borders matching reference image */}
+          <div className="lg:col-span-8">
+            <div className="bg-transparent border border-[#DDD7CD] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
               {pillars.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={idx}
-                    className="group relative flex flex-col items-center text-center px-5 sm:px-6 py-8 sm:py-6"
+                    className={`group relative flex flex-col items-center text-center py-10 sm:py-12 lg:py-14 px-5 sm:px-6 transition-colors duration-300 hover:bg-white/50 ${
+                      idx !== 0 ? 'border-t sm:border-t-0 border-[#DDD7CD]' : ''
+                    } ${
+                      idx % 2 === 1 ? 'sm:border-l border-[#DDD7CD]' : ''
+                    } ${
+                      idx >= 2 ? 'sm:border-t lg:border-t-0 border-[#DDD7CD]' : ''
+                    } ${
+                      idx !== 0 ? 'lg:border-l lg:border-t-0 border-[#DDD7CD]' : ''
+                    }`}
                   >
-                    {/* Vertical Divider Line (between columns, not before first) */}
-                    {idx > 0 && (
-                      <div className="absolute left-0 top-6 bottom-6 w-px bg-[#00153f]/10 hidden lg:block" />
-                    )}
-
-                    {/* Icon — thin line style in brand copper */}
-                    <div className="mb-5 sm:mb-6 transition-transform duration-300 group-hover:scale-110">
+                    {/* Minimalist Icon matching reference */}
+                    <div className="mb-7 text-[#c05e32] transition-transform duration-300 group-hover:scale-110 group-hover:text-[#f7985f]">
                       <Icon
-                        className={`w-8 h-8 text-[#c05e32] ${item.animClass} transition-all duration-300 group-hover:[animation-duration:1.4s]`}
-                        strokeWidth={1.2}
+                        className={`w-9 h-9 sm:w-10 sm:h-10 ${item.animClass}`}
+                        strokeWidth={1.35}
                       />
                     </div>
 
-                    {/* Bold Uppercase Title */}
-                    <h3 className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] text-[#00153f] font-['Outfit'] mb-3 leading-snug group-hover:text-[#c05e32] transition-colors duration-300">
+                    {/* Title: Centered, uppercase, bold tracking */}
+                    <h3 className="text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] text-[#00153f] font-['Outfit'] leading-snug mb-4">
                       {item.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed font-normal max-w-[200px]">
+                    {/* Description: Centered, clean slate */}
+                    <p className="text-xs sm:text-[12.5px] text-slate-600 leading-relaxed font-normal">
                       {item.desc}
                     </p>
                   </div>
                 );
               })}
-
             </div>
           </div>
 
