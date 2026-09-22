@@ -7,33 +7,33 @@ export const WhoWeAreSection: React.FC = () => {
       data-theme="light"
       className="relative py-20 sm:py-24 lg:py-28 bg-white text-[#0f172a] border-b border-slate-200 overflow-hidden"
     >
-      {/* Background Architectural Chevron Graphics matching Image 2 Style in Brand Copper */}
+      {/* Background Architectural Chevron Graphics matching Image 1 Bold Style */}
       <div
         className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
         aria-hidden="true"
       >
         <svg
           className="w-full h-full"
-          viewBox="0 0 1440 420"
-          preserveAspectRatio="none"
+          viewBox="0 0 1440 500"
+          preserveAspectRatio="xMinYMid slice"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Large Center Faint Angle Band matching Image 2 */}
+          {/* Far Right: Very Faint Slate Chevron (background depth) */}
           <path
-            d="M 520,0 L 400,210 L 520,420 L 640,420 L 520,210 L 640,0 Z"
-            fill="#f8fafc"
+            d="M 380,-20 L 600,250 L 380,520 L 520,520 L 740,250 L 520,-20 Z"
+            fill="#f0f4f8"
           />
 
-          {/* Secondary Faint Slate/Grey Chevron matching Image 2 */}
+          {/* Middle: Light Grey Chevron */}
           <path
-            d="M 160,80 L 290,270 L 170,420 L 230,420 L 350,270 L 220,80 Z"
-            fill="#edf2f7"
+            d="M 220,-20 L 440,250 L 220,520 L 360,520 L 580,250 L 360,-20 Z"
+            fill="#e2e8f0"
           />
 
-          {/* Primary Solid Brand Copper Chevron matching Image 2 (replacing yellow) */}
+          {/* Front: Bold Solid Brand Copper Chevron (matching Image 1 yellow but in brand copper) */}
           <path
-            d="M 20,130 L 160,290 L 50,420 L 110,420 L 220,290 L 80,130 Z"
+            d="M 0,-20 L 260,250 L 0,520 L 200,520 L 460,250 L 200,-20 Z"
             fill="#c05e32"
           />
         </svg>
