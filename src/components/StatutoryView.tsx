@@ -38,7 +38,10 @@ export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
           <span className="text-xs uppercase font-bold tracking-widest text-[#f7985f] block mb-2 font-mono">
             SECTION 4.4 & 4.5 • LEGAL DISCLOSURES & CORPORATE REGISTRATIONS
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit'] tracking-tight">
+          <h1
+            className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18]"
+            style={{ fontSize: '38px' }}
+          >
             Statutory & Corporate Credentials
           </h1>
           <p className="mt-2 text-slate-400 text-sm sm:text-base">

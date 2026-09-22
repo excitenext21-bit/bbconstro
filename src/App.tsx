@@ -15,6 +15,7 @@ import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { CapabilitiesChamferSection } from './components/CapabilitiesChamferSection';
 import { TeamMembersSection } from './components/TeamMembersSection';
+import { ConsultingBanner } from './components/ConsultingBanner';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ClientMarquee } from './components/ClientMarquee';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
@@ -112,7 +113,13 @@ export default function App() {
                 {/* 6. Our Clients Section (Watermark "CLIENTS", White Background, Auto-rotation) */}
                 <ClientMarquee />
 
-                {/* 7. Testimonials Section ("What Our Clients Say", Light Slate Background, Watermark "TESTIMONIALS") */}
+                {/* 7. CTA Section (Glowing Horizon Arc, Dual-tone Headline, "Connect Us" Button) */}
+                <ConsultingBanner
+                  onOpenBooking={handleOpenBooking}
+                  onContact={() => navigate('/contact')}
+                />
+
+                {/* 8. Testimonials Section ("What Our Clients Say", Light Slate Background, Watermark "TESTIMONIALS") */}
                 <TestimonialsSection />
 
                 {/* 9. Frequently Asked Questions (Commercial HVAC, 60-min SLA, Lokring, AMC) */}
@@ -132,7 +139,7 @@ export default function App() {
                 <InnerPageHero
                   breadcrumb={[{ label: 'Home', path: '/' }, { label: 'About Us' }]}
                   tagline="ABOUT B&B CONSTRO"
-                  title="PIONEERING COMPLEX HVAC SYSTEMS & CLIMATE CONTROL"
+                  title="Pioneering Complex HVAC Systems & Climate Control"
                   description="Founded in Pune, B&B Constro is a premier HVAC engineering contractor delivering turnkey commercial VRV, industrial chillers, and precision climate solutions across Maharashtra."
                 />
                 <WhoWeAreSection />
@@ -182,7 +189,7 @@ export default function App() {
                 <InnerPageHero
                   breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Capabilities' }]}
                   tagline="END-TO-END CAPABILITIES"
-                  title="HVAC SERVICES & ENGINEERING CAPABILITIES"
+                  title="HVAC Services & Engineering Capabilities"
                   description="From central chiller plants and commercial VRV/VRF systems to cleanroom AHU pressurisation, basement ventilation, and 24/7 breakdown SLAs."
                 />
                 <ServicesSection
@@ -201,7 +208,7 @@ export default function App() {
                 <InnerPageHero
                   breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Success Stories' }]}
                   tagline="PORTFOLIO & CASE STUDIES"
-                  title="HVAC SUCCESS STORIES & CLIENT MILESTONES"
+                  title="HVAC Success Stories & Client Milestones"
                   description="Over 250 diverse projects delivered with 99.8% cooling reliability across corporate towers, industrial cleanrooms, IT SEZs, and luxury residential estates."
                 />
                 <ProjectShowcase
@@ -224,10 +231,14 @@ export default function App() {
                 <InnerPageHero
                   breadcrumb={[{ label: 'Home', path: '/' }, { label: 'FAQs' }]}
                   tagline="QUESTIONS & ANSWERS"
-                  title="FREQUENTLY ASKED QUESTIONS"
+                  title="Frequently Asked Questions"
                   description="Learn about our 60-minute emergency response SLA, Lokring braze-free piping safety, Daikin/Voltas OEM spare supplies, and AMC service schedules."
                 />
                 <FAQSection
+                  onOpenBooking={handleOpenBooking}
+                  onContact={() => navigate('/contact')}
+                />
+                <ConsultingBanner
                   onOpenBooking={handleOpenBooking}
                   onContact={() => navigate('/contact')}
                 />
@@ -243,11 +254,15 @@ export default function App() {
                 <InnerPageHero
                   breadcrumb={[{ label: 'Home', path: '/' }, { label: 'AMC Plans' }]}
                   tagline="LIFECYCLE ASSURANCE"
-                  title="ANNUAL MAINTENANCE CONTRACTS (AMC)"
+                  title="Annual Maintenance Contracts (AMC)"
                   description="Structured multi-visit preventive maintenance programs ensuring peak cooling efficiency, 20% lower electricity draw, and zero unplanned system outages."
                 />
                 <AMCComparisonSection
                   onBookAMC={() => handleOpenBooking('amc')}
+                />
+                <ConsultingBanner
+                  onOpenBooking={handleOpenBooking}
+                  onContact={() => navigate('/contact')}
                 />
               </div>
             }

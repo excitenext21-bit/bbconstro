@@ -37,7 +37,10 @@ export const TermsView: React.FC<TermsViewProps> = ({ onBack }) => {
           <span className="text-xs uppercase font-bold tracking-widest text-[#f7985f] block mb-2 font-mono">
             TERMS OF SERVICE & SLA AGREEMENTS
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit'] tracking-tight">
+          <h1
+            className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18]"
+            style={{ fontSize: '38px' }}
+          >
             Terms of Engineering & Service Delivery
           </h1>
           <p className="mt-2 text-slate-400 text-xs sm:text-sm">

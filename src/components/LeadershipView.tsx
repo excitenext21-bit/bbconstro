@@ -3,13 +3,17 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ShieldCheck, Award, Briefcase, Users } from 'lucide-react';
 import { LeadershipSection } from './LeadershipSection';
 import { ClientMarquee } from './ClientMarquee';
+import { ConsultingBanner } from './ConsultingBanner';
 
 interface LeadershipViewProps {
-  onOpenBooking?: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
-  onContact?: () => void;
+  onOpenBooking: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
+  onContact: () => void;
 }
 
-export const LeadershipView: React.FC<LeadershipViewProps> = () => {
+export const LeadershipView: React.FC<LeadershipViewProps> = ({
+  onOpenBooking,
+  onContact,
+}) => {
   return (
     <div className="animate-fadeIn">
       {/* Leadership Hero Banner */}
@@ -58,9 +62,10 @@ export const LeadershipView: React.FC<LeadershipViewProps> = () => {
             </div>
 
             <h1
-              className="text-[34px] sm:text-[44px] font-extrabold uppercase tracking-tight text-white font-['Outfit'] leading-tight mb-4"
+              className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18] mb-4"
+              style={{ fontSize: '38px' }}
             >
-              LEADERSHIP AT B&amp;B CONSTRO
+              Leadership at B&B Constro
             </h1>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
@@ -118,6 +123,12 @@ export const LeadershipView: React.FC<LeadershipViewProps> = () => {
 
       {/* Client Marquee */}
       <ClientMarquee />
+
+      {/* Direct Consultation Banner */}
+      <ConsultingBanner
+        onOpenBooking={onOpenBooking}
+        onContact={onContact}
+      />
     </div>
   );
 };

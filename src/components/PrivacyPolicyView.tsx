@@ -38,7 +38,10 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
           <span className="text-xs uppercase font-bold tracking-widest text-[#f7985f] block mb-2 font-mono">
             LEGAL & DATA PROTECTION POLICY
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white font-['Outfit'] tracking-tight">
+          <h1
+            className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18]"
+            style={{ fontSize: '38px' }}
+          >
             Privacy Policy & Data Security
           </h1>
           <p className="mt-2 text-slate-400 text-xs sm:text-sm">

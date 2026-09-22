@@ -91,7 +91,10 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
           )}
 
           {typeof title === 'string' ? (
-            <h1 className="text-[34px] sm:text-[44px] font-extrabold uppercase tracking-tight text-white font-['Outfit'] leading-tight mb-4">
+            <h1
+              className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18] mb-4"
+              style={{ fontSize: '38px' }}
+            >
               {title}
             </h1>
           ) : (

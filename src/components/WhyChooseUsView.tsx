@@ -40,12 +40,10 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
             {/* Left Column: Heading & Description */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               <h1
-                className="text-[34px] sm:text-[44px] lg:text-[48px] font-extrabold uppercase tracking-tight text-white font-['Outfit'] leading-[1.12] mb-5"
+                className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-[1.18] mb-5"
+                style={{ fontSize: '38px' }}
               >
-                WHY CHOOSE <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#f7985f]">
-                  B&amp;B CONSTRO
-                </span>
+                Why Choose B&B Constro
               </h1>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl font-light">
