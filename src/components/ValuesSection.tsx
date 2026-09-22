@@ -85,30 +85,30 @@ export const ValuesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* 3 Columns matching Image 1: Top horizontal accent bar, Icon Box matching line on hover, Title & Description */}
+        {/* 3 Columns: Top accent bar, full-box glow on hover matching reference image */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
           {values.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div key={idx} className="group relative flex flex-col">
-                {/* Top Horizontal Accent Line Bar matching Image 2 in Brand Copper */}
+                {/* Top Horizontal Accent Line Bar in Brand Copper */}
                 <div className="h-[3px] w-full bg-[#c05e32] transition-colors duration-300 rounded-full" />
 
-                {/* Content Container below bar */}
-                <div className="pt-8 sm:pt-10 flex items-start gap-5 sm:gap-6 flex-1">
-                  {/* Left: Icon Box (matches line color #c05e32 on hover) */}
+                {/* Content Container: full box glow on hover matching reference */}
+                <div className="pt-8 sm:pt-10 pb-8 px-5 sm:px-6 flex items-start gap-5 sm:gap-6 flex-1 rounded-b-2xl transition-all duration-400 ease-out group-hover:bg-[#c05e32] group-hover:shadow-[0_0_30px_rgba(192,94,50,0.45),0_0_60px_rgba(192,94,50,0.2)] group-hover:-translate-y-1">
+                  {/* Left: Icon Box */}
                   <div className="shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white transition-all duration-300 shadow-inner group-hover:bg-[#c05e32] group-hover:border-[#c05e32] group-hover:shadow-lg group-hover:shadow-[#c05e32]/35 group-hover:scale-105">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white transition-all duration-300 shadow-inner group-hover:bg-white/20 group-hover:border-white/30 group-hover:scale-105">
                       <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
                     </div>
                   </div>
 
-                  {/* Right: Title & Description from Image 2 */}
+                  {/* Right: Title & Description */}
                   <div className="flex-1">
-                    <h3 className="text-base sm:text-lg font-bold uppercase tracking-[0.12em] text-white font-['Outfit'] mb-2.5 group-hover:text-[#f7985f] transition-colors leading-snug">
+                    <h3 className="text-base sm:text-lg font-bold uppercase tracking-[0.12em] text-white font-['Outfit'] mb-2.5 transition-colors leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal group-hover:text-white/90 transition-colors">
                       {item.desc}
                     </p>
                   </div>
