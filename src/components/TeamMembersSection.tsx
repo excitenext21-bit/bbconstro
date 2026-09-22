@@ -34,7 +34,7 @@ export const TeamMembersSection: React.FC<TeamMembersSectionProps> = ({ onContac
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#00153f] overflow-hidden text-slate-100 border-t border-slate-800/80">
+    <section id="leadership" className="relative py-20 lg:py-28 bg-[#00153f] overflow-hidden text-slate-100 border-t border-slate-800/80">
       
       {/* Background Watermark Typography */}
       <div className="watermark-text">
