@@ -153,9 +153,6 @@ export default function App() {
                   onOpenBooking={handleOpenBooking}
                 />
                 <CapabilitiesChamferSection />
-                <AMCComparisonSection
-                  onBookAMC={() => handleOpenBooking('amc')}
-                />
               </div>
             }
           />
