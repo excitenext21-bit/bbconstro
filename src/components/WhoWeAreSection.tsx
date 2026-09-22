@@ -23,18 +23,21 @@ export const WhoWeAreSection: React.FC = () => {
           <path
             d="M 380,-20 L 600,250 L 380,520 L 520,520 L 740,250 L 520,-20 Z"
             fill="#f0f4f8"
+            fillOpacity="0.2"
           />
 
           {/* Middle: Light Grey Chevron */}
           <path
             d="M 220,-20 L 440,250 L 220,520 L 360,520 L 580,250 L 360,-20 Z"
             fill="#e2e8f0"
+            fillOpacity="0.2"
           />
 
-          {/* Front: Bold Solid Brand Copper Chevron (matching Image 1 yellow but in brand copper) */}
+          {/* Front: Brand Copper Chevron */}
           <path
             d="M 0,-20 L 260,250 L 0,520 L 200,520 L 460,250 L 200,-20 Z"
             fill="#c05e32"
+            fillOpacity="0.2"
           />
         </svg>
       </div>
