@@ -3,17 +3,13 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ShieldCheck, Award, Briefcase, Users } from 'lucide-react';
 import { LeadershipSection } from './LeadershipSection';
 import { ClientMarquee } from './ClientMarquee';
-import { ConsultingBanner } from './ConsultingBanner';
 
 interface LeadershipViewProps {
-  onOpenBooking: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
-  onContact: () => void;
+  onOpenBooking?: (type?: 'emergency' | 'repair' | 'amc' | 'new_install') => void;
+  onContact?: () => void;
 }
 
-export const LeadershipView: React.FC<LeadershipViewProps> = ({
-  onOpenBooking,
-  onContact,
-}) => {
+export const LeadershipView: React.FC<LeadershipViewProps> = () => {
   return (
     <div className="animate-fadeIn">
       {/* Leadership Hero Banner */}
@@ -122,12 +118,6 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
 
       {/* Client Marquee */}
       <ClientMarquee />
-
-      {/* Direct Consultation Banner */}
-      <ConsultingBanner
-        onOpenBooking={onOpenBooking}
-        onContact={onContact}
-      />
     </div>
   );
 };

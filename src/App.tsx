@@ -15,7 +15,6 @@ import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { CapabilitiesChamferSection } from './components/CapabilitiesChamferSection';
 import { TeamMembersSection } from './components/TeamMembersSection';
-import { ConsultingBanner } from './components/ConsultingBanner';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ClientMarquee } from './components/ClientMarquee';
 import { CaseStudiesSection } from './components/CaseStudiesSection';
@@ -113,13 +112,7 @@ export default function App() {
                 {/* 6. Our Clients Section (Watermark "CLIENTS", White Background, Auto-rotation) */}
                 <ClientMarquee />
 
-                {/* 7. CTA Section (Glowing Horizon Arc, Dual-tone Headline, "Connect Us" Button) */}
-                <ConsultingBanner
-                  onOpenBooking={handleOpenBooking}
-                  onContact={() => navigate('/contact')}
-                />
-
-                {/* 8. Testimonials Section ("What Our Clients Say", Light Slate Background, Watermark "TESTIMONIALS") */}
+                {/* 7. Testimonials Section ("What Our Clients Say", Light Slate Background, Watermark "TESTIMONIALS") */}
                 <TestimonialsSection />
 
                 {/* 9. Frequently Asked Questions (Commercial HVAC, 60-min SLA, Lokring, AMC) */}
@@ -238,10 +231,6 @@ export default function App() {
                   onOpenBooking={handleOpenBooking}
                   onContact={() => navigate('/contact')}
                 />
-                <ConsultingBanner
-                  onOpenBooking={handleOpenBooking}
-                  onContact={() => navigate('/contact')}
-                />
               </div>
             }
           />
@@ -259,10 +248,6 @@ export default function App() {
                 />
                 <AMCComparisonSection
                   onBookAMC={() => handleOpenBooking('amc')}
-                />
-                <ConsultingBanner
-                  onOpenBooking={handleOpenBooking}
-                  onContact={() => navigate('/contact')}
                 />
               </div>
             }
