@@ -59,13 +59,13 @@ export const WhyChooseUsSection: React.FC = () => {
 
           {/* Right Column: 4 Columns inside a single sleek bordered box with vertical dividers */}
           <div className="lg:col-span-8 xl:col-span-8">
-            <div className="border border-slate-200 bg-white grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 shadow-xs transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/90 hover:border-slate-300">
+            <div className="border border-slate-200 bg-white grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 shadow-xs">
               {pillars.map((pillar, idx) => {
                 const Icon = pillar.icon;
                 return (
                   <div
                     key={idx}
-                    className="group relative px-6 py-10 sm:px-6 sm:py-12 flex flex-col items-center text-center transition-all duration-300 hover:bg-white hover:z-10 hover:shadow-lg hover:shadow-slate-300/60"
+                    className="group relative px-6 py-10 sm:px-6 sm:py-12 flex flex-col items-center text-center transition-all duration-300 hover:z-20 hover:bg-white hover:shadow-[0_16px_36px_-6px_rgba(0,21,63,0.18)] hover:ring-1 hover:ring-slate-300/80 hover:-translate-y-1 cursor-pointer"
                   >
                     {/* Centered Outline Icon in Brand Copper with Sleek 1px Stroke & Animation */}
                     <div className="w-14 h-14 mb-6 flex items-center justify-center text-[#c05e32] transition-transform duration-300 group-hover:scale-110">
