@@ -12,12 +12,12 @@ export const VisionMissionSection: React.FC = () => {
         
         {/* ROW 1: OUR VISION (Image on Left, Text on Right matching Image 1) */}
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[420px] lg:min-h-[480px]">
-          {/* Left Column: Authentic HVAC Engineering Image (do not copy generic stock) */}
-          <div className="relative overflow-hidden group min-h-[280px] sm:min-h-[340px] md:min-h-full">
+          {/* Left Column: Authentic HVAC Engineering Image */}
+          <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px] md:min-h-full overflow-hidden group">
             <img
               src="/assets/our-vision.jpg"
-              alt="B&B Constro HVAC Engineering Blueprint and Climate Strategy Analysis"
-              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              alt="B&B Constro Commercial HVAC High-Rise Architecture and Climate Strategy"
+              className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"
             />
             {/* Subtle brand tint gradient overlay */}
@@ -25,7 +25,7 @@ export const VisionMissionSection: React.FC = () => {
           </div>
 
           {/* Right Column: Content matching Image 1 layout with Image 3 copy */}
-          <div className="bg-white flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20">
+          <div className="bg-white flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20 h-full">
             {/* Heading matching Image 1 font & style, keeping 38px font size */}
             <h2
               className="text-[30px] sm:text-[38px] uppercase tracking-[0.14em] font-['Outfit'] text-[#00153f] font-bold text-center mb-3"
