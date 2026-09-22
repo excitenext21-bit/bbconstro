@@ -8,6 +8,7 @@ import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { VisionMissionSection } from './components/VisionMissionSection';
 import { ValuesSection } from './components/ValuesSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
+import { LeadershipSection } from './components/LeadershipSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
 import { CapabilitiesChamferSection } from './components/CapabilitiesChamferSection';
@@ -137,6 +138,7 @@ export default function App() {
                 <VisionMissionSection />
                 <ValuesSection />
                 <WhyChooseUsSection />
+                <LeadershipSection />
                 <ClientMarquee />
               </div>
             }
