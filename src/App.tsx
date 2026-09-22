@@ -6,6 +6,7 @@ import { StatsBar } from './components/StatsBar';
 import { AboutSection } from './components/AboutSection';
 import { WhoWeAreSection } from './components/WhoWeAreSection';
 import { VisionMissionSection } from './components/VisionMissionSection';
+import { ValuesSection } from './components/ValuesSection';
 import { WhyChooseUsSection } from './components/WhyChooseUsSection';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { ServicesSection } from './components/ServicesSection';
@@ -139,6 +140,7 @@ export default function App() {
                   }}
                 />
                 <VisionMissionSection />
+                <ValuesSection />
                 <WhyChooseUsSection />
                 <TeamMembersSection
                   onContactTeam={() => navigate('/contact')}
