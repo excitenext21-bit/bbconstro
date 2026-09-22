@@ -16,7 +16,7 @@ export const VisionMissionSection: React.FC = () => {
           <div className="relative overflow-hidden group min-h-[280px] sm:min-h-[340px] md:min-h-full">
             <img
               src="/assets/our-vision.jpg"
-              alt="B&B Constro HVAC Engineering Blueprint and Climate Strategy Analysis"
+              alt="B&B Constro Commercial High-Rise Building Infrastructure & Climate Control"
               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"
             />
