@@ -268,6 +268,70 @@
   will-change: transform;
 }
 
+/* Why Choose Us Icon Animations */
+@keyframes why-climate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.12) rotate(6deg);
+  }
+  75% {
+    transform: scale(0.96) rotate(-6deg);
+  }
+}
+
+@keyframes why-energy {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.18) translateY(-3px);
+  }
+}
+
+@keyframes why-shield {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.14);
+  }
+}
+
+@keyframes why-discipline {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.12);
+  }
+  70% {
+    transform: rotate(8deg) scale(1.06);
+  }
+}
+
+.animate-why-climate {
+  animation: why-climate 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-why-energy {
+  animation: why-energy 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-why-shield {
+  animation: why-shield 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-why-discipline {
+  animation: why-discipline 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+
 .animate-hvac-flame {
   animation: hvac-flame 2.8s ease-in-out infinite;
   will-change: transform;
@@ -514,5 +578,111 @@
   animation: chevron-arrow-back 3.5s ease-in-out infinite 0.3s;
   will-change: transform;
 }
+
+/* Why Choose Us & Metrics Icon Micro-Animations */
+@keyframes why-climate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
+@keyframes why-energy {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 0px rgba(247, 152, 95, 0));
+  }
+  20% {
+    transform: scale(1.14) translateY(-2px);
+    filter: drop-shadow(0 0 6px rgba(247, 152, 95, 0.7));
+  }
+  40% {
+    transform: scale(0.98) translateY(0);
+  }
+  60% {
+    transform: scale(1.16) translateY(-2px);
+    filter: drop-shadow(0 0 8px rgba(247, 152, 95, 0.9));
+  }
+  80% {
+    transform: scale(1.04) translateY(-1px);
+  }
+}
+
+@keyframes why-shield {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.1);
+  }
+}
+
+@keyframes why-discipline {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  30% {
+    transform: scale(1.14) rotate(-8deg);
+  }
+  60% {
+    transform: scale(1.08) rotate(4deg);
+  }
+}
+
+@keyframes why-clock {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+}
+
+.animate-why-climate {
+  animation: why-climate 3.8s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.animate-why-energy {
+  animation: why-energy 2.8s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+  will-change: transform, filter;
+}
+
+.animate-why-shield {
+  animation: why-shield 3.2s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.animate-why-discipline {
+  animation: why-discipline 3.2s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+  will-change: transform;
+}
+
+.animate-why-clock {
+  animation: why-clock 2.8s ease-in-out infinite;
+  transform-origin: center center;
+  display: inline-block;
+  will-change: transform;
+}
+
 
 
