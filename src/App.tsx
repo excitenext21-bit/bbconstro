@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { InnerPageHero } from './components/InnerPageHero';
 import { StatsBar } from './components/StatsBar';
 import { AboutSection } from './components/AboutSection';
 import { WhoWeAreSection } from './components/WhoWeAreSection';
@@ -134,7 +135,13 @@ export default function App() {
           <Route
             path="/about"
             element={
-              <div className="py-8 animate-fadeIn">
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'About Us' }]}
+                  tagline="ABOUT B&B CONSTRO"
+                  title="PIONEERING COMPLEX HVAC SYSTEMS & CLIMATE CONTROL"
+                  description="Founded in Pune, B&B Constro is a premier HVAC engineering contractor delivering turnkey commercial VRV, industrial chillers, and precision climate solutions across Maharashtra."
+                />
                 <WhoWeAreSection />
                 <VisionMissionSection />
                 <ValuesSection />
@@ -178,7 +185,13 @@ export default function App() {
           <Route
             path="/services"
             element={
-              <div className="py-8 animate-fadeIn">
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Capabilities' }]}
+                  tagline="END-TO-END CAPABILITIES"
+                  title="HVAC SERVICES & ENGINEERING CAPABILITIES"
+                  description="From central chiller plants and commercial VRV/VRF systems to cleanroom AHU pressurisation, basement ventilation, and 24/7 breakdown SLAs."
+                />
                 <ServicesSection
                   onOpenBooking={handleOpenBooking}
                 />
@@ -191,7 +204,13 @@ export default function App() {
           <Route
             path="/projects"
             element={
-              <div className="py-8 animate-fadeIn">
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'Success Stories' }]}
+                  tagline="PORTFOLIO & CASE STUDIES"
+                  title="HVAC SUCCESS STORIES & CLIENT MILESTONES"
+                  description="Over 250 diverse projects delivered with 99.8% cooling reliability across corporate towers, industrial cleanrooms, IT SEZs, and luxury residential estates."
+                />
                 <ProjectShowcase
                   onOpenBooking={() => handleOpenBooking('new_install')}
                 />
@@ -208,7 +227,13 @@ export default function App() {
           <Route
             path="/faqs"
             element={
-              <div className="py-8 animate-fadeIn">
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'FAQs' }]}
+                  tagline="QUESTIONS & ANSWERS"
+                  title="FREQUENTLY ASKED QUESTIONS"
+                  description="Learn about our 60-minute emergency response SLA, Lokring braze-free piping safety, Daikin/Voltas OEM spare supplies, and AMC service schedules."
+                />
                 <FAQSection
                   onOpenBooking={handleOpenBooking}
                   onContact={() => navigate('/contact')}
@@ -225,7 +250,13 @@ export default function App() {
           <Route
             path="/amc"
             element={
-              <div className="py-8 animate-fadeIn">
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  breadcrumb={[{ label: 'Home', path: '/' }, { label: 'AMC Plans' }]}
+                  tagline="LIFECYCLE ASSURANCE"
+                  title="ANNUAL MAINTENANCE CONTRACTS (AMC)"
+                  description="Structured multi-visit preventive maintenance programs ensuring peak cooling efficiency, 20% lower electricity draw, and zero unplanned system outages."
+                />
                 <AMCComparisonSection
                   onBookAMC={() => handleOpenBooking('amc')}
                 />

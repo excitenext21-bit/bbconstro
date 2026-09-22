@@ -18,6 +18,20 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
     <div className="animate-fadeIn">
       {/* Leadership Hero Banner */}
       <section className="relative pt-12 pb-14 sm:pt-16 sm:pb-18 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
+        {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
+        <div
+          className="absolute top-0 right-0 bottom-0 w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
+          aria-hidden="true"
+        >
+          <img
+            src="/assets/why-choose-us-banner.jpg"
+            alt="B&B Constro HVAC Engineering Leadership"
+            className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />
+        </div>
+
         {/* Background Ambient Glow */}
         <div
           className="absolute -top-24 right-1/4 w-96 h-96 bg-[#c05e32]/15 rounded-full blur-3xl pointer-events-none"

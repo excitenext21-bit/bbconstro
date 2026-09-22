@@ -18,15 +18,18 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = ({
     <div className="animate-fadeIn">
       {/* Why Choose Us Hero Banner with Image */}
       <section className="relative pt-12 pb-16 sm:pt-16 sm:pb-20 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
-        {/* Ambient Background Banner Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
+        <div
+          className="absolute top-0 right-0 bottom-0 w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
+          aria-hidden="true"
+        >
           <img
             src="/assets/why-choose-us-banner.jpg"
             alt="B&B Constro HVAC Engineering Infrastructure"
-            className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity brightness-90 scale-105 transition-transform duration-1000"
+            className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/95 to-[#00153f]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00153f] via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />
         </div>
 
         {/* Ambient Brand Glow */}
