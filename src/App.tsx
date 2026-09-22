@@ -190,6 +190,7 @@ export default function App() {
                 />
                 <ServicesSection
                   onOpenBooking={handleOpenBooking}
+                  isCapabilitiesPage={true}
                 />
                 <CapabilitiesChamferSection />
               </div>
