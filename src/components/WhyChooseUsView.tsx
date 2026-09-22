@@ -78,46 +78,50 @@ export const WhyChooseUsView: React.FC<WhyChooseUsViewProps> = () => {
             </div>
 
           </div>
+        </div>
+      </section>
 
-          {/* Quick Metrics Bar spanning bottom of Hero */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-12 pt-8 border-t border-slate-800/80">
-            <div className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#f7985f] shrink-0 transition-all duration-300 group-hover:bg-white/10 group-hover:border-[#f7985f]/40">
-                <Clock className="w-5 h-5 animate-why-clock" />
+      {/* Counter Stat Section (Same bg-white as Our Clients section) */}
+      <section className="relative z-10 bg-white border-b border-slate-200 py-10 sm:py-12 text-[#0f172a] shadow-xs">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+            <div className="flex items-center gap-3.5 group">
+              <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#c05e32] shrink-0 transition-all duration-300 group-hover:bg-[#c05e32]/10 group-hover:border-[#c05e32]/30 group-hover:scale-105 shadow-xs">
+                <Clock className="w-5 h-5 animate-why-clock stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-extrabold text-white font-['Outfit']">60 Min</p>
-                <p className="text-xs text-slate-400 font-['Outfit']">Rapid Breakdown SLA</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">60 Min</p>
+                <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Rapid Breakdown SLA</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#f7985f] shrink-0 transition-all duration-300 group-hover:bg-white/10 group-hover:border-[#f7985f]/40">
-                <Zap className="w-5 h-5 animate-why-energy" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#c05e32] shrink-0 transition-all duration-300 group-hover:bg-[#c05e32]/10 group-hover:border-[#c05e32]/30 group-hover:scale-105 shadow-xs">
+                <Zap className="w-5 h-5 animate-why-energy stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-extrabold text-white font-['Outfit']">28%</p>
-                <p className="text-xs text-slate-400 font-['Outfit']">Average Energy Savings</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">28%</p>
+                <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Average Energy Savings</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#f7985f] shrink-0 transition-all duration-300 group-hover:bg-white/10 group-hover:border-[#f7985f]/40">
-                <ShieldCheck className="w-5 h-5 animate-why-shield" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#c05e32] shrink-0 transition-all duration-300 group-hover:bg-[#c05e32]/10 group-hover:border-[#c05e32]/30 group-hover:scale-105 shadow-xs">
+                <ShieldCheck className="w-5 h-5 animate-why-shield stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-extrabold text-white font-['Outfit']">Tier-1</p>
-                <p className="text-xs text-slate-400 font-['Outfit']">Daikin &amp; Voltas Certified</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">Tier-1</p>
+                <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Daikin &amp; Voltas Certified</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#f7985f] shrink-0 transition-all duration-300 group-hover:bg-white/10 group-hover:border-[#f7985f]/40">
-                <CheckCircle2 className="w-5 h-5 animate-why-discipline" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="w-11 h-11 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#c05e32] shrink-0 transition-all duration-300 group-hover:bg-[#c05e32]/10 group-hover:border-[#c05e32]/30 group-hover:scale-105 shadow-xs">
+                <CheckCircle2 className="w-5 h-5 animate-why-discipline stroke-[1.5]" />
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-extrabold text-white font-['Outfit']">250+</p>
-                <p className="text-xs text-slate-400 font-['Outfit']">Turnkey Deployments</p>
+                <p className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] tracking-tight">250+</p>
+                <p className="text-xs sm:text-[13px] text-slate-600 font-['Outfit'] font-medium">Turnkey Deployments</p>
               </div>
             </div>
           </div>
