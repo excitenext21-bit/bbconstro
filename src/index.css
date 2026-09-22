@@ -1,0 +1,384 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #00153f;
+  --color-brand-navy-dark: #000b24;
+  --color-brand-navy-card: #041c4f;
+  --color-brand-navy-card-hover: #072669;
+  --color-brand-copper: #c05e32;
+  --color-brand-copper-glow: #f7985f;
+  --color-brand-copper-deep: #8e3f1a;
+}
+
+.font-general-sans {
+  font-family: 'General Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #00153f;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Scale all paragraph typography 5% bigger */
+  p {
+    font-size: calc(1rem * 1.05);
+    --text-xs: calc(0.75rem * 1.05);
+    --text-sm: calc(0.875rem * 1.05);
+    --text-base: calc(1rem * 1.05);
+    --text-lg: calc(1.125rem * 1.05);
+    --text-xl: calc(1.25rem * 1.05);
+    --text-2xl: calc(1.5rem * 1.05);
+  }
+}
+
+/* Chamfered / clipped polygon corner for Facilities/Amenities cards */
+.chamfer-card {
+  clip-path: polygon(
+    22px 0%,
+    calc(100% - 22px) 0%,
+    100% 22px,
+    100% 100%,
+    0% 100%,
+    0% 22px
+  );
+}
+
+/* Hero card with 45-degree cut top-right corner matching reference screenshot */
+.hero-card-chamfer {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 68px) 0,
+    100% 68px,
+    100% 100%,
+    0 100%
+  );
+  border-top-left-radius: 36px;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+}
+
+@media (max-width: 768px) {
+  .hero-card-chamfer {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 40px) 0,
+      100% 40px,
+      100% 100%,
+      0 100%
+    );
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+}
+
+/* Watermark typography behind section headers */
+.watermark-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8.5rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  text-transform: uppercase;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.watermark-text-light {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8.5rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: rgba(15, 23, 42, 0.04);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  text-transform: uppercase;
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Upward and downward floating animation for 3D motifs */
+@keyframes float-vertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float-vertical {
+  animation: float-vertical 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Feature card individual icon animations */
+@keyframes compass-sway {
+  0%, 100% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(22deg);
+  }
+}
+
+@keyframes building-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shield-glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(247, 152, 95, 0));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(247, 152, 95, 0.5));
+  }
+}
+
+.animate-compass {
+  animation: compass-sway 3.5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.animate-building {
+  animation: building-float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-shield {
+  animation: shield-glow-pulse 2.8s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+/* HVAC Capabilities Smooth Icon Animations */
+@keyframes hvac-wind {
+  0%, 100% {
+    transform: translateX(0) skewX(0deg);
+  }
+  50% {
+    transform: translateX(4px) skewX(-4deg);
+  }
+}
+
+@keyframes hvac-droplet {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.08);
+  }
+}
+
+@keyframes hvac-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes hvac-shield {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.08);
+  }
+}
+
+@keyframes hvac-fan {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hvac-flame {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.08) rotate(-3deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(3deg);
+  }
+}
+
+.animate-hvac-wind {
+  animation: hvac-wind 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hvac-droplet {
+  animation: hvac-droplet 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hvac-pulse {
+  animation: hvac-pulse 2.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hvac-shield {
+  animation: hvac-shield 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hvac-fan {
+  animation: hvac-fan 8s linear infinite;
+  will-change: transform;
+}
+
+.animate-hvac-flame {
+  animation: hvac-flame 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Sleek Border Shining Effect for Featured Services Cards */
+@keyframes border-beam-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.shining-border-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(247, 152, 95, 0.5), rgba(192, 94, 50, 0.7), rgba(247, 152, 95, 0.35));
+  box-shadow: 0 10px 30px -10px rgba(0, 10, 30, 0.25), 0 0 1px rgba(247, 152, 95, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shining-border-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 140deg,
+    rgba(247, 152, 95, 0.15) 220deg,
+    rgba(247, 152, 95, 0.6) 290deg,
+    #ffffff 335deg,
+    rgba(247, 152, 95, 0.95) 350deg,
+    rgba(192, 94, 50, 0.6) 360deg
+  );
+  animation: border-beam-spin 5s linear infinite;
+  animation-delay: inherit;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.shining-border-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(0, 8, 25, 0.45), 0 0 20px rgba(247, 152, 95, 0.35);
+}
+
+.shining-border-card:hover::before {
+  animation-duration: 2.8s;
+}
+
+.shining-border-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 23px;
+  background: #ffffff;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #00153f;
+}
+::-webkit-scrollbar-thumb {
+  background: #092c73;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c05e32;
+}
+
