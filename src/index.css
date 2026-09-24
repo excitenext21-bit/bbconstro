@@ -787,5 +787,96 @@
   will-change: transform;
 }
 
+/* ============================================================
+   GLOBAL SCROLL-REVEAL ANIMATION SYSTEM
+   ============================================================
+   Works with src/utils/scrollReveal.ts auto-initializer.
+   Every <section> and [data-reveal] element gets .reveal-hidden
+   on mount, then .reveal-visible when it enters the viewport.
+   ============================================================ */
 
+/* Base transition for every revealed element */
+.reveal-hidden {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 750ms;
+}
 
+.reveal-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Variants ─────────────────────────────────────────── */
+
+/* fade-up (default for all <section>) */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* fade-down */
+.reveal-fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+/* fade-left (slides in from right) */
+.reveal-fade-left {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* fade-right (slides in from left) */
+.reveal-fade-right {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* fade-in (opacity only) */
+.reveal-fade-in {
+  opacity: 0;
+  transform: none;
+}
+
+/* zoom-in */
+.reveal-zoom-in {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+/* zoom-up (scale + translate combined) */
+.reveal-zoom-up {
+  opacity: 0;
+  transform: scale(0.95) translateY(24px);
+}
+
+/* ── Stagger Delay Helpers ────────────────────────────── */
+.reveal-delay-100  { transition-delay: 100ms; }
+.reveal-delay-150  { transition-delay: 150ms; }
+.reveal-delay-200  { transition-delay: 200ms; }
+.reveal-delay-300  { transition-delay: 300ms; }
+.reveal-delay-400  { transition-delay: 400ms; }
+.reveal-delay-500  { transition-delay: 500ms; }
+.reveal-delay-600  { transition-delay: 600ms; }
+.reveal-delay-700  { transition-delay: 700ms; }
+.reveal-delay-800  { transition-delay: 800ms; }
+
+/* ── Speed Helpers ────────────────────────────────────── */
+.reveal-fast   { transition-duration: 450ms; }
+.reveal-slow   { transition-duration: 1100ms; }
+.reveal-slower { transition-duration: 1400ms; }
+
+/* ── Already-initialised guard ────────────────────────── */
+.reveal-initialised {
+  /* marker class only — no visual styles */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

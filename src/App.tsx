@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { initScrollReveal } from './utils/scrollReveal';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { InnerPageHero } from './components/InnerPageHero';
@@ -31,12 +32,17 @@ import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { VideoTourModal } from './components/VideoTourModal';
 import { ServiceItem } from './types';
 
-// Scroll to top whenever route pathname changes
+// Scroll to top and re-initialise scroll-reveal whenever route pathname changes
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+    // Allow React to commit new DOM before we observe sections
+    const frame = requestAnimationFrame(() => {
+      initScrollReveal();
+    });
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   return null;

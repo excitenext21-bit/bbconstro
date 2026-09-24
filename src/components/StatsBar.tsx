@@ -111,7 +111,12 @@ export const StatsBar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center sm:text-left">
         {stats.map((stat, idx) => (
-          <div key={idx} className="flex flex-col items-center sm:items-start group">
+          <div
+            key={idx}
+            className="flex flex-col items-center sm:items-start group"
+            data-reveal="fade-up"
+            data-reveal-delay={idx * 120}
+          >
             <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] group-hover:text-[#c05e32] font-['Outfit'] tracking-tight transition-colors duration-300">
               <CountUp
                 end={stat.target}

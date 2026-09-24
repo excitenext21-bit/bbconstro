@@ -50,7 +50,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14" data-reveal="fade-up" data-reveal-delay="0">
           <h2
             className={`text-[32px] sm:text-[38px] font-extrabold ${
               isDarkTheme ? 'text-white' : 'text-[#0f172a]'
@@ -77,6 +77,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
           className="max-w-4xl lg:max-w-5xl mx-auto relative px-2 sm:px-6"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          data-reveal="zoom-up"
+          data-reveal-delay="150"
         >
           
           {/* Composite Speech Bubble with Unified Drop Shadow */}

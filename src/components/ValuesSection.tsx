@@ -89,8 +89,14 @@ export const ValuesSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
           {values.map((item, idx) => {
             const Icon = item.icon;
+            const delays = [0, 150, 300];
             return (
-              <div key={idx} className="group relative flex flex-col">
+              <div
+                key={idx}
+                className="group relative flex flex-col"
+                data-reveal="zoom-up"
+                data-reveal-delay={delays[idx]}
+              >
                 {/* Top Horizontal Accent Line Bar in Brand Copper */}
                 <div className="h-[2px] w-full bg-[#c05e32] transition-colors duration-300 rounded-full" />
 

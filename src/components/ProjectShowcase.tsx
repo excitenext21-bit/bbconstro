@@ -58,7 +58,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectCaseSt
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column matching Realar template */}
-          <div className="lg:col-span-5 flex flex-col items-start">
+          <div className="lg:col-span-5 flex flex-col items-start" data-reveal="fade-right" data-reveal-delay="0">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] font-['Outfit'] tracking-tight leading-[1.15] mb-4">
               {projects[activeSlide].title}
             </h2>
@@ -75,7 +75,12 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectCaseSt
               {projects.slice(0, 2).map((item, idx) => {
                 const isSelected = activeSlide === idx;
                 return (
-                  <div key={idx} className="flex flex-col gap-3">
+                  <div
+                    key={idx}
+                    className="flex flex-col gap-3"
+                    data-reveal="zoom-up"
+                    data-reveal-delay={100 + idx * 150}
+                  >
                     {/* Image Card (2px radius, no brass border, hover dropshadow) */}
                     <div
                       onClick={() => setActiveSlide(idx)}
