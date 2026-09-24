@@ -88,7 +88,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       ],
       icon: Droplets,
       animClass: 'animate-hvac-droplet',
-      image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
+      image: '/assets/central-chiller-plant.jpg',
       equipmentTag: 'Central Chiller Plant',
       equipmentSubtitle: 'Water-Cooled Centrifugal Loops • Primary-Secondary Pumping Balancing'
     },
