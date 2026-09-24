@@ -86,8 +86,24 @@ export const ConsultingBanner: React.FC<ConsultingBannerProps> = ({
               <stop offset="80%" stopColor="#c05e32" stopOpacity="0.45" />
               <stop offset="100%" stopColor="#c05e32" stopOpacity="0" />
             </linearGradient>
+            <linearGradient id="brandShineCoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#c05e32" stopOpacity="0.2" />
+              <stop offset="25%" stopColor="#fca875" stopOpacity="0.75" />
+              <stop offset="42%" stopColor="#ffd8a8" stopOpacity="0.95" />
+              <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
+              <stop offset="58%" stopColor="#ffd8a8" stopOpacity="0.95" />
+              <stop offset="75%" stopColor="#fca875" stopOpacity="0.75" />
+              <stop offset="100%" stopColor="#c05e32" stopOpacity="0.2" />
+            </linearGradient>
             <filter id="brandArcGlow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="brandShineGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -100,9 +116,9 @@ export const ConsultingBanner: React.FC<ConsultingBannerProps> = ({
             d="M -100 240 Q 720 40 1540 240"
             fill="none"
             stroke="url(#brandHorizonGrad)"
-            strokeWidth="56"
+            strokeWidth="52"
             opacity="0.25"
-            className="blur-xl"
+            className="animate-horizon-ambient-breath blur-xl"
           />
 
           {/* Mid Glow Arc */}
@@ -110,19 +126,28 @@ export const ConsultingBanner: React.FC<ConsultingBannerProps> = ({
             d="M -100 240 Q 720 40 1540 240"
             fill="none"
             stroke="url(#brandHorizonGrad)"
-            strokeWidth="18"
+            strokeWidth="16"
             opacity="0.55"
-            className="blur-sm"
+            className="animate-horizon-ambient-breath blur-sm"
           />
 
-          {/* Sharp Core Arc Line */}
+          {/* Stationary Golden Horizon Arc - Sharp Base Line */}
           <path
             d="M -100 240 Q 720 40 1540 240"
             fill="none"
             stroke="url(#brandHorizonGrad)"
-            strokeWidth="3.5"
-            filter="url(#brandArcGlow)"
-            opacity="0.95"
+            strokeWidth="2.5"
+            opacity="0.7"
+          />
+
+          {/* Sleek Golden Horizon Shining Stroke (1.5px) - Stationary, shines in place */}
+          <path
+            d="M -100 240 Q 720 40 1540 240"
+            fill="none"
+            stroke="url(#brandShineCoreGrad)"
+            strokeWidth="1.5"
+            filter="url(#brandShineGlow)"
+            className="animate-horizon-shine-static"
           />
 
           {/* Ambient fill beneath horizon curve */}

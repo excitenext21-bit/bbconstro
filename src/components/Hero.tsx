@@ -27,8 +27,8 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section className="relative w-full bg-[#00153f] pt-2 pb-8 sm:pb-12 overflow-hidden">
       
-      {/* Background Transition at Bottom: Light Slate-Blue band #d2dde5 appearing right below the hero card */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-20 bg-[#d2dde5] z-0 pointer-events-none" />
+      {/* Background Transition at Bottom: Same color as StatsBar section #dce3ea appearing right below the hero card and covering bottom rounded corners */}
+      <div className="absolute bottom-0 left-0 right-0 h-36 sm:h-48 bg-[#dce3ea] z-0 pointer-events-none" />
 
       {/* Hero Outer Wrapper with side margins matching screenshot */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-3 sm:px-6 md:px-10 lg:px-16 xl:px-20">

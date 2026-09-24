@@ -271,7 +271,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     areaCovered: '1,70,000 sq. ft. / 3,40,000 sq. ft. Total',
     capacity: '1,920 HP Total Outdoor / 960 HP Phase 1 (3,12,000 CFM AHUs & 960 TR IDUs)',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    image: '/magarpatta-cybercity-tower.jpg',
     featuredStat: {
       label: 'Energy Power Saved',
       value: '20%'
@@ -293,7 +293,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     areaCovered: 'Two Industrial Floors',
     capacity: '140 Meters High-Pressure Refrigerant Piping in 1 Day',
-    image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80',
+    image: '/vulcan-technologies-plant.png',
     featuredStat: {
       label: 'Zero Complaints Over',
       value: '3+ Years'

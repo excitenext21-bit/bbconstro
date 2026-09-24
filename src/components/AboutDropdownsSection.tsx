@@ -60,7 +60,7 @@ export const AboutDropdownsSection: React.FC = () => {
           {/* Dropdown 1: Why choose us */}
           <div
             id="why-choose-us"
-            className={`rounded-2xl sm:rounded-3xl border transition-all duration-300 overflow-hidden ${
+            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
               openDropdowns.whyChooseUs
                 ? 'bg-[#041a4a] border-[#f7985f]/40 shadow-[0_12px_35px_rgba(0,10,35,0.5)]'
                 : 'bg-[#021133] border-[#0b2866] hover:border-[#13409e]'
@@ -183,7 +183,7 @@ export const AboutDropdownsSection: React.FC = () => {
           {/* Dropdown 2: Leadership */}
           <div
             id="leadership"
-            className={`rounded-2xl sm:rounded-3xl border transition-all duration-300 overflow-hidden ${
+            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
               openDropdowns.leadership
                 ? 'bg-[#041a4a] border-[#f7985f]/40 shadow-[0_12px_35px_rgba(0,10,35,0.5)]'
                 : 'bg-[#021133] border-[#0b2866] hover:border-[#13409e]'

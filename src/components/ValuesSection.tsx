@@ -92,14 +92,14 @@ export const ValuesSection: React.FC = () => {
             return (
               <div key={idx} className="group relative flex flex-col">
                 {/* Top Horizontal Accent Line Bar in Brand Copper */}
-                <div className="h-[3px] w-full bg-[#c05e32] transition-colors duration-300 rounded-full" />
+                <div className="h-[2px] w-full bg-[#c05e32] transition-colors duration-300 rounded-full" />
 
                 {/* Content Container: full box glow on hover matching reference */}
                 <div className="pt-8 sm:pt-10 pb-8 px-5 sm:px-6 flex items-start gap-5 sm:gap-6 flex-1 rounded-b-2xl transition-all duration-400 ease-out group-hover:bg-[#c05e32] group-hover:shadow-[0_0_30px_rgba(192,94,50,0.45),0_0_60px_rgba(192,94,50,0.2)] group-hover:-translate-y-1">
                   {/* Left: Icon Box */}
                   <div className="shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/15 flex items-center justify-center text-white transition-all duration-300 shadow-inner group-hover:bg-white/20 group-hover:border-white/30 group-hover:scale-105">
-                      <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center text-white transition-all duration-300 shadow-inner group-hover:bg-white/20 group-hover:border-white/30 group-hover:scale-105">
+                      <Icon className="w-6 h-6 text-white stroke-[1]" strokeWidth={1} />
                     </div>
                   </div>
 

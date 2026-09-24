@@ -48,6 +48,7 @@ export default function App() {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'emergency' | 'repair' | 'amc' | 'new_install'>('repair');
   const [videoTourOpen, setVideoTourOpen] = useState(false);
+  const [activeCaseStudyTab, setActiveCaseStudyTab] = useState<number>(0);
 
   // Backward compatibility: If someone visited with a legacy hash like #about or #services, redirect to /about, /services
   useEffect(() => {
@@ -60,6 +61,19 @@ export default function App() {
     }
   }, [navigate]);
 
+  // Global Escape key listener to close modals
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (bookingModalOpen) setBookingModalOpen(false);
+        if (videoTourOpen) setVideoTourOpen(false);
+        if (selectedService) setSelectedService(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [bookingModalOpen, videoTourOpen, selectedService]);
+
   // Quick helper to trigger booking modal
   const handleOpenBooking = (type: 'emergency' | 'repair' | 'amc' | 'new_install' = 'repair') => {
     setBookingType(type);
@@ -71,7 +85,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#00153f] text-slate-100 flex flex-col font-sans selection:bg-[#f7985f] selection:text-slate-950">
+    <div className="min-h-screen bg-[#00153f] text-[#c0c0eb] flex flex-col font-sans selection:bg-[#f7985f] selection:text-slate-950">
       <ScrollToTop />
 
       {/* Sticky Header with Realar Styling & Emergency Dispatch Hotline */}
@@ -126,6 +140,7 @@ export default function App() {
                 <FAQSection
                   onOpenBooking={handleOpenBooking}
                   onContact={() => navigate('/contact')}
+                  isFaqPage={false}
                 />
               </>
             }
@@ -137,14 +152,18 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
+                  singleLineTitle={true}
                   title="Pioneering Complex HVAC Systems & Climate Control"
                   description="Founded in Pune, B&B Constro is a premier HVAC engineering contractor delivering turnkey commercial VRV, industrial chillers, and precision climate solutions across Maharashtra."
+                  imageSrc="/assets/about-us-banner.png"
+                  imageAlt="B&B Constro HVAC Architecture & Climate Engineering"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
                 />
                 <WhoWeAreSection />
                 <VisionMissionSection />
                 <ValuesSection />
                 <WhyChooseUsSection />
-                <ClientMarquee />
+                <ClientMarquee isAboutPage={true} />
               </div>
             }
           />
@@ -179,6 +198,27 @@ export default function App() {
             element={<Navigate to="/about/leadership" replace />}
           />
 
+          {/* Dedicated Our Clients Page View */}
+          <Route
+            path="/clients"
+            element={
+              <div className="animate-fadeIn">
+                <InnerPageHero
+                  title="Our Clients & Strategic Partnerships"
+                  description="Trusted by over 100+ premier commercial enterprises, IT SEZ campuses, industrial plants, and luxury hospitality destinations across Maharashtra."
+                  imageSrc="/assets/clients-banner.jpg"
+                  imageAlt="B&B Constro Enterprise Tech Park Clients Campus"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
+                />
+                <ClientMarquee isDedicatedPage={true} />
+              </div>
+            }
+          />
+          <Route
+            path="/our-clients"
+            element={<Navigate to="/clients" replace />}
+          />
+
           {/* Dedicated Services & Capabilities Page View */}
           <Route
             path="/services"
@@ -187,12 +227,14 @@ export default function App() {
                 <InnerPageHero
                   title="HVAC Services & Engineering Capabilities"
                   description="From central chiller plants and commercial VRV/VRF systems to cleanroom AHU pressurisation, basement ventilation, and 24/7 breakdown SLAs."
+                  imageSrc="/assets/services-banner.jpg"
+                  imageAlt="B&B Constro Commercial Rooftop Chiller & VRV Engineering Capabilities"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
                 />
                 <ServicesSection
                   onOpenBooking={handleOpenBooking}
                   isCapabilitiesPage={true}
                 />
-                <CapabilitiesChamferSection />
               </div>
             }
           />
@@ -205,15 +247,27 @@ export default function App() {
                 <InnerPageHero
                   title="HVAC Success Stories & Client Milestones"
                   description="Over 250 diverse projects delivered with 99.8% cooling reliability across corporate towers, industrial cleanrooms, IT SEZs, and luxury residential estates."
+                  imageSrc="/assets/projects-banner.jpg"
+                  imageAlt="B&B Constro Delivered Landmark Glass Skyscraper Projects"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
                 />
                 <ProjectShowcase
                   onOpenBooking={() => handleOpenBooking('new_install')}
+                  onSelectCaseStudy={(idx) => {
+                    setActiveCaseStudyTab(idx);
+                    const el = document.getElementById('featured-case-studies') || document.getElementById('projects-section');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
                 />
                 <CaseStudiesSection
+                  activeTab={activeCaseStudyTab}
+                  onSelectTab={setActiveCaseStudyTab}
                   onOpenBooking={() => handleOpenBooking('new_install')}
                 />
                 <ClientMarquee />
-                <TestimonialsSection />
+                <TestimonialsSection isDarkTheme={true} />
               </div>
             }
           />
@@ -224,12 +278,16 @@ export default function App() {
             element={
               <div className="animate-fadeIn">
                 <InnerPageHero
-                  title="Frequently Asked Questions"
+                  title="Everything You Need to Know"
                   description="Learn about our 60-minute emergency response SLA, Lokring braze-free piping safety, Daikin/Voltas OEM spare supplies, and AMC service schedules."
+                  imageSrc="/assets/faqs-banner.jpg"
+                  imageAlt="B&B Constro Architectural HVAC Blueprints & Technical Consultation"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
                 />
                 <FAQSection
                   onOpenBooking={handleOpenBooking}
                   onContact={() => navigate('/contact')}
+                  isFaqPage={true}
                 />
                 <ConsultingBanner
                   onOpenBooking={handleOpenBooking}
@@ -247,6 +305,9 @@ export default function App() {
                 <InnerPageHero
                   title="Annual Maintenance Contracts (AMC)"
                   description="Structured multi-visit preventive maintenance programs ensuring peak cooling efficiency, 20% lower electricity draw, and zero unplanned system outages."
+                  imageSrc="/assets/amc-banner.jpg"
+                  imageAlt="B&B Constro Commercial VRV Annual Maintenance Servicing"
+                  imageClassName="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
                 />
                 <AMCComparisonSection
                   onBookAMC={() => handleOpenBooking('amc')}
@@ -334,8 +395,13 @@ export default function App() {
 
       {/* Dedicated Booking Popup Modal */}
       {bookingModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
-          <div className="relative w-full max-w-4xl my-8">
+        <div
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setBookingModalOpen(false);
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/65 backdrop-blur-xs overflow-hidden animate-fadeIn"
+        >
+          <div className="relative w-full max-w-[806px] my-auto">
             <BookingSystem
               initialServiceCategory={bookingType}
               isModal={true}

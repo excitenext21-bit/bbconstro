@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
 import { ChevronDown, Search, X, Menu, Phone, ShieldAlert, ShieldCheck, Users } from 'lucide-react';
@@ -20,15 +20,56 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isOverLight, setIsOverLight] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const leftRailRef = useRef<HTMLDivElement>(null);
+  const rightRailRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
 
-  // Dynamic contrast detection for left social rail and right back-to-top rail
+  const isInnerPage = location.pathname !== '/';
+  const isTransparent = isInnerPage && !isScrolled && !mobileMenuOpen && !searchOpen;
+
+  // Track scroll position to transition header from transparent to solid blue on inner pages
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
+  // Dynamic contrast & footer collision detection for left social rail and right back-to-top rail
   useEffect(() => {
     const evaluateRailContrast = () => {
-      // The vertical center where rails are fixed
-      const railY = window.innerHeight * 0.52;
+      // 1. Footer collision detection - stop rails before overlapping footer
+      const footer = document.getElementById('site-footer') || document.querySelector('footer');
+      let shouldHide = false;
 
-      // 1. Check all elements with data-theme="light"
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect();
+        // The bottom edge of the vertically centered rail (50vh + approx 135px half-height)
+        const railBottom = window.innerHeight * 0.5 + 135;
+        // Stop (hide) the rails before they can ever overlap the footer
+        if (footerRect.top <= railBottom + 30) {
+          shouldHide = true;
+        }
+      }
+
+      if (leftRailRef.current) {
+        leftRailRef.current.style.opacity = shouldHide ? '0' : '1';
+        leftRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
+      }
+
+      if (rightRailRef.current) {
+        rightRailRef.current.style.opacity = shouldHide ? '0' : '1';
+        rightRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
+      }
+
+      // The vertical center where rails are fixed
+      const railY = window.innerHeight * 0.5;
+
+      // 2. Check all elements with data-theme="light"
       const lightElements = document.querySelectorAll('[data-theme="light"]');
       let overLight = false;
 
@@ -40,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
       }
 
-      // 2. Secondary check: elements at left and right rail coordinates
+      // 3. Secondary check: elements at left and right rail coordinates
       if (!overLight) {
         const leftElements = document.elementsFromPoint(24, railY) || [];
         const rightElements = document.elementsFromPoint(window.innerWidth - 24, railY) || [];
@@ -68,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
       }
 
-      setIsOverLight(overLight);
+      setIsOverLight(prev => (prev !== overLight ? overLight : prev));
     };
 
     window.addEventListener('scroll', evaluateRailContrast, { passive: true });
@@ -115,8 +156,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      {/* Top Header - Exact dark blue-slate background #00153f from screenshot */}
-      <header className="sticky top-0 z-40 bg-[#00153f] border-b border-[#0a296b]/80 transition-all">
+      {/* Top Header - Transparent on inner pages at top, solid #00153f on scroll and on home */}
+      <header
+        className={`sticky top-0 z-40 transition-all duration-300 ${
+          isInnerPage ? '-mb-24' : ''
+        } ${
+          isTransparent
+            ? 'bg-transparent border-b border-transparent shadow-none'
+            : 'bg-[#00153f] border-b border-[#0a296b]/80 shadow-md backdrop-blur-md'
+        }`}
+      >
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-24 flex items-center justify-between">
           
           {/* Official Brand Logo */}
@@ -127,8 +176,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             <BrandLogo variant="horizontal" size="md" theme="dark" />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-8 text-[15px] text-slate-200">
+          {/* Desktop Navigation Links (Right-Aligned) */}
+          <nav className="hidden xl:flex items-center gap-6 2xl:gap-8 text-[15px] text-slate-200 ml-auto mr-6 2xl:mr-8">
             {navLink('/', 'Home')}
             
             {/* About Us with Dropdown: Why choose us & Leadership */}
@@ -164,9 +213,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             </div>
 
-            {navLink('/services', 'Capabilities', true)}
-            {navLink('/projects', 'Success Stories', true)}
-            {navLink('/faqs', 'FAQs', true)}
+            {navLink('/services', 'Capabilities')}
+            {navLink('/projects', 'Success Stories')}
+            {navLink('/faqs', 'FAQs')}
+
+            {/* Phone Number between FAQs and Connect Us */}
+            <a
+              href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
+              className="flex items-center gap-2 text-slate-200 hover:text-[#f7985f] transition font-semibold text-[15px] shrink-0"
+              title="Call B&B Constro"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#f7985f] stroke-[1.2]" strokeWidth={1.2} />
+              <span>{STATUTORY_DATA.phone}</span>
+            </a>
           </nav>
 
           {/* Right Action Icons Group */}
@@ -261,11 +320,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
 
               {[
-                { path: '/services', label: 'Capabilities', hasDropdown: true },
-                { path: '/projects', label: 'Success Stories', hasDropdown: true },
+                { path: '/services', label: 'Capabilities' },
+                { path: '/projects', label: 'Success Stories' },
                 { path: '/amc', label: 'AMC Plans' },
                 { path: '/faqs', label: 'FAQs' },
-                { path: '/contact', label: 'Contact Us' },
               ].map((item) => (
                 <Link
                   key={item.path}
@@ -281,6 +339,26 @@ export const Navbar: React.FC<NavbarProps> = ({
                   )}
                 </Link>
               ))}
+
+              {/* Direct Phone Link between FAQs and Connect Us */}
+              <a
+                href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-slate-200 hover:bg-slate-800/60 hover:text-[#f7985f] transition text-[15px] font-semibold"
+              >
+                <Phone className="w-4 h-4 text-[#f7985f] stroke-[1.2]" strokeWidth={1.2} />
+                <span>{STATUTORY_DATA.phone}</span>
+              </a>
+
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-left py-2.5 px-3 rounded-lg hover:bg-slate-800/60 hover:text-[#f7985f] transition flex justify-between items-center ${
+                  isCurrent('/contact') ? 'text-[#f7985f] bg-slate-800/40' : ''
+                }`}
+              >
+                <span>Connect Us</span>
+              </Link>
             </div>
 
             <div className="pt-3 border-t border-slate-800">
@@ -300,8 +378,11 @@ export const Navbar: React.FC<NavbarProps> = ({
       </header>
 
       {/* Vertical Social Sidebar (Left Rail) - LINKEDIN | INSTAGRAM | FACEBOOK */}
-      <div className="hidden lg:flex fixed left-3 xl:left-5 top-[52%] -translate-y-1/2 z-30 flex-col items-center select-none gap-2">
-        <div className="h-24 flex items-center justify-center">
+      <div 
+        ref={leftRailRef}
+        className="hidden lg:flex fixed left-3 xl:left-5 top-1/2 -translate-y-1/2 z-30 flex-col items-center select-none gap-2 transition-opacity duration-300"
+      >
+        <div className="h-20 flex items-center justify-center">
           <a
             href="https://linkedin.com"
             target="_blank"
@@ -313,9 +394,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* 1px Pipe Divider */}
-        <div className={`w-[1px] h-6 ${railDividerClass} transition-colors duration-300`} />
+        <div className={`w-[1px] h-4 ${railDividerClass} transition-colors duration-300`} />
 
-        <div className="h-24 flex items-center justify-center">
+        <div className="h-20 flex items-center justify-center">
           <a
             href="https://instagram.com"
             target="_blank"
@@ -327,9 +408,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* 1px Pipe Divider */}
-        <div className={`w-[1px] h-6 ${railDividerClass} transition-colors duration-300`} />
+        <div className={`w-[1px] h-4 ${railDividerClass} transition-colors duration-300`} />
 
-        <div className="h-20 flex items-center justify-center">
+        <div className="h-16 flex items-center justify-center">
           <a
             href="https://facebook.com"
             target="_blank"
@@ -343,13 +424,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Vertical Scroll Indicator (Right Rail) - Back To Top ↑ */}
       <button
+        ref={rightRailRef}
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="hidden lg:flex fixed right-3 xl:right-5 top-[52%] -translate-y-1/2 z-30 flex-col items-center gap-3 select-none cursor-pointer group bg-transparent border-none p-0 focus:outline-none"
+        className="hidden lg:flex fixed right-3 xl:right-5 top-1/2 -translate-y-1/2 z-30 flex-col items-center gap-2 select-none cursor-pointer group bg-transparent border-none p-0 focus:outline-none transition-opacity duration-300"
         aria-label="Back to top"
       >
         <LongTailArrowUp className={`w-3.5 h-8 ${railGroupTextClass} transition-all duration-300 group-hover:-translate-y-1.5`} strokeWidth={1} />
-        <div className="h-28 flex items-center justify-center">
+        <div className="h-24 flex items-center justify-center">
           <span className={`text-[11px] font-bold tracking-[0.22em] uppercase origin-center rotate-90 whitespace-nowrap ${railGroupTextClass} transition-colors duration-300`}>
             Back To Top
           </span>

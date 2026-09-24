@@ -8,16 +8,16 @@ interface PrivacyPolicyProps {
 
 export const PrivacyPolicyView: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
   return (
-    <div className="relative py-16 bg-[#00153f] min-h-screen overflow-hidden">
+    <div className="relative pt-32 pb-16 sm:pt-36 bg-[#00153f] min-h-screen overflow-hidden">
       {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
       <div
         className="absolute top-0 right-0 h-[450px] w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <img
-          src="/assets/why-choose-us-banner.jpg"
+          src="/assets/statutory-banner.jpg"
           alt="B&B Constro Data Protection Policy"
-          className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
+          className="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />
@@ -49,7 +49,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
           </p>
         </div>
 
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-2xl space-y-8 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div className="p-8 sm:p-10 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-2xl space-y-8 text-xs sm:text-sm text-slate-300 leading-relaxed">
           
           <section>
             <h2 className="text-base sm:text-lg font-bold text-white font-['Outfit'] mb-3 flex items-center gap-2">
@@ -69,10 +69,31 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
             <p className="mb-2">
               When you interact with our website, request emergency breakdown dispatches, or enter into an Annual Maintenance Contract (AMC), we collect:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5 text-slate-300">
-              <li><strong className="text-white">Contact Information:</strong> Full name, corporate email address, mobile phone number, and designation.</li>
-              <li><strong className="text-white">Facility Coordinates:</strong> Site physical address, floor plans, building management system (BMS) access points, and Pune locality.</li>
-              <li><strong className="text-white">HVAC Technical Metadata:</strong> Equipment make, tonnage (TR), model numbers, refrigerant types (e.g. R410A, R32), and historical fault codes.</li>
+            <ul className="space-y-2.5 text-slate-300">
+              <li className="flex items-start gap-3">
+                <span className="inline-flex items-center shrink-0 w-[15px] h-4 mt-0.5" aria-hidden="true">
+                  <svg className="w-[15px] h-[1px] overflow-visible text-[#c05e32]" viewBox="0 0 15 1" fill="none">
+                    <line x1="0" y1="0.5" x2="15" y2="0.5" stroke="currentColor" strokeWidth="1" shapeRendering="crispEdges" />
+                  </svg>
+                </span>
+                <span><strong className="text-white">Contact Information:</strong> Full name, corporate email address, mobile phone number, and designation.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="inline-flex items-center shrink-0 w-[15px] h-4 mt-0.5" aria-hidden="true">
+                  <svg className="w-[15px] h-[1px] overflow-visible text-[#c05e32]" viewBox="0 0 15 1" fill="none">
+                    <line x1="0" y1="0.5" x2="15" y2="0.5" stroke="currentColor" strokeWidth="1" shapeRendering="crispEdges" />
+                  </svg>
+                </span>
+                <span><strong className="text-white">Facility Coordinates:</strong> Site physical address, floor plans, building management system (BMS) access points, and Pune locality.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="inline-flex items-center shrink-0 w-[15px] h-4 mt-0.5" aria-hidden="true">
+                  <svg className="w-[15px] h-[1px] overflow-visible text-[#c05e32]" viewBox="0 0 15 1" fill="none">
+                    <line x1="0" y1="0.5" x2="15" y2="0.5" stroke="currentColor" strokeWidth="1" shapeRendering="crispEdges" />
+                  </svg>
+                </span>
+                <span><strong className="text-white">HVAC Technical Metadata:</strong> Equipment make, tonnage (TR), model numbers, refrigerant types (e.g. R410A, R32), and historical fault codes.</span>
+              </li>
             </ul>
           </section>
 

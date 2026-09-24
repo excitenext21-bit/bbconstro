@@ -8,16 +8,16 @@ interface StatutoryViewProps {
 
 export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
   return (
-    <div className="relative py-16 bg-[#00153f] min-h-screen overflow-hidden">
+    <div className="relative pt-32 pb-16 sm:pt-36 bg-[#00153f] min-h-screen overflow-hidden">
       {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
       <div
         className="absolute top-0 right-0 h-[450px] w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <img
-          src="/assets/why-choose-us-banner.jpg"
+          src="/assets/statutory-banner.jpg"
           alt="B&B Constro Corporate & Statutory Compliance"
-          className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
+          className="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />
@@ -53,7 +53,7 @@ export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           
           {/* Card 1: Corporate Registration */}
-          <div className="p-6 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-xl">
+          <div className="p-6 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-[#c05e32]/20 text-[#f7985f] flex items-center justify-center">
                 <Building className="w-5 h-5" />
@@ -87,7 +87,7 @@ export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
           </div>
 
           {/* Card 2: Tax & Tax Authorities */}
-          <div className="p-6 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-xl">
+          <div className="p-6 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-[#c05e32]/20 text-[#f7985f] flex items-center justify-center">
                 <FileText className="w-5 h-5" />
@@ -121,7 +121,7 @@ export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
           </div>
 
           {/* Card 3: Banking Credentials */}
-          <div className="p-6 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-xl">
+          <div className="p-6 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-[#c05e32]/20 text-[#f7985f] flex items-center justify-center">
                 <Landmark className="w-5 h-5" />
@@ -155,7 +155,7 @@ export const StatutoryView: React.FC<StatutoryViewProps> = ({ onBack }) => {
           </div>
 
           {/* Card 4: Operating Locations */}
-          <div className="p-6 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-xl">
+          <div className="p-6 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-[#c05e32]/20 text-[#f7985f] flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5" />

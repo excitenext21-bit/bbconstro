@@ -106,7 +106,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onStartProject }
         </div>
 
         {/* 2.1 WHY CHOOSE US Cards (From PDF Page 6) */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#041a4a] to-[#111c34] border border-slate-800 shadow-2xl">
+        <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-[#041a4a] to-[#111c34] border border-slate-800 shadow-2xl">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-10 pb-8 border-b border-slate-800">
             <div>
               <span className="text-xs uppercase font-bold tracking-widest text-[#f7985f] block mb-1">

@@ -17,7 +17,7 @@ export const WhyChooseUsCTA: React.FC<WhyChooseUsCTAProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Banner matching Realar's "Buying & Selling We Make It Simple" */}
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#041a4a] via-[#111c34] to-[#041a4a] border border-slate-800 shadow-2xl">
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#041a4a] via-[#111c34] to-[#041a4a] border border-slate-800 shadow-2xl">
           
           {/* Decorative background lights */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#f7985f]/15 rounded-full blur-3xl pointer-events-none" />

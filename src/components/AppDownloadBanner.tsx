@@ -12,7 +12,7 @@ export const AppDownloadBanner: React.FC<AppDownloadBannerProps> = ({ onOpenBook
     <section className="relative py-16 sm:py-20 lg:py-24 bg-[#00153f] px-4 sm:px-6 lg:px-12">
       
       {/* Dark Rounded Container matching Realar screenshot */}
-      <div className="max-w-7xl mx-auto rounded-3xl bg-[#041a4a] border border-slate-800 p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
+      <div className="max-w-7xl mx-auto rounded-2xl bg-[#041a4a] border border-slate-800 p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
         
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0 opacity-20">

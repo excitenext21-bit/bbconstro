@@ -16,7 +16,7 @@ export const ModernApartmentSpotlight: React.FC<ModernApartmentSpotlightProps> =
     <section className="relative py-16 sm:py-20 lg:py-24 bg-[#00153f] px-4 sm:px-6 lg:px-12">
       
       {/* Light Background Spotlight Card matching Realar screenshot */}
-      <div className="max-w-7xl mx-auto rounded-3xl bg-[#dce3ea] text-[#0f172a] p-8 sm:p-12 lg:p-16 shadow-2xl overflow-hidden">
+      <div className="max-w-7xl mx-auto rounded-2xl bg-[#dce3ea] text-[#0f172a] p-8 sm:p-12 lg:p-16 shadow-2xl overflow-hidden">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           

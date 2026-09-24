@@ -19,7 +19,7 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-4xl rounded-3xl bg-[#041a4a] border border-slate-700 shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-4xl rounded-2xl bg-[#041a4a] border border-slate-700 shadow-2xl overflow-hidden">
         
         {/* Close Button */}
         <button

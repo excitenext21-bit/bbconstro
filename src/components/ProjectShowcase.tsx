@@ -1,27 +1,39 @@
 import React, { useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { LongTailArrowRight } from './LongTailArrow';
 
 interface ProjectShowcaseProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
+  onSelectCaseStudy?: (idx: number) => void;
 }
 
-export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenBooking }) => {
+export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectCaseStudy }) => {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const handleIndicatorClick = (idx: number) => {
+    setActiveSlide(idx);
+    if (onSelectCaseStudy) {
+      onSelectCaseStudy(idx);
+    } else {
+      const target = document.getElementById('featured-case-studies') || document.getElementById('projects-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
 
   const projects = [
     {
       id: '01',
       title: 'Discover Modern Living At Magarpatta Residence.',
       desc: 'Magarpatta City SEZ Towers B5 & B6 takes advantage of multi-zone Daikin VRV inverter systems across 3,40,000 sq. ft., delivering 99.8% cooling reliability.',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+      image: '/magarpatta-cybercity-tower.jpg',
       specs: '3,40,000 Sq. Ft. • Daikin VRV'
     },
     {
       id: '02',
       title: 'Precision Climate Engineering At Vulcan Tech.',
       desc: 'Braze-free Lokring piping deployment across 85,000 sq. ft. precision manufacturing cleanrooms in Pirangut, eliminating open-flame hazards.',
-      image: 'https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80',
+      image: '/vulcan-technologies-plant.png',
       specs: '85,000 Sq. Ft. • Cleanroom Class 10k'
     },
     {
@@ -47,67 +59,60 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onOpenBooking 
           
           {/* Left Column matching Realar template */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            
-            {/* Round Step Badge 01 */}
-            <div className="w-12 h-12 rounded-full border border-slate-300 bg-white text-[#0f172a] font-extrabold text-sm flex items-center justify-center mb-6 font-['Outfit'] shadow-sm">
-              {projects[activeSlide].id}
-            </div>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0f172a] font-['Outfit'] tracking-tight leading-[1.15] mb-4">
               {projects[activeSlide].title}
             </h2>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-md">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4 max-w-md">
               {projects[activeSlide].desc}
             </p>
-
-            <button
-              onClick={onOpenBooking}
-              className="px-6 py-3.5 bg-transparent border border-[#0f172a] rounded-[3px] text-[#0f172a] hover:bg-[#0f172a] hover:text-white font-[300] text-sm tracking-wide transition-all shadow-md flex items-center gap-2 active:scale-95 cursor-pointer"
-            >
-              <span className="font-[300]">Explore More</span>
-              <LongTailArrowRight className="w-6 h-3 stroke-[1]" strokeWidth={1} />
-            </button>
-
           </div>
 
-          {/* Right Column: Horizontal Cards Strip matching reference */}
+          {/* Right Column: 2 Cards with individual indicator directly under each image */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {projects.slice(0, 2).map((item, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setActiveSlide(idx)}
-                  className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-white border border-slate-300 shadow-xl cursor-pointer hover:border-[#c05e32]/60 hover:shadow-2xl transition-all"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                  
-                  {/* Round Yellow Arrow Button at Bottom Center */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-[#f7985f] text-slate-950 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <LongTailArrowRight className="w-6 h-3.5 stroke-[1.5]" strokeWidth={1.5} />
-                  </div>
-                </div>
-              ))}
-            </div>
+              {projects.slice(0, 2).map((item, idx) => {
+                const isSelected = activeSlide === idx;
+                return (
+                  <div key={idx} className="flex flex-col gap-3">
+                    {/* Image Card (2px radius, no brass border, hover dropshadow) */}
+                    <div
+                      onClick={() => setActiveSlide(idx)}
+                      className={`group relative rounded-[2px] overflow-hidden aspect-[4/3] bg-white border border-slate-200/60 shadow-md hover:shadow-2xl hover:shadow-slate-950/30 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                        isSelected
+                          ? 'shadow-xl ring-1 ring-slate-400/50'
+                          : ''
+                      }`}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover rounded-[2px] group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* Bottom subtle shadow overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                    </div>
 
-            {/* Bottom Progress Bars matching reference screenshot */}
-            <div className="flex items-center gap-2 pt-2">
-              {projects.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveSlide(idx)}
-                  className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
-                    activeSlide === idx ? 'w-12 bg-[#c05e32]' : 'w-8 bg-slate-400 hover:bg-slate-500'
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
+                    {/* Details Link with Long Tail Arrow directly under this image */}
+                    <div className="flex items-center pt-1">
+                      <button
+                        type="button"
+                        onClick={() => handleIndicatorClick(idx)}
+                        className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 cursor-pointer group/btn ${
+                          isSelected
+                            ? 'text-[#c05e32]'
+                            : 'text-slate-600 hover:text-[#c05e32]'
+                        }`}
+                        aria-label={`View ${item.title} Details`}
+                      >
+                        <span className="font-['Outfit']">Details</span>
+                        <LongTailArrowRight className="w-5 h-2.5 stroke-[1.2] group-hover/btn:translate-x-1 transition-transform" strokeWidth={1.2} />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
           </div>

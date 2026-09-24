@@ -59,7 +59,7 @@ export const WhyChooseUsSection: React.FC = () => {
 
           {/* Right Column: 4 Columns inside a single sleek bordered box with vertical dividers */}
           <div className="lg:col-span-8 xl:col-span-8">
-            <div className="border border-slate-300 bg-white/80 backdrop-blur-xs grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-300 shadow-xs">
+            <div className="border border-slate-300 bg-white/80 backdrop-blur-xs rounded-2xl overflow-hidden grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-300 shadow-xs">
               {pillars.map((pillar, idx) => {
                 const Icon = pillar.icon;
                 return (

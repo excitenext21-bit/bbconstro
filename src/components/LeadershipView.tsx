@@ -16,32 +16,38 @@ const CountUp: React.FC<CountUpProps> = ({ end, prefix = '', suffix = '', isVisi
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible) {
+      setCount(0);
+      return;
+    }
 
     let startTime: number | null = null;
     let animationFrameId: number;
 
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+    const startTimer = setTimeout(() => {
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
 
-      // Smooth cubic ease-out
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(easeOut * end);
+        // Smooth cubic ease-out
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeOut * end);
 
-      setCount(current);
+        setCount(current);
 
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(animate);
-      } else {
-        setCount(end);
-      }
-    };
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          setCount(end);
+        }
+      };
 
-    animationFrameId = requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
+    }, 80);
 
     return () => {
+      clearTimeout(startTimer);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
   }, [isVisible, end, duration]);
@@ -73,19 +79,37 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+    const checkIfInView = () => {
+      if (statsSectionRef.current) {
+        const rect = statsSectionRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight - 30 && rect.bottom > 30;
+        if (inView) {
           setStatsVisible(true);
-          observer.disconnect();
         }
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStatsVisible(true);
+          } else {
+            setStatsVisible(false);
+          }
+        });
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      }
     );
 
     if (statsSectionRef.current) {
       observer.observe(statsSectionRef.current);
     }
+
+    checkIfInView();
 
     return () => observer.disconnect();
   }, []);
@@ -93,16 +117,16 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
   return (
     <div className="animate-fadeIn">
       {/* Leadership Hero Banner */}
-      <section className="relative pt-14 pb-16 sm:pt-20 sm:pb-20 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
-        {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
+      <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 bg-[#00153f] border-b border-[#0b2866]/80 overflow-hidden text-slate-100">
+        {/* Background Image: Starts on right side, and transitions to transparent where hero text ends */}
         <div
           className="absolute top-0 right-0 bottom-0 w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
           aria-hidden="true"
         >
           <img
-            src="/assets/why-choose-us-banner.jpg"
+            src="/assets/about-us-banner.png"
             alt="B&B Constro HVAC Engineering Leadership"
-            className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
+            className="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />

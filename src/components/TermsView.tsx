@@ -8,16 +8,16 @@ interface TermsViewProps {
 
 export const TermsView: React.FC<TermsViewProps> = ({ onBack }) => {
   return (
-    <div className="relative py-16 bg-[#00153f] min-h-screen overflow-hidden">
+    <div className="relative pt-32 pb-16 sm:pt-36 bg-[#00153f] min-h-screen overflow-hidden">
       {/* Background Image: Starts on right side, blurred, and transitions to transparent where hero text ends */}
       <div
         className="absolute top-0 right-0 h-[450px] w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <img
-          src="/assets/why-choose-us-banner.jpg"
+          src="/assets/statutory-banner.jpg"
           alt="B&B Constro Terms of Service"
-          className="w-full h-full object-cover object-right filter blur-[3px] scale-105 opacity-40 brightness-95 contrast-105 transition-all duration-700"
+          className="w-full h-full object-cover object-right opacity-60 brightness-100 contrast-105 transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#00153f] via-[#00153f]/80 via-35% to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#00153f]/60 via-transparent to-[#00153f] pointer-events-none" />
@@ -48,7 +48,7 @@ export const TermsView: React.FC<TermsViewProps> = ({ onBack }) => {
           </p>
         </div>
 
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#041a4a] border border-slate-800 shadow-2xl space-y-8 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div className="p-8 sm:p-10 rounded-2xl bg-[#041a4a] border border-slate-800 shadow-2xl space-y-8 text-xs sm:text-sm text-slate-300 leading-relaxed">
           
           <section>
             <h2 className="text-base sm:text-lg font-bold text-white font-['Outfit'] mb-3 flex items-center gap-2">

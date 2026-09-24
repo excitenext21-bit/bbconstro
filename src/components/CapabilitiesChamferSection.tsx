@@ -68,7 +68,7 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
       
       {/* Background Watermark Typography */}
       <div className="watermark-text-light">
-        PROCESS
+        APPROACH
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 z-10 text-center">
@@ -76,10 +76,10 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
         {/* Section Header with content from Image 2 */}
         <div className="max-w-2xl mx-auto mb-14">
           <h2
-            className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] font-['Outfit'] tracking-tight leading-tight uppercase"
+            className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] font-['Outfit'] tracking-tight leading-tight"
             style={{ fontSize: '38px' }}
           >
-            OUR PROCESS MODEL
+            Our approach
           </h2>
           <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
             B&B Constro Life Cycle: Disciplined 5-stage HVAC engineering methodology transforming comfort parameters into sustained facility efficiency.
@@ -103,10 +103,10 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
                 }`}
               >
                 {/* Icon with copper accent */}
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-[#c05e32] mb-3 transition-all duration-300 ${
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-[#c05e32] mb-3 transition-all duration-300 ${
                   isHighlighted ? 'bg-[#c05e32]/15 shadow-sm' : 'bg-[#c05e32]/5 group-hover:bg-[#c05e32]/15'
                 }`}>
-                  <Icon className={`w-7 h-7 stroke-[1.5] ${item.animClass} group-hover:scale-115 transition-transform duration-300`} />
+                  <Icon className={`w-7 h-7 stroke-[1] ${item.animClass} group-hover:scale-115 transition-transform duration-300`} strokeWidth={1} />
                 </div>
                 
                 {/* Step Title (+5% font weight: 750 / font-extrabold) */}

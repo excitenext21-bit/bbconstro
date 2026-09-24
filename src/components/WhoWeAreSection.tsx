@@ -45,10 +45,10 @@ export const WhoWeAreSection: React.FC = () => {
           <div className="lg:col-span-5 pl-4 sm:pl-8 lg:pl-12">
             {/* Main Heading: WHO WE ARE (38px font size, matching Image 2 "ABOUT US") */}
             <h2
-              className="text-[32px] sm:text-[38px] font-extrabold uppercase tracking-[0.14em] text-[#00153f] font-['Outfit'] leading-tight"
+              className="text-[32px] sm:text-[38px] font-extrabold font-['Outfit'] tracking-tight text-[#00153f] leading-tight"
               style={{ fontSize: '38px' }}
             >
-              WHO WE ARE
+              Who We Are
             </h2>
 
             {/* Brand Copper Accent Underline Bar matching Image 2 */}

@@ -41,7 +41,7 @@ export const AMCComparisonSection: React.FC<AMCSectionProps> = ({ onBookAMC }) =
             return (
               <div
                 key={plan.id}
-                className={`relative rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 ${
                   isPopular
                     ? 'bg-gradient-to-b from-[#121e36] to-[#0c1424] border-2 border-[#c05e32]/80 shadow-2xl shadow-amber-500/15 scale-[1.02] z-10'
                     : 'bg-[#041a4a] border border-slate-800/90 hover:border-slate-700'

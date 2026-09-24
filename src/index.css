@@ -14,11 +14,15 @@
   font-family: 'General Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif !important;
+}
+
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     background-color: #00153f;
-    color: #f1f5f9;
+    color: #c0c0eb;
     overflow-x: hidden;
   }
 
@@ -27,16 +31,35 @@
     letter-spacing: -0.02em;
   }
 
-  /* Scale all paragraph typography 5% bigger */
+  /* Global paragraph font size — 15px */
   p {
-    font-size: calc(1rem * 1.05);
-    --text-xs: calc(0.75rem * 1.05);
-    --text-sm: calc(0.875rem * 1.05);
-    --text-base: calc(1rem * 1.05);
-    --text-lg: calc(1.125rem * 1.05);
-    --text-xl: calc(1.25rem * 1.05);
-    --text-2xl: calc(1.5rem * 1.05);
+    font-size: 15px;
   }
+}
+
+/* Transform all white color font to #c0c0eb */
+.text-white {
+  color: #c0c0eb !important;
+}
+
+.text-white\/95 {
+  color: rgba(192, 192, 235, 0.95) !important;
+}
+
+.text-white\/90 {
+  color: rgba(192, 192, 235, 0.9) !important;
+}
+
+.text-white\/80 {
+  color: rgba(192, 192, 235, 0.8) !important;
+}
+
+.hover\:text-white:hover {
+  color: #c0c0eb !important;
+}
+
+.group:hover .group-hover\:text-white {
+  color: #c0c0eb !important;
 }
 
 /* Chamfered / clipped polygon corner for Facilities/Amenities cards */
@@ -426,6 +449,36 @@
   will-change: transform;
 }
 
+/* Sleek Stationary Golden Horizon Curve Shine (CTA Section) */
+@keyframes horizonShinePulse {
+  0%, 100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3px rgba(247, 152, 95, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 235, 200, 0.9)) drop-shadow(0 0 18px rgba(247, 152, 95, 0.6));
+  }
+}
+
+@keyframes horizonAmbientBreath {
+  0%, 100% {
+    opacity: 0.22;
+  }
+  50% {
+    opacity: 0.42;
+  }
+}
+
+.animate-horizon-shine-static {
+  animation: horizonShinePulse 4.5s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
+.animate-horizon-ambient-breath {
+  animation: horizonAmbientBreath 4.5s ease-in-out infinite;
+  will-change: opacity;
+}
 
 /* Sleek Border Shining Effect for Featured Services Cards */
 @keyframes border-beam-spin {
@@ -439,7 +492,7 @@
 
 .shining-border-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 16px;
   overflow: hidden;
   padding: 1px;
   background: linear-gradient(135deg, rgba(247, 152, 95, 0.5), rgba(192, 94, 50, 0.7), rgba(247, 152, 95, 0.35));
@@ -486,7 +539,7 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  border-radius: 23px;
+  border-radius: 15px;
   background: #ffffff;
 }
 
@@ -517,6 +570,56 @@
 }
 
 .animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Vertical infinite marquee for Our Clients section (Thirdway style) */
+:root {
+  --client-gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --client-gap: 0.75rem;
+  }
+}
+
+@keyframes marquee-vertical-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% - var(--client-gap)));
+  }
+}
+
+@keyframes marquee-vertical-down {
+  0% {
+    transform: translateY(calc(-100% - var(--client-gap)));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee-col-up {
+  animation: marquee-vertical-up 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-col-down {
+  animation: marquee-vertical-down 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-col-up-slow {
+  animation: marquee-vertical-up 38s linear infinite;
+  will-change: transform;
+}
+
+.marquee-col:hover .animate-marquee-col-up,
+.marquee-col:hover .animate-marquee-col-down,
+.marquee-col:hover .animate-marquee-col-up-slow {
   animation-play-state: paused;
 }
 

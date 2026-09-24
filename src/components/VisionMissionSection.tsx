@@ -15,9 +15,9 @@ export const VisionMissionSection: React.FC = () => {
           {/* Left Column: Authentic HVAC Engineering Image */}
           <div className="relative w-full h-full min-h-[280px] sm:min-h-[340px] md:min-h-full overflow-hidden group">
             <img
-              src="/assets/our-vision.jpg"
-              alt="B&B Constro Commercial HVAC High-Rise Architecture and Climate Strategy"
-              className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              src="/assets/our-mission.jpg"
+              alt="B&B Constro Commercial HVAC Climate Solutions — Modern Building Interior"
+              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"
             />
             {/* Subtle brand tint gradient overlay */}
@@ -28,10 +28,10 @@ export const VisionMissionSection: React.FC = () => {
           <div className="bg-white flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20 h-full">
             {/* Heading matching Image 1 font & style, keeping 38px font size */}
             <h2
-              className="text-[30px] sm:text-[38px] uppercase tracking-[0.14em] font-['Outfit'] text-[#00153f] font-bold text-center mb-3"
+              className="text-[32px] sm:text-[38px] font-extrabold font-['Outfit'] tracking-tight text-[#00153f] leading-tight mb-3"
               style={{ fontSize: '38px' }}
             >
-              OUR VISION
+              Our Vision
             </h2>
 
             {/* Underline accent with terminal dot matching Image 3 branding */}
@@ -56,10 +56,10 @@ export const VisionMissionSection: React.FC = () => {
           <div className="bg-white order-2 md:order-1 flex flex-col justify-center items-center text-center px-6 py-14 sm:px-10 sm:py-16 md:px-12 md:py-20 lg:px-20">
             {/* Heading matching Image 2 font & style, keeping 38px font size */}
             <h2
-              className="text-[30px] sm:text-[38px] uppercase tracking-[0.14em] font-['Outfit'] text-[#00153f] font-bold text-center mb-3"
+              className="text-[32px] sm:text-[38px] font-extrabold font-['Outfit'] tracking-tight text-[#00153f] leading-tight mb-3"
               style={{ fontSize: '38px' }}
             >
-              OUR MISSION
+              Our Mission
             </h2>
 
             {/* Underline accent with terminal dot matching Image 3 branding */}
@@ -77,7 +77,7 @@ export const VisionMissionSection: React.FC = () => {
           {/* Right Column: Authentic HVAC Engineering & Execution Image */}
           <div className="relative overflow-hidden group order-1 md:order-2 min-h-[280px] sm:min-h-[340px] md:min-h-full">
             <img
-              src="/assets/our-mission.jpg"
+              src="/assets/our-vision.png"
               alt="B&B Constro Commercial High-Rise Climate Engineering & HVAC Infrastructure"
               className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               loading="lazy"

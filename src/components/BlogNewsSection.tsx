@@ -68,7 +68,7 @@ export const BlogNewsSection: React.FC<BlogNewsSectionProps> = ({ onOpenBooking 
           {articles.map((item, idx) => (
             <div
               key={idx}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#041a4a] rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-800 shadow-2xl hover:border-slate-700 transition-all"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#041a4a] rounded-2xl p-6 sm:p-8 lg:p-10 border border-slate-800 shadow-2xl hover:border-slate-700 transition-all"
             >
               {/* Image Container */}
               <div
