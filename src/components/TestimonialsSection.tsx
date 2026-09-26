@@ -7,6 +7,14 @@ interface TestimonialsSectionProps {
   isDarkTheme?: boolean;
 }
 
+const getInitials = (fullName: string) => {
+  const cleanName = fullName.replace(/^(dr\.|mr\.|mrs\.|ms\.)\s+/i, '').trim();
+  const parts = cleanName.split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDarkTheme: customDarkTheme }) => {
   const location = useLocation();
   const isDarkTheme = customDarkTheme !== undefined
@@ -50,7 +58,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14" data-reveal="fade-up" data-reveal-delay="0">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <h2
             className={`text-[32px] sm:text-[38px] font-extrabold ${
               isDarkTheme ? 'text-white' : 'text-[#0f172a]'
@@ -68,7 +76,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
           </div>
 
           <p className={`${isDarkTheme ? 'text-slate-300' : 'text-slate-600'} text-sm sm:text-base max-w-xl mx-auto leading-relaxed`}>
-            Verified experiences from leading commercial infrastructure developers, hospitals, and industrial plants across Pune.
+            Verified experiences from leading commercial infrastructure developers, hospitals, and industrial plants across pan India.
           </p>
         </div>
 
@@ -77,8 +85,6 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
           className="max-w-4xl lg:max-w-5xl mx-auto relative px-2 sm:px-6"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          data-reveal="zoom-up"
-          data-reveal-delay="150"
         >
           
           {/* Composite Speech Bubble with Unified Drop Shadow */}
@@ -104,12 +110,13 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
 
             </div>
 
-            {/* Speech Bubble Arrow pointing down (centered at bottom edge matching screenshot 2) */}
+            {/* Speech Bubble Arrow pointing down (pure white matching speech bubble card) */}
             <svg
-              className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-8 h-6 text-white fill-white pointer-events-none -mt-px"
+              className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-8 h-6 pointer-events-none -mt-px z-10"
               viewBox="0 0 32 24"
+              style={{ color: '#ffffff', fill: '#ffffff' }}
             >
-              <path d="M0 0 L16 22 L32 0 Z" fill="currentColor" />
+              <path d="M0 0 L16 22 L32 0 Z" fill="#ffffff" />
             </svg>
 
           </div>
@@ -117,14 +124,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
           {/* Photos & Author Info PLACED JUST BELOW THE ARROW */}
           <div className="mt-8 sm:mt-10 flex flex-col items-center text-center">
             
-            {/* Active Client Photo directly under the arrow tip (Matching Screenshot 1 & Screenshot 2) */}
+            {/* Active Client Initials directly under the arrow tip */}
             <div key={`avatar-${currentIndex}`} className="relative animate-fadeIn">
-              <div className="relative rounded-full p-1 ring-4 ring-[#c05e32] shadow-xl bg-white transition-transform duration-300">
-                <img
-                  src={current.avatar}
-                  alt={current.name}
-                  className="w-18 h-18 sm:w-20 sm:h-20 md:w-22 md:h-22 rounded-full object-cover shadow-sm border-2 border-white"
-                />
+              <div className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#c05e32] to-[#9e431a] text-white flex items-center justify-center font-['Outfit'] font-bold text-2xl sm:text-3xl tracking-wider shadow-lg select-none">
+                {getInitials(current.name)}
               </div>
             </div>
 
@@ -141,10 +144,11 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
               </p>
             </div>
 
-            {/* Clickable Client Thumbnails Row (All testimonial photos) */}
+            {/* Clickable Client Thumbnails Row with Initials */}
             <div className="flex items-center justify-center gap-3 sm:gap-4 mt-5 sm:mt-6">
               {TESTIMONIALS.map((item, idx) => {
                 const isActive = idx === currentIndex;
+                const initials = getInitials(item.name);
                 return (
                   <button
                     key={item.id}
@@ -153,16 +157,22 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ isDark
                       isActive
                         ? 'ring-2 ring-[#c05e32] scale-110 opacity-100 shadow-md'
                         : isDarkTheme
-                          ? 'opacity-40 hover:opacity-90 scale-95 hover:scale-100'
-                          : 'opacity-40 hover:opacity-85 scale-95 hover:scale-100'
+                          ? 'opacity-60 hover:opacity-100 scale-95 hover:scale-100'
+                          : 'opacity-60 hover:opacity-100 scale-95 hover:scale-100'
                     }`}
                     aria-label={`View review by ${item.name}`}
                   >
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 ${isDarkTheme ? 'border-slate-800' : 'border-white'} shadow-sm`}
-                    />
+                    <div
+                      className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-['Outfit'] font-bold text-xs sm:text-sm tracking-wider shadow-sm select-none transition-colors ${
+                        isActive
+                          ? 'bg-[#c05e32] text-white'
+                          : isDarkTheme
+                            ? 'bg-slate-800 text-slate-300 border border-slate-700'
+                            : 'bg-white text-slate-700 border border-slate-300'
+                      }`}
+                    >
+                      {initials}
+                    </div>
                   </button>
                 );
               })}

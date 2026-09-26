@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
     <section className="relative w-full bg-[#00153f] pt-2 pb-8 sm:pb-12 overflow-hidden">
       
       {/* Background Transition at Bottom: Same color as StatsBar section #dce3ea appearing right below the hero card and covering bottom rounded corners */}
-      <div className="absolute bottom-0 left-0 right-0 h-36 sm:h-48 bg-[#dce3ea] z-0 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-64 bg-[#dce3ea] z-0 pointer-events-none" />
 
       {/* Hero Outer Wrapper with side margins matching screenshot */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-3 sm:px-6 md:px-10 lg:px-16 xl:px-20">
@@ -38,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative hero-card-chamfer overflow-hidden min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[760px] flex flex-col justify-between p-6 sm:p-10 lg:p-16 shadow-2xl bg-slate-900 border border-slate-700/40"
+          className="relative hero-card-chamfer overflow-hidden min-h-[580px] sm:min-h-[640px] lg:min-h-[720px] xl:min-h-[760px] flex flex-col justify-between p-6 sm:p-10 lg:p-16 bg-slate-900 border border-slate-700/40"
         >
           
           {/* Architectural Luxury Background Video from Pexels */}

@@ -39,7 +39,7 @@ export const ConsultingBanner: React.FC<ConsultingBannerProps> = ({
       />
 
       {/* Center Content (Fit to Screen Container) */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center" data-reveal="zoom-up" data-reveal-delay="0">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
         {/* Main Title: White + Brand Copper */}
         <h2

@@ -74,7 +74,7 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 z-10 text-center">
         
         {/* Section Header with content from Image 2 */}
-        <div className="max-w-2xl mx-auto mb-14" data-reveal="fade-up" data-reveal-delay="0">
+        <div className="max-w-2xl mx-auto mb-14">
           <h2
             className="text-[32px] sm:text-[38px] font-extrabold text-[#0f172a] font-['Outfit'] tracking-tight leading-tight"
             style={{ fontSize: '38px' }}
@@ -96,8 +96,6 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
               <div
                 key={item.step}
                 onClick={() => handleSelect(idx, item.title)}
-                data-reveal="zoom-up"
-                data-reveal-delay={idx * 100}
                 className={`chamfer-card group cursor-pointer p-6 sm:p-7 flex flex-col items-center justify-center text-center transition-all duration-300 min-h-[190px] sm:min-h-[220px] ${
                   isHighlighted
                     ? 'bg-white text-[#0f172a] shadow-xl shadow-slate-400/30 border-t-4 border-[#c05e32]'

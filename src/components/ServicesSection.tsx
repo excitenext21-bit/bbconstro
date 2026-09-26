@@ -88,7 +88,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       ],
       icon: Droplets,
       animClass: 'animate-hvac-droplet',
-      image: '/assets/central-chiller-plant.jpg',
+      image: '/assets/central-chiller-plant-systems.jpg',
       equipmentTag: 'Central Chiller Plant',
       equipmentSubtitle: 'Water-Cooled Centrifugal Loops • Primary-Secondary Pumping Balancing'
     },
@@ -391,35 +391,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.98] contrast-[1.03]"
                 />
 
-                {/* Subtle gradient overlay at bottom for optimal content legibility without obscuring equipment */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#00153f]/90 via-[#00153f]/25 to-transparent pointer-events-none" />
-
-                {/* Top-Left Floating Equipment Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#00153f]/85 backdrop-blur-md border border-white/20 text-[#f7985f] text-xs font-semibold tracking-wide font-['Outfit'] shadow-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#c05e32] animate-pulse" />
-                    {activeCard.equipmentTag}
-                  </span>
-                </div>
-
                 {/* Top-Right Floating Animated HVAC Icon */}
                 <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-[#00153f]/85 backdrop-blur-md border border-[#c05e32]/50 flex items-center justify-center text-white shadow-xl z-10 group-hover:scale-110 transition-transform">
                   <ActiveIcon className={`w-6 h-6 stroke-[1] ${activeCard.animClass}`} strokeWidth={1} />
-                </div>
-
-                {/* Bottom Content-Driven Spec Bar */}
-                <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10 text-white flex flex-col gap-1">
-                  <div className="flex items-center justify-between gap-3">
-                    <h4 className="text-base sm:text-lg font-bold font-['Outfit'] text-white drop-shadow-sm">
-                      {activeCard.title}
-                    </h4>
-                    <span className="text-[11px] font-bold text-[#f7985f] font-mono shrink-0">
-                      STEP {activeCard.step}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-slate-200 font-light leading-snug line-clamp-1">
-                    {activeCard.equipmentSubtitle}
-                  </p>
                 </div>
               </div>
 

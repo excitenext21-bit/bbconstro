@@ -74,7 +74,7 @@ export const WhyChooseUsPillarsSection: React.FC<WhyChooseUsPillarsSectionProps>
               <span className="block">Engineered for</span>
               <span className="block">India&apos;s Demanding</span>
               <span className="relative inline-block pb-3.5">
-                Climates.
+                Climates
                 <span
                   className="absolute bottom-0 left-0 w-full h-[3.5px] bg-gradient-to-r from-[#c05e32] via-[#f7985f] to-[#c05e32] rounded-full shadow-[0_2px_8px_rgba(192,94,50,0.35)]"
                   aria-hidden="true"

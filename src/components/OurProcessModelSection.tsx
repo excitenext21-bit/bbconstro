@@ -52,7 +52,7 @@ export const OurProcessModelSection: React.FC = () => {
     >
       {/* Background Watermark Typography */}
       <div className="watermark-text select-none pointer-events-none">
-        APPROACH
+        LIFE CYCLE
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 z-10">
@@ -63,7 +63,7 @@ export const OurProcessModelSection: React.FC = () => {
             className="text-[32px] sm:text-[38px] font-extrabold text-white font-['Outfit'] tracking-tight leading-tight"
             style={{ fontSize: '38px' }}
           >
-            Our Approach
+            B&amp;B CONSTRO <span className="text-[#f7985f]">Life Cycle</span>
           </h2>
 
           <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed font-light">
@@ -71,62 +71,63 @@ export const OurProcessModelSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Central Life Cycle Badge */}
-        <div className="flex items-center justify-center mb-12">
-          <div className="inline-flex items-center gap-3.5 px-6 py-2.5 rounded-full bg-[#041a4a]/90 border border-[#c05e32]/40 shadow-lg shadow-black/40 backdrop-blur-xs group">
-            <img
-              src="/bb-constro-emblem.png"
-              alt="B&B Constro"
-              className="h-7 w-auto object-contain drop-shadow-[0_2px_8px_rgba(247,152,95,0.4)]"
-            />
-            <div className="h-4 w-px bg-white/20" />
-            <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-white font-['Outfit']">
-              B&amp;B CONSTRO
-            </span>
-            <span className="text-sm italic font-serif text-[#f7985f]">
-              Life Cycle
-            </span>
-          </div>
-        </div>
-
-        {/* 5 Process Cards Grid: Clean, Aesthetic, Single Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 relative">
-          {stages.map((stage, idx) => {
-            const Icon = stage.icon;
-            return (
-              <div
-                key={stage.step}
-                className="group relative p-6 sm:p-7 rounded-2xl bg-[#041a4a]/80 border border-white/10 hover:border-[#c05e32]/60 hover:bg-[#041a4a] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-md hover:shadow-xl hover:shadow-black/50"
+        {/* 5 Process Cards Grid with Continuous Flow Arrow through the middle */}
+        <div className="relative">
+          
+          {/* Continuous Horizontal Flow Line through the middle of the cards (Desktop) */}
+          <div
+            className="hidden lg:flex items-center absolute top-1/2 -translate-y-1/2 left-8 -right-8 pointer-events-none z-0"
+            aria-hidden="true"
+          >
+            {/* The horizontal connecting line */}
+            <div className="flex-1 h-[2.5px] bg-gradient-to-r from-[#c05e32]/60 via-[#f7985f] to-[#c05e32] shadow-[0_0_8px_rgba(247,152,95,0.4)]" />
+            
+            {/* Smooth Animated Arrowhead at the far right past Box 5 */}
+            <div className="text-[#f7985f] -ml-1 flex items-center animate-arrow-flow">
+              <svg
+                className="w-7 h-7 text-[#f7985f]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                {/* Arrow connector between stages on desktop */}
-                {idx < stages.length - 1 && (
-                  <div
-                    className="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-6 h-6 rounded-full bg-[#00153f] border border-[#c05e32]/40 text-[#f7985f] items-center justify-center text-[10px] pointer-events-none shadow-sm"
-                    aria-hidden="true"
-                  >
-                    <ArrowRight className="w-3 h-3 stroke-[2]" />
+                <line x1="2" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5 relative z-10">
+            {stages.map((stage) => {
+              const Icon = stage.icon;
+              return (
+                <div
+                  key={stage.step}
+                  className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/90 hover:border-[#c05e32] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-lg hover:shadow-2xl hover:shadow-black/40 text-slate-800"
+                >
+                  <div>
+                    {/* Icon */}
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#c05e32] group-hover:border-[#c05e32] group-hover:bg-[#c05e32] group-hover:text-white transition-all duration-300 shadow-xs mb-5">
+                      <Icon className={`w-6 h-6 stroke-[1] ${stage.animClass}`} strokeWidth={1} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xs sm:text-[13.5px] font-bold uppercase tracking-wider text-[#00153f] font-['Outfit'] mb-2.5 leading-snug group-hover:text-[#c05e32] transition-colors">
+                      {stage.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {stage.desc}
+                    </p>
                   </div>
-                )}
-
-                <div>
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-2xl bg-[#00153f] border border-white/10 flex items-center justify-center text-[#f7985f] group-hover:border-[#c05e32]/60 group-hover:bg-[#c05e32] group-hover:text-white transition-all duration-300 shadow-inner mb-5">
-                    <Icon className={`w-6 h-6 stroke-[1] ${stage.animClass}`} strokeWidth={1} />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xs sm:text-[13.5px] font-bold uppercase tracking-wider text-white font-['Outfit'] mb-2.5 leading-snug group-hover:text-[#f7985f] transition-colors">
-                    {stage.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    {stage.desc}
-                  </p>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
         </div>
 
       </div>

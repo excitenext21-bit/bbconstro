@@ -208,6 +208,22 @@
   will-change: transform, filter;
 }
 
+@keyframes arrow-flow-pulse {
+  0%, 100% {
+    transform: translateX(0);
+    filter: drop-shadow(0 0 4px rgba(247, 152, 95, 0.4));
+  }
+  50% {
+    transform: translateX(7px);
+    filter: drop-shadow(0 0 10px rgba(247, 152, 95, 0.8));
+  }
+}
+
+.animate-arrow-flow {
+  animation: arrow-flow-pulse 2s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
 /* HVAC Capabilities Smooth Icon Animations */
 @keyframes hvac-wind {
   0%, 100% {
@@ -788,6 +804,25 @@
 }
 
 /* ============================================================
+   PAGE ONLOAD ENTRANCE ANIMATION
+   ============================================================ */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* ============================================================
    GLOBAL SCROLL-REVEAL ANIMATION SYSTEM
    ============================================================
    Works with src/utils/scrollReveal.ts auto-initializer.
@@ -796,41 +831,39 @@
    ============================================================ */
 
 /* Base transition for every revealed element */
-.reveal-hidden {
+.reveal-initialised {
   transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  transition-duration: 750ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 800ms;
+  will-change: opacity, transform;
+}
+
+.reveal-hidden {
+  opacity: 0 !important;
+  transform: translateY(36px) !important;
 }
 
 .reveal-visible {
   opacity: 1 !important;
-  transform: none !important;
-}
-
-/* ── Variants ─────────────────────────────────────────── */
-
-/* fade-up (default for all <section>) */
-.reveal-fade-up {
-  opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(0) !important;
 }
 
 /* fade-down */
 .reveal-fade-down {
   opacity: 0;
-  transform: translateY(-40px);
+  transform: translateY(-36px);
 }
 
 /* fade-left (slides in from right) */
 .reveal-fade-left {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateX(40px);
 }
 
 /* fade-right (slides in from left) */
 .reveal-fade-right {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(-40px);
 }
 
 /* fade-in (opacity only) */
@@ -842,13 +875,13 @@
 /* zoom-in */
 .reveal-zoom-in {
   opacity: 0;
-  transform: scale(0.92);
+  transform: scale(0.94);
 }
 
 /* zoom-up (scale + translate combined) */
 .reveal-zoom-up {
   opacity: 0;
-  transform: scale(0.95) translateY(24px);
+  transform: scale(0.96) translateY(24px);
 }
 
 /* ── Stagger Delay Helpers ────────────────────────────── */
@@ -874,6 +907,9 @@
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  .animate-page-enter {
+    animation: none !important;
+  }
   .reveal-hidden {
     opacity: 1 !important;
     transform: none !important;

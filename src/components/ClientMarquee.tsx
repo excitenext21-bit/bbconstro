@@ -1,6 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { LongTailArrowRight } from './LongTailArrow';
+
+interface CountUpProps {
+  end: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  isVisible: boolean;
+  duration?: number;
+}
+
+const CountUp: React.FC<CountUpProps> = ({
+  end,
+  decimals = 0,
+  prefix = '',
+  suffix = '',
+  isVisible,
+  duration = 2000
+}) => {
+  const [count, setCount] = useState<string>(decimals > 0 ? (0).toFixed(decimals) : '0');
+
+  useEffect(() => {
+    if (!isVisible) {
+      setCount(decimals > 0 ? (0).toFixed(decimals) : '0');
+      return;
+    }
+
+    let startTime: number | null = null;
+    let animationFrameId: number;
+
+    const startTimer = setTimeout(() => {
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Smooth cubic ease-out
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = easeOut * end;
+
+        if (decimals > 0) {
+          setCount(currentVal.toFixed(decimals));
+        } else {
+          setCount(Math.floor(currentVal).toString());
+        }
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          setCount(decimals > 0 ? end.toFixed(decimals) : Math.floor(end).toString());
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+    }, 80);
+
+    return () => {
+      clearTimeout(startTimer);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isVisible, end, duration, decimals]);
+
+  return (
+    <span className="tabular-nums">
+      {prefix}
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 export interface ClientItem {
   id: string;
@@ -134,6 +203,50 @@ export const ClientMarquee: React.FC<ClientMarqueeProps> = ({
   const isAbout = isAboutPageProp !== undefined ? isAboutPageProp : location.pathname === '/about';
   const isCadBg = isAbout || bgColor === '#cad8e6';
 
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [statsVisible, setStatsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      setStatsVisible(true);
+      return;
+    }
+
+    const checkIfInView = () => {
+      if (statsRef.current) {
+        const rect = statsRef.current.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight - 30 && rect.bottom > 30;
+        if (inView) {
+          setStatsVisible(true);
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStatsVisible(true);
+          } else {
+            setStatsVisible(false);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -30px 0px'
+      }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    checkIfInView();
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       data-theme="light"
@@ -158,10 +271,10 @@ export const ClientMarquee: React.FC<ClientMarqueeProps> = ({
             </p>
 
             {/* Performance Indicators */}
-            <div className="pt-6 border-t border-slate-400/40 grid grid-cols-2 gap-6">
+            <div ref={statsRef} className="pt-6 border-t border-slate-400/40 grid grid-cols-2 gap-6">
               <div>
                 <span className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] block">
-                  100+
+                  <CountUp end={100} suffix="+" isVisible={statsVisible} duration={2000} />
                 </span>
                 <span className="text-xs sm:text-[13px] text-slate-700 font-medium">
                   Enterprise Facilities
@@ -169,7 +282,7 @@ export const ClientMarquee: React.FC<ClientMarqueeProps> = ({
               </div>
               <div>
                 <span className="text-2xl sm:text-3xl font-extrabold text-[#00153f] font-['Outfit'] block">
-                  99.8%
+                  <CountUp end={99.8} decimals={1} suffix="%" isVisible={statsVisible} duration={2200} />
                 </span>
                 <span className="text-xs sm:text-[13px] text-slate-700 font-medium">
                   Cooling Uptime SLA

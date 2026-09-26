@@ -32,17 +32,16 @@ import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { VideoTourModal } from './components/VideoTourModal';
 import { ServiceItem } from './types';
 
-// Scroll to top and re-initialise scroll-reveal whenever route pathname changes
+// Scroll to top and trigger section reveal animations whenever route changes
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    // Allow React to commit new DOM before we observe sections
-    const frame = requestAnimationFrame(() => {
+    const timer = setTimeout(() => {
       initScrollReveal();
-    });
-    return () => cancelAnimationFrame(frame);
+    }, 60);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;
@@ -50,11 +49,17 @@ function ScrollToTop() {
 
 export default function App() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [bookingType, setBookingType] = useState<'emergency' | 'repair' | 'amc' | 'new_install'>('repair');
   const [videoTourOpen, setVideoTourOpen] = useState(false);
   const [activeCaseStudyTab, setActiveCaseStudyTab] = useState<number>(0);
+
+  // Initialize global scroll-reveal and onload animations
+  useEffect(() => {
+    initScrollReveal();
+  }, []);
 
   // Backward compatibility: If someone visited with a legacy hash like #about or #services, redirect to /about, /services
   useEffect(() => {
@@ -99,9 +104,9 @@ export default function App() {
         onOpenBooking={handleOpenBooking}
       />
 
-      {/* Main View Router */}
-      <main className="flex-1">
-        <Routes>
+      {/* Main View Router with Onload Page & Section Animations */}
+      <main key={location.pathname} className="flex-1 animate-page-enter">
+        <Routes location={location}>
           <Route
             path="/"
             element={
@@ -156,7 +161,7 @@ export default function App() {
           <Route
             path="/about"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   singleLineTitle={true}
                   title="Pioneering Complex HVAC Systems & Climate Control"
@@ -208,7 +213,7 @@ export default function App() {
           <Route
             path="/clients"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   title="Our Clients & Strategic Partnerships"
                   description="Trusted by over 100+ premier commercial enterprises, IT SEZ campuses, industrial plants, and luxury hospitality destinations across Maharashtra."
@@ -229,7 +234,7 @@ export default function App() {
           <Route
             path="/services"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   title="HVAC Services & Engineering Capabilities"
                   description="From central chiller plants and commercial VRV/VRF systems to cleanroom AHU pressurisation, basement ventilation, and 24/7 breakdown SLAs."
@@ -249,7 +254,7 @@ export default function App() {
           <Route
             path="/projects"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   title="HVAC Success Stories & Client Milestones"
                   description="Over 250 diverse projects delivered with 99.8% cooling reliability across corporate towers, industrial cleanrooms, IT SEZs, and luxury residential estates."
@@ -282,7 +287,7 @@ export default function App() {
           <Route
             path="/faqs"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   title="Everything You Need to Know"
                   description="Learn about our 60-minute emergency response SLA, Lokring braze-free piping safety, Daikin/Voltas OEM spare supplies, and AMC service schedules."
@@ -307,7 +312,7 @@ export default function App() {
           <Route
             path="/amc"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <InnerPageHero
                   title="Annual Maintenance Contracts (AMC)"
                   description="Structured multi-visit preventive maintenance programs ensuring peak cooling efficiency, 20% lower electricity draw, and zero unplanned system outages."
@@ -330,7 +335,7 @@ export default function App() {
           <Route
             path="/contact"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <ContactView
                   onOpenBooking={handleOpenBooking}
                 />
@@ -342,7 +347,7 @@ export default function App() {
           <Route
             path="/statutory"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <StatutoryView
                   onBack={() => navigate('/')}
                 />
@@ -354,7 +359,7 @@ export default function App() {
           <Route
             path="/privacy"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <PrivacyPolicyView
                   onBack={() => navigate('/')}
                 />
@@ -366,7 +371,7 @@ export default function App() {
           <Route
             path="/terms"
             element={
-              <div className="animate-fadeIn">
+              <div className="w-full">
                 <TermsView
                   onBack={() => navigate('/')}
                 />

@@ -127,8 +127,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore, onBookA
           {/* 3 Feature Columns with Outline Icons matching reference */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
             
-            {/* Card 1: HVAC Heat Load Modeling */}
-            <div className="group flex flex-col items-start cursor-default" data-reveal="fade-up" data-reveal-delay="0">
+            {/* Card 1: Property Valuation -> Heat Load & Modeling */}
+            <div className="group flex flex-col items-start cursor-default">
               <div className="w-12 h-12 rounded-2xl border border-slate-700/80 bg-slate-900/70 flex items-center justify-center text-[#f7985f] mb-4 group-hover:border-[#f7985f] group-hover:bg-[#041a4a] group-hover:shadow-[0_0_20px_rgba(247,152,95,0.35)] group-hover:-translate-y-1 transition-all duration-300">
                 <Compass className="w-6 h-6 stroke-[1] animate-compass group-hover:scale-110 transition-transform duration-300" strokeWidth={1} />
               </div>
@@ -140,8 +140,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore, onBookA
               </p>
             </div>
 
-            {/* Card 2: Turnkey VRV Execution */}
-            <div className="group flex flex-col items-start cursor-default" data-reveal="fade-up" data-reveal-delay="150">
+            {/* Card 2: Property Management -> Turnkey Project Execution */}
+            <div className="group flex flex-col items-start cursor-default">
               <div className="w-12 h-12 rounded-2xl border border-slate-700/80 bg-slate-900/70 flex items-center justify-center text-[#f7985f] mb-4 group-hover:border-[#f7985f] group-hover:bg-[#041a4a] group-hover:shadow-[0_0_20px_rgba(247,152,95,0.35)] group-hover:-translate-y-1 transition-all duration-300">
                 <Building className="w-6 h-6 stroke-[1] animate-building group-hover:scale-110 transition-transform duration-300" strokeWidth={1} />
               </div>
@@ -153,8 +153,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore, onBookA
               </p>
             </div>
 
-            {/* Card 3: 24/7 Repairs & AMC */}
-            <div className="group flex flex-col items-start cursor-default" data-reveal="fade-up" data-reveal-delay="300">
+            {/* Card 3: Invest Opportunities -> 24/7 Breakdown & AMC */}
+            <div className="group flex flex-col items-start cursor-default">
               <div className="w-12 h-12 rounded-2xl border border-slate-700/80 bg-slate-900/70 flex items-center justify-center text-[#f7985f] mb-4 group-hover:border-[#f7985f] group-hover:bg-[#041a4a] group-hover:shadow-[0_0_20px_rgba(247,152,95,0.35)] group-hover:-translate-y-1 transition-all duration-300">
                 <Shield className="w-6 h-6 stroke-[1] animate-shield group-hover:scale-110 transition-transform duration-300" strokeWidth={1} />
               </div>

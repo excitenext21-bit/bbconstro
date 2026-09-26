@@ -1,72 +1,118 @@
 /**
- * Global Scroll-Reveal Auto-Initializer
+ * Global Onload & Scroll-Reveal Animation System
  * -------------------------------------------------------
- * Automatically observes every <section> and any element
- * with [data-reveal] attribute across the entire app.
- *
- * CSS classes (defined in index.css):
- *   .reveal-hidden  → start state  (opacity:0, translateY)
- *   .reveal-visible → end state    (opacity:1, translateY:0)
- *
- * Usage in components (optional targeted control):
- *   <div data-reveal="fade-up" data-reveal-delay="200">...</div>
- *
- * Supported data-reveal values:
- *   fade-up | fade-down | fade-left | fade-right | fade-in | zoom-in
+ * Handles staggered onload reveal for all visible sections on page load / route change,
+ * and smooth scroll entrance for all subsequent sections across all pages.
  */
 
-const THRESHOLD = 0.1;
-const ROOT_MARGIN = '0px 0px -50px 0px';
+let activeObserver: IntersectionObserver | null = null;
+let activeTimers: ReturnType<typeof setTimeout>[] = [];
+let activeMutationObserver: MutationObserver | null = null;
 
-function initReveal(el: Element) {
-  if (el.classList.contains('reveal-initialised')) return;
-  el.classList.add('reveal-initialised');
-
-  const variant = el.getAttribute('data-reveal') || 'fade-up';
-  const delay = el.getAttribute('data-reveal-delay') || '0';
-
-  el.classList.add('reveal-hidden', `reveal-${variant}`);
-  (el as HTMLElement).style.transitionDelay = `${delay}ms`;
+export function clearRevealTimers() {
+  activeTimers.forEach((timer) => clearTimeout(timer));
+  activeTimers = [];
 }
 
-function observeAll(observer: IntersectionObserver) {
-  // Observe all sections
-  document.querySelectorAll('section:not(.reveal-initialised)').forEach((el) => {
-    initReveal(el);
-    observer.observe(el);
+export function triggerPageOnloadReveal() {
+  if (typeof window === 'undefined') return;
+
+  // Clear any pending timers
+  clearRevealTimers();
+
+  // Disconnect previous observer
+  if (activeObserver) {
+    activeObserver.disconnect();
+    activeObserver = null;
+  }
+
+  // Find all sections and data-reveal elements on the current page
+  const elements = Array.from(
+    document.querySelectorAll<HTMLElement>(
+      'section:not([data-no-reveal]), [data-reveal]:not([data-no-reveal])'
+    )
+  );
+
+  if (elements.length === 0) return;
+
+  // Helper function to animate an element to visible state
+  const revealElement = (el: HTMLElement) => {
+    requestAnimationFrame(() => {
+      el.classList.add('reveal-visible');
+      el.classList.remove('reveal-hidden');
+    });
+  };
+
+  // Fallback: If IntersectionObserver is not supported, reveal everything immediately
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((el) => {
+      el.classList.add('reveal-visible');
+      el.classList.remove('reveal-hidden');
+    });
+    return;
+  }
+
+  // Setup observer for scroll-triggered elements
+  activeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          activeObserver?.unobserve(el);
+          revealElement(el);
+        }
+      });
+    },
+    { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+  );
+
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+  let visibleIndex = 0;
+
+  elements.forEach((el) => {
+    // Reset to hidden transition state
+    el.classList.remove('reveal-visible');
+    el.classList.add('reveal-initialised', 'reveal-hidden');
+
+    const rect = el.getBoundingClientRect();
+    // Element is visible above-the-fold or partially in viewport on load
+    const isInViewport = rect.top < windowHeight - 40 && rect.bottom > 20;
+
+    if (isInViewport) {
+      // Stagger initial onload entrance
+      const delay = visibleIndex * 140 + 50;
+      visibleIndex++;
+      const timer = setTimeout(() => {
+        revealElement(el);
+      }, delay);
+      activeTimers.push(timer);
+    } else {
+      // Element is below the fold: observe for scroll reveal
+      activeObserver?.observe(el);
+    }
+  });
+}
+
+export function setupMutationWatcher() {
+  if (typeof window === 'undefined' || activeMutationObserver) return;
+
+  activeMutationObserver = new MutationObserver(() => {
+    // Check if new uninitialised sections appeared in DOM
+    const uninitialised = document.querySelectorAll(
+      'section:not(.reveal-initialised):not([data-no-reveal])'
+    );
+    if (uninitialised.length > 0) {
+      triggerPageOnloadReveal();
+    }
   });
 
-  // Observe explicit data-reveal elements (cards, headings, etc.)
-  document.querySelectorAll('[data-reveal]:not(.reveal-initialised)').forEach((el) => {
-    initReveal(el);
-    observer.observe(el);
+  activeMutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
   });
 }
 
 export function initScrollReveal() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          entry.target.classList.remove('reveal-hidden');
-          observer.unobserve(entry.target); // once only
-        }
-      });
-    },
-    { threshold: THRESHOLD, rootMargin: ROOT_MARGIN }
-  );
-
-  // Initial pass
-  observeAll(observer);
-
-  // Watch for new DOM nodes (route changes render new sections)
-  const mutationObserver = new MutationObserver(() => {
-    observeAll(observer);
-  });
-
-  mutationObserver.observe(document.body, {
-    childList: true,
-    subtree: true,
-  });
+  triggerPageOnloadReveal();
+  setupMutationWatcher();
 }
