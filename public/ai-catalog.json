@@ -2,61 +2,84 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "B&B Constro HVAC Solutions Pune",
-    "url": "https://bbconstro.com",
-    "contact": {
-      "email": "connect@bbconstro.com",
-      "telephone": "+91 91759 74749"
-    }
+    "documentationUrl": "https://bbconstro.com/about",
+    "logoUrl": "https://bbconstro.com/bb-constro-logo-white.png"
   },
   "entries": [
     {
-      "identifier": "urn:air:bbconstro:services",
+      "identifier": "urn:air:bbconstro:services:commercial-hvac",
       "displayName": "Commercial HVAC Engineering & Capabilities",
-      "type": "application/ai-catalog+json",
+      "type": "application/agent-card+json",
       "url": "https://bbconstro.com/services",
-      "description": "Turnkey engineering for commercial VRV/VRF systems, central chiller plants, cleanroom AHUs, and ventilation in Pune."
+      "description": "Turnkey engineering, thermal load calculations, and commissioning for commercial VRV/VRF systems, central chiller plants, and cleanroom AHU ventilation in Pune.",
+      "tags": ["hvac", "vrv-vrf", "chiller-plants", "cleanroom", "engineering"],
+      "capabilities": ["heat-load-modeling", "vrv-installation", "chiller-staging", "cleanroom-ahu"],
+      "representativeQueries": [
+        "commercial HVAC contractor in Pune",
+        "VRV VRF system design and installation",
+        "central chiller plant engineering Pune",
+        "cleanroom AHU ventilation specialist"
+      ]
     },
     {
-      "identifier": "urn:air:bbconstro:emergency",
+      "identifier": "urn:air:bbconstro:services:emergency-dispatch",
       "displayName": "24/7 Emergency HVAC Breakdown & Repair SLA",
-      "type": "application/ai-catalog+json",
+      "type": "application/agent-card+json",
       "url": "https://bbconstro.com/services",
-      "description": "Rapid 60-90 minute on-site technician dispatch for chiller halts, gas leaks, and compressor failures across Pune."
+      "description": "Guaranteed 60 to 90-minute on-site technician dispatch across Pune and PCMC for chiller halts, gas leaks, and critical compressor failures.",
+      "tags": ["emergency-repair", "hvac-breakdown", "chiller-repair", "24-7-dispatch"],
+      "capabilities": ["rapid-dispatch", "compressor-replacement", "leak-detection", "nitrogen-testing"],
+      "representativeQueries": [
+        "24/7 emergency HVAC repair in Pune",
+        "urgent chiller breakdown technician",
+        "commercial AC compressor failure repair",
+        "HVAC gas leak emergency dispatch"
+      ]
     },
     {
-      "identifier": "urn:air:bbconstro:amc",
+      "identifier": "urn:air:bbconstro:services:amc-management",
       "displayName": "HVAC Annual Maintenance Contracts (AMC)",
-      "type": "application/ai-catalog+json",
+      "type": "application/agent-card+json",
       "url": "https://bbconstro.com/amc",
-      "description": "Structured 3-visit annual HVAC preventive maintenance frameworks (2 dry cleanings + 1 chemical coil wash) saving up to 20% power."
+      "description": "Structured 3-visit annual HVAC preventive maintenance frameworks (2 dry cleanings + 1 chemical coil wash) saving up to 20% power draw.",
+      "tags": ["amc", "preventive-maintenance", "coil-wash", "energy-efficiency"],
+      "capabilities": ["scheduled-servicing", "coil-chemical-wash", "electrical-diagnostics", "energy-audits"],
+      "representativeQueries": [
+        "commercial HVAC annual maintenance contract Pune",
+        "VRV VRF AMC service cost",
+        "preventive chiller plant maintenance contract",
+        "quarterly HVAC coil cleaning service"
+      ]
     },
     {
-      "identifier": "urn:air:bbconstro:projects",
+      "identifier": "urn:air:bbconstro:portfolio:commercial-projects",
       "displayName": "Commercial HVAC Projects & Case Studies",
       "type": "application/ai-catalog+json",
       "url": "https://bbconstro.com/projects",
-      "description": "Case studies from Magarpatta City SEZ Towers (3.4 lakh sq. ft.), Solitaire Business Hub, and Vulcan Technologies."
+      "description": "Commercial engineering case studies and portfolio including Magarpatta City SEZ Towers (3.4 lakh sq. ft.), Solitaire Business Hub, and Vulcan Technologies.",
+      "tags": ["case-studies", "portfolio", "magarpatta", "solitaire", "vulcan"],
+      "capabilities": ["commercial-case-studies", "retrofit-portfolio", "cleanroom-portfolio"],
+      "representativeQueries": [
+        "B&B Constro HVAC project case studies",
+        "Magarpatta City IT park HVAC installation",
+        "industrial cleanroom HVAC portfolio Pune",
+        "large-scale commercial VRF project references"
+      ]
     },
     {
-      "identifier": "urn:air:bbconstro:contact",
+      "identifier": "urn:air:bbconstro:contact:booking-dispatch",
       "displayName": "24/7 Dispatch Hotline & Consultation Booking",
-      "type": "application/ai-catalog+json",
+      "type": "application/agent-card+json",
       "url": "https://bbconstro.com/contact",
-      "description": "Immediate contact portal and 24/7 hotline (+91 91759 74749 / +91 772000 7392) for emergency repairs and inquiries."
-    },
-    {
-      "identifier": "urn:air:bbconstro:llms-txt",
-      "displayName": "LLMs Context File",
-      "type": "text/markdown",
-      "url": "https://bbconstro.com/llms.txt",
-      "description": "Standard markdown context document for LLMs and autonomous AI agents."
-    },
-    {
-      "identifier": "urn:air:bbconstro:sitemap",
-      "displayName": "XML Sitemap",
-      "type": "application/xml",
-      "url": "https://bbconstro.com/sitemap.xml",
-      "description": "Search engine and crawler index of all canonical website pages."
+      "description": "Direct portal and 24/7 hotline (+91 91759 74749 / +91 772000 7392) for emergency breakdown bookings and technical consultation.",
+      "tags": ["contact", "booking", "hotline", "emergency-callout"],
+      "capabilities": ["instant-booking", "dispatch-coordination", "technical-consultation"],
+      "representativeQueries": [
+        "book commercial HVAC technician Pune",
+        "contact B&B Constro emergency helpline",
+        "HVAC engineer consultation Pune",
+        "commercial air conditioning service booking"
+      ]
     }
   ]
 }
