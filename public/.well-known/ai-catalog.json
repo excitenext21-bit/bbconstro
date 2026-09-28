@@ -1,0 +1,62 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "B&B Constro HVAC Solutions Pune",
+    "url": "https://bbconstro.com",
+    "contact": {
+      "email": "connect@bbconstro.com",
+      "telephone": "+91 91759 74749"
+    }
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:bbconstro:services",
+      "displayName": "Commercial HVAC Engineering & Capabilities",
+      "type": "application/ai-catalog+json",
+      "url": "https://bbconstro.com/services",
+      "description": "Turnkey engineering for commercial VRV/VRF systems, central chiller plants, cleanroom AHUs, and ventilation in Pune."
+    },
+    {
+      "identifier": "urn:air:bbconstro:emergency",
+      "displayName": "24/7 Emergency HVAC Breakdown & Repair SLA",
+      "type": "application/ai-catalog+json",
+      "url": "https://bbconstro.com/services",
+      "description": "Rapid 60-90 minute on-site technician dispatch for chiller halts, gas leaks, and compressor failures across Pune."
+    },
+    {
+      "identifier": "urn:air:bbconstro:amc",
+      "displayName": "HVAC Annual Maintenance Contracts (AMC)",
+      "type": "application/ai-catalog+json",
+      "url": "https://bbconstro.com/amc",
+      "description": "Structured 3-visit annual HVAC preventive maintenance frameworks (2 dry cleanings + 1 chemical coil wash) saving up to 20% power."
+    },
+    {
+      "identifier": "urn:air:bbconstro:projects",
+      "displayName": "Commercial HVAC Projects & Case Studies",
+      "type": "application/ai-catalog+json",
+      "url": "https://bbconstro.com/projects",
+      "description": "Case studies from Magarpatta City SEZ Towers (3.4 lakh sq. ft.), Solitaire Business Hub, and Vulcan Technologies."
+    },
+    {
+      "identifier": "urn:air:bbconstro:contact",
+      "displayName": "24/7 Dispatch Hotline & Consultation Booking",
+      "type": "application/ai-catalog+json",
+      "url": "https://bbconstro.com/contact",
+      "description": "Immediate contact portal and 24/7 hotline (+91 91759 74749 / +91 772000 7392) for emergency repairs and inquiries."
+    },
+    {
+      "identifier": "urn:air:bbconstro:llms-txt",
+      "displayName": "LLMs Context File",
+      "type": "text/markdown",
+      "url": "https://bbconstro.com/llms.txt",
+      "description": "Standard markdown context document for LLMs and autonomous AI agents."
+    },
+    {
+      "identifier": "urn:air:bbconstro:sitemap",
+      "displayName": "XML Sitemap",
+      "type": "application/xml",
+      "url": "https://bbconstro.com/sitemap.xml",
+      "description": "Search engine and crawler index of all canonical website pages."
+    }
+  ]
+}

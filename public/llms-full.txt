@@ -1,0 +1,73 @@
+# B&B Constro HVAC Solutions Pune - Complete Documentation & Context
+
+> Comprehensive guide and machine-readable context for B&B Constro Private Limited, the premier commercial HVAC engineering and contracting company based in Pune, Maharashtra, India.
+
+## Company Overview
+
+- **Legal Entity**: B&B Constro Private Limited
+- **Founded**: Established by Mr. Pravin Bakshi (Production Engineer with extensive tenures at Hitachi, Voltas, and Daikin)
+- **Experience**: 17+ years of hands-on thermodynamic and mechanical HVAC engineering
+- **Certified Workforce**: 75+ certified field engineers and mobile dispatch units across Pune & PCMC
+- **Projects Delivered**: 250+ commercial, industrial, healthcare, and hospitality installations across India
+- **Headquarters**: Gala no 2, Behind Ramdev Baba Garage, VIIT Sq., Upper Indira Nagar, Kondhwa Budruk, Pune, Maharashtra 411037, India
+- **Emergency Hotline (24/7)**: +91 91759 74749 / +91 772000 7392
+- **Email**: connect@bbconstro.com
+- **Website**: https://bbconstro.com
+
+## Engineering Capabilities & Offerings
+
+### 1. Commercial VRV / VRF Systems
+- [Learn more about VRV/VRF](https://bbconstro.com/services)
+- Engineered for commercial high-rises, IT parks, hospitality resorts, and enterprise headquarters.
+- Advanced multi-split inverter technology with independent zone temperature control.
+- Braze-free Lokring mechanical joint technology eliminating open-flame fire risks in live buildings.
+- Energy modeling with seasonal COP optimization, reducing power draw by up to 25%.
+
+### 2. Central Chiller Plants & Heavy Rigging
+- [Learn more about Central Chillers](https://bbconstro.com/services)
+- High-tonnage water-cooled centrifugal and air-cooled screw chiller installations.
+- Primary-secondary variable speed chilled water pumping and dynamic hydraulic balancing.
+- Induced draft cooling tower integration, automated chemical water treatment, and heat recovery.
+
+### 3. Cleanroom Air Handling Units (AHU) & Contamination Control
+- [Learn more about Cleanroom AHUs](https://bbconstro.com/services)
+- Compliance with ISO 14644-1 (ISO Class 5 through Class 8 / US FED STD 209E Class 100 to 100,000).
+- Multi-tier filtration: G4 pre-filters, F8/F9 fine bag filters, and 99.99% terminal HEPA filters.
+- Tight relative humidity control (±5% RH) and continuous differential pressure cascades.
+
+### 4. 24/7 Emergency Breakdown Response SLA
+- [Book Emergency Service](https://bbconstro.com/services)
+- Guaranteed 60 to 90-minute on-site arrival window across Pune and PCMC municipal belts.
+- Immediate response for chiller halts, compressor burnout, refrigerant leaks, and electrical trip faults.
+- Stocked mobile emergency inventory of genuine Daikin, Copeland, Danfoss, and Carrier spare parts.
+
+### 5. Annual Maintenance Contracts (AMC)
+- [Explore AMC Plans](https://bbconstro.com/amc)
+- 3 scheduled preventive visits per year (2 Dry cleaning + 1 Wet high-pressure chemical coil wash).
+- Comprehensive (parts + labor + compressor), Semi-Comprehensive, and Labour AMC frameworks.
+- Documented power bill reductions of 15% to 20% through preventive thermal heat-transfer restoration.
+
+## Proven Commercial Portfolio
+
+- [View All Project Case Studies](https://bbconstro.com/projects)
+- **Magarpatta City SEZ Cybercity Towers**: 3,40,000 sq. ft. Daikin VRV installation and continuous AMC delivering 19% documented power savings.
+- **Vulcan Technologies Pvt Ltd**: 85,000 sq. ft. cleanroom precision HVAC using Lokring flame-free cold joints in Pirangut.
+- **Solitaire Business Hub**: 550 TR central water-cooled screw chillers with automated building management systems.
+- **Dr. Pratibha Patil Hospital**: Positive-pressure laminar airflow operation theaters and critical 24/7 emergency support.
+- **Orbett Hotels & Banquets**: High-capacity rapid dynamic cooling retrofits for banquet halls.
+
+## Canonical Web Resources
+
+- [Home Page](https://bbconstro.com/)
+- [Services & Capabilities](https://bbconstro.com/services)
+- [Projects & Case Studies](https://bbconstro.com/projects)
+- [Annual Maintenance Contracts](https://bbconstro.com/amc)
+- [About & Leadership](https://bbconstro.com/about)
+- [FAQs & Technical Support](https://bbconstro.com/faqs)
+- [Contact & Booking](https://bbconstro.com/contact)
+- [Privacy Policy](https://bbconstro.com/privacy)
+- [Terms & Conditions](https://bbconstro.com/terms)
+- [Statutory Compliance](https://bbconstro.com/statutory)
+- [XML Sitemap](https://bbconstro.com/sitemap.xml)
+- [Robots Directives](https://bbconstro.com/robots.txt)
+- [Agentic Resource Discovery (ARD) Catalog](https://bbconstro.com/ai-catalog.json)

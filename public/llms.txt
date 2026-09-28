@@ -1,0 +1,37 @@
+# B&B Constro HVAC Solutions Pune
+
+> B&B Constro Private Limited is a leading commercial HVAC engineering contractor based in Pune, Maharashtra, India. Led by Mr. Pravin Bakshi (17+ years HVAC industry leadership with corporate engineering roots at Hitachi, Voltas, and Daikin), the company specializes in commercial VRV/VRF systems, high-tonnage central chiller plants, cleanroom ventilation, 24/7 rapid emergency breakdown repair, and comprehensive Annual Maintenance Contracts (AMC).
+
+## Primary Services & Capabilities
+
+- [Commercial VRV/VRF Systems](https://bbconstro.com/services): Turnkey engineering, heat load calculations, and commissioning of energy-efficient variable refrigerant volume systems for corporate IT parks, luxury hotels, and commercial buildings.
+- [Central Chiller Plant Systems](https://bbconstro.com/services): Air-cooled and water-cooled screw/centrifugal chillers, primary-secondary variable speed pumping loops, cooling towers, and automated plant room staging.
+- [Cleanroom AHU & Air Quality](https://bbconstro.com/services): ISO Class 5 to Class 8 (Class 100 to 100,000) cleanroom validation with 99.99% terminal HEPA filtration, differential pressure cascades, and tight relative humidity regulation.
+- [24/7 Emergency HVAC Breakdown & Repair SLA](https://bbconstro.com/services): Guaranteed 60 to 90-minute on-site technician dispatch across Pune and PCMC municipal belts with stocked OEM compressors, relays, VFDs, and mobile diagnostic units.
+- [Annual Maintenance Contracts (AMC)](https://bbconstro.com/amc): Lifecycle preventive care following a 3-visit annual methodology (2 dry cleaning + 1 high-pressure chemical coil wash) delivering up to 20% electrical efficiency gains.
+
+## Key Sections & Infrastructure
+
+- [Home Overview](https://bbconstro.com/): Official overview of B&B Constro turnkey HVAC engineering capabilities, client marquee, stats, and instant dispatch booking system.
+- [About Us & Leadership](https://bbconstro.com/about): 17+ years of thermodynamic engineering excellence, corporate history, and leadership vision led by Mr. Pravin Bakshi.
+- [Projects & Portfolio](https://bbconstro.com/projects): Commercial portfolios including Magarpatta City SEZ Towers (3,40,000 sq. ft.), Solitaire Business Hub, and Vulcan Technologies Pirangut cleanrooms.
+- [FAQs & Technical Resources](https://bbconstro.com/faqs): Detailed technical answers on system sizing, ISHRAE/ASHRAE compliance, AMC coverage tiers, and emergency response SLAs.
+- [Contact & Dispatch Center](https://bbconstro.com/contact): Direct 24/7 emergency dispatch hotline (+91 91759 74749 / +91 772000 7392) and headquarters in Kondhwa Budruk, Pune.
+
+## Statutory & Organization Information
+
+- **Legal Entity Name**: B&B Constro Private Limited
+- **Brand / Alternate Name**: B&B Constro HVAC Solutions Pune
+- **Headquarters Address**: Gala no 2, Behind Ramdev Baba Garage, VIIT Sq., Upper Indira Nagar, Kondhwa Budruk, Pune, Maharashtra 411037, India
+- **Coordinates**: Latitude 18.4575° N, Longitude 73.8677° E
+- **24/7 Emergency Telephone**: +91 91759 74749 / +91 772000 7392
+- **Email Contact**: connect@bbconstro.com
+- **Operating Hours**: 24 hours a day, 7 days a week (24/7/365 Emergency Dispatch)
+- **Service Territories**: Pune, Pimpri-Chinchwad (PCMC), Hadapsar, Hinjawadi, Kharadi, Pirangut, Chakan, Talegaon, and surrounding industrial belts.
+
+## Optional Resources
+
+- [Full LLMs Context](https://bbconstro.com/llms-full.txt): Complete uncompressed context document.
+- [Sitemap](https://bbconstro.com/sitemap.xml): XML sitemap of all public URLs.
+- [Robots Directives](https://bbconstro.com/robots.txt): Crawler rules and sitemap location.
+- [AI Resource Catalog](https://bbconstro.com/ai-catalog.json): Machine-readable Agentic Resource Discovery (ARD) manifest.
