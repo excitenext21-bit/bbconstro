@@ -79,16 +79,6 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
       return;
     }
 
-    const checkIfInView = () => {
-      if (statsSectionRef.current) {
-        const rect = statsSectionRef.current.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight - 30 && rect.bottom > 30;
-        if (inView) {
-          setStatsVisible(true);
-        }
-      }
-    };
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -108,8 +98,6 @@ export const LeadershipView: React.FC<LeadershipViewProps> = ({
     if (statsSectionRef.current) {
       observer.observe(statsSectionRef.current);
     }
-
-    checkIfInView();
 
     return () => observer.disconnect();
   }, []);

@@ -20,10 +20,12 @@ export const Footer: React.FC<FooterProps> = () => {
           
           {/* Column 1: Brand Logo & Copyright */}
           <div className="lg:col-span-4 flex flex-col items-start gap-4">
-            <Link to="/" className="inline-block group" aria-label="B&B Constro Home">
+            <Link to="/" className="inline-flex items-center min-h-[48px] group" aria-label="B&B Constro Home">
               <img
                 src="/bb-constro-logo-white.png"
                 alt="B&B Constro Private Limited"
+                width={1024}
+                height={159}
                 className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </Link>
@@ -46,42 +48,38 @@ export const Footer: React.FC<FooterProps> = () => {
 
           {/* Column 3: Contact */}
           <div className="lg:col-span-3">
-            <h4 className="text-sm sm:text-[15px] font-normal text-white font-['Outfit'] mb-3 sm:mb-4">
+            <h4 className="text-sm sm:text-[15px] font-normal text-white font-['Outfit'] mb-1 sm:mb-2">
               Contact
             </h4>
-            <div className="text-[14px] text-slate-300 leading-relaxed font-normal space-y-2" style={{ fontSize: '14px' }}>
-              <div className="flex items-center gap-2.5">
+            <div className="text-[14px] text-slate-300 leading-relaxed font-normal flex flex-col items-start" style={{ fontSize: '14px' }}>
+              <a
+                href={`mailto:${STATUTORY_DATA.email}`}
+                className="min-h-[48px] py-2 inline-flex items-center gap-2.5 text-slate-300 hover:text-white transition-colors"
+              >
                 <Mail className="w-4 h-4 text-slate-400 shrink-0 stroke-[1]" strokeWidth={1} />
-                <a
-                  href={`mailto:${STATUTORY_DATA.email}`}
-                  className="text-slate-300 hover:text-white transition-colors"
-                >
-                  {STATUTORY_DATA.email}
-                </a>
-              </div>
-              <div className="flex items-center gap-2.5">
+                <span>{STATUTORY_DATA.email}</span>
+              </a>
+              <a
+                href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
+                className="min-h-[48px] py-2 inline-flex items-center gap-2.5 text-slate-300 hover:text-white transition-colors"
+              >
                 <Phone className="w-4 h-4 text-slate-400 shrink-0 stroke-[1]" strokeWidth={1} />
-                <a
-                  href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
-                  className="text-slate-300 hover:text-white transition-colors"
-                >
-                  {STATUTORY_DATA.phone}
-                </a>
-              </div>
+                <span>{STATUTORY_DATA.phone}</span>
+              </a>
             </div>
           </div>
 
           {/* Column 4: Socials with 1px underline */}
           <div className="lg:col-span-2">
-            <h4 className="text-sm sm:text-[15px] font-normal text-white font-['Outfit'] mb-3 sm:mb-4">
+            <h4 className="text-sm sm:text-[15px] font-normal text-white font-['Outfit'] mb-1 sm:mb-2">
               Socials
             </h4>
-            <div className="flex flex-col items-start gap-1.5 text-xs sm:text-[13px] font-normal">
+            <div className="flex flex-row flex-wrap sm:flex-col items-center sm:items-start gap-x-6 gap-y-1 sm:gap-x-0 text-xs sm:text-[13px] font-normal">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
+                className="min-h-[48px] py-2 inline-flex items-center text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
               >
                 Facebook
               </a>
@@ -89,7 +87,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
+                className="min-h-[48px] py-2 inline-flex items-center text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
               >
                 Instagram
               </a>
@@ -97,7 +95,7 @@ export const Footer: React.FC<FooterProps> = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
+                className="min-h-[48px] py-2 inline-flex items-center text-slate-300 hover:text-white underline underline-offset-4 decoration-1 decoration-slate-400 hover:decoration-white transition-colors"
               >
                 LinkedIn
               </a>

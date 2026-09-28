@@ -68,6 +68,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onLearnMore, onBookA
               <img
                 src="/assets/brand-copper-b.png"
                 alt="B&B Constro HVAC Copper Refrigerant Piping Motif"
+                width={420}
+                height={506}
+                loading="lazy"
+                decoding="async"
                 className="relative max-h-[280px] sm:max-h-[340px] lg:max-h-[380px] w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.65)] hover:scale-105 transition-transform duration-500 select-none"
               />
             </div>

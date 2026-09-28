@@ -109,16 +109,15 @@ export const CapabilitiesChamferSection: React.FC<CapabilitiesChamferSectionProp
                   <Icon className={`w-7 h-7 stroke-[1] ${item.animClass} group-hover:scale-115 transition-transform duration-300`} strokeWidth={1} />
                 </div>
                 
-                {/* Step Title (+5% font weight: 750 / font-extrabold) */}
+                {/* Step Title: Matches Image 1 on mobile, preserves compact size on desktop */}
                 <h3
-                  className="text-xs sm:text-sm font-extrabold tracking-tight text-[#0f172a] font-['Outfit']"
-                  style={{ fontWeight: 750 }}
+                  className="text-xl sm:text-sm font-bold sm:font-extrabold tracking-tight text-[#0f172a] font-['Outfit']"
                 >
                   {item.title}
                 </h3>
                 
-                {/* Step Description from Image 2 */}
-                <p className="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed font-normal">
+                {/* Step Description: Matches Image 1 on mobile, preserves compact size on desktop */}
+                <p className="text-xs sm:text-xs text-slate-600 sm:text-slate-500 mt-2 leading-relaxed font-normal font-['Plus_Jakarta_Sans',sans-serif]">
                   {item.desc}
                 </p>
               </div>

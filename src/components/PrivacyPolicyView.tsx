@@ -28,7 +28,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-white rounded-[3px] text-white hover:bg-white hover:text-slate-950 font-[300] text-xs mb-8 transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] bg-transparent border border-white rounded-[3px] text-white hover:bg-white hover:text-slate-950 font-[300] text-xs mb-8 transition-all cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4 stroke-[1.5]" />
           <span className="font-[300]">Back to Home</span>

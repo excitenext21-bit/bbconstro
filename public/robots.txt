@@ -1,0 +1,7 @@
+# robots.txt for B&B Constro HVAC Solutions Pune
+User-agent: *
+Allow: /
+
+# Host & Sitemap
+Host: https://bbconstro.com
+Sitemap: https://bbconstro.com/sitemap.xml

@@ -212,16 +212,6 @@ export const ClientMarquee: React.FC<ClientMarqueeProps> = ({
       return;
     }
 
-    const checkIfInView = () => {
-      if (statsRef.current) {
-        const rect = statsRef.current.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight - 30 && rect.bottom > 30;
-        if (inView) {
-          setStatsVisible(true);
-        }
-      }
-    };
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -241,8 +231,6 @@ export const ClientMarquee: React.FC<ClientMarqueeProps> = ({
     if (statsRef.current) {
       observer.observe(statsRef.current);
     }
-
-    checkIfInView();
 
     return () => observer.disconnect();
   }, []);

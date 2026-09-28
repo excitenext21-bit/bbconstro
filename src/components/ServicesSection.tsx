@@ -281,7 +281,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           aria-hidden="true"
         />
 
-        <div className="w-full pl-20 sm:pl-24 lg:pl-28 xl:pl-32 pr-16 sm:pr-20 lg:pr-24 xl:pr-28 relative z-10">
+        <div className="w-full px-4 sm:px-8 lg:pl-28 lg:pr-24 xl:pl-32 xl:pr-28 relative z-10">
           
           {/* Header: "Capabilities" */}
           <div className="mb-10 sm:mb-14 lg:mb-16">

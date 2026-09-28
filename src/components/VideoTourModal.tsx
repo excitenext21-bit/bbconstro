@@ -41,10 +41,9 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
               autoPlay
               playsInline
               className="w-full h-full object-cover"
-              poster="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2600&q=85"
+              poster="/assets/hero-poster.webp"
             >
-              <source src="https://videos.pexels.com/video-files/38413564/16311747_2160_3840_30fps.mp4" type="video/mp4" />
-              <source src="https://www.pexels.com/download/video/38413564/" type="video/mp4" />
+              <source src="/assets/hero-video.mp4" type="video/mp4" />
             </video>
           ) : (
             <>

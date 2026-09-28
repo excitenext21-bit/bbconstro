@@ -33,7 +33,7 @@ export const InnerPageHero: React.FC<InnerPageHeroProps> = ({
   imageClassName = ''
 }) => {
   return (
-    <section className="relative pt-28 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 bg-[#00153f] border-b border-slate-300/70 overflow-hidden text-slate-100">
+    <section data-no-reveal className="relative pt-28 pb-14 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20 bg-[#00153f] border-b border-slate-300/70 overflow-hidden text-slate-100">
       {/* Background Image: Starts on right side, and transitions to transparent where hero text ends */}
       <div
         className="absolute top-0 right-0 bottom-0 w-full sm:w-3/4 lg:w-3/5 xl:w-1/2 overflow-hidden pointer-events-none select-none z-0"

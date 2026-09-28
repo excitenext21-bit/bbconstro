@@ -19,7 +19,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   // Responsive size mappings for the full official horizontal brand logo
   const logoSizes = {
     sm: 'h-7 sm:h-8 w-auto',
-    md: 'h-9 sm:h-10 md:h-11 w-auto',
+    md: 'h-8 sm:h-10 md:h-11 w-auto',
     lg: 'h-12 sm:h-14 w-auto',
     xl: 'h-16 sm:h-20 w-auto',
   };
@@ -39,6 +39,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         <img
           src="/bb-constro-emblem.png"
           alt="B&B Constro Monogram"
+          width={512}
+          height={512}
           className={`${emblemSizes[size]} object-contain drop-shadow-[0_4px_14px_rgba(247,152,95,0.35)] hover:scale-105 transition-transform duration-300`}
         />
       </div>
@@ -53,7 +55,10 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <img
         src={logoSrc}
         alt="B&B Constro Private Limited"
-        className={`${logoSizes[size]} max-w-[75vw] sm:max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
+        width={1024}
+        height={159}
+        fetchPriority="high"
+        className={`${logoSizes[size]} max-w-[62vw] sm:max-w-none object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
       />
     </div>
   );

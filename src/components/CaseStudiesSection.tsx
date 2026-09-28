@@ -50,7 +50,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesProps> = ({
           </div>
 
           {/* Tab Selector */}
-          <div className="flex items-center gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800">
+          <div className="flex items-center gap-2 bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800 overflow-x-auto max-w-full">
             {CASE_STUDIES.map((study, idx) => (
               <button
                 key={study.id}

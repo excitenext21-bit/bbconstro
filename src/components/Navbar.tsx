@@ -1,10 +1,61 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BrandLogo } from './BrandLogo';
-import { ChevronDown, Search, X, Menu, Phone, ShieldAlert, ShieldCheck, Users } from 'lucide-react';
 import { LongTailArrowRight, LongTailArrowUp } from './LongTailArrow';
-import { STATUTORY_DATA } from '../data/hvacData';
 import { ActivePage } from '../types';
+
+const ChevronDown = ({ className = 'w-3.5 h-3.5' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+const Search = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
+  </svg>
+);
+
+const X = ({ className = 'w-6 h-6' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </svg>
+);
+
+const Menu = ({ className = 'w-6 h-6' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="4" x2="20" y1="12" y2="12" />
+    <line x1="4" x2="20" y1="6" y2="6" />
+    <line x1="4" x2="20" y1="18" y2="18" />
+  </svg>
+);
+
+const Phone = ({ className = 'w-3.5 h-3.5' }: { className?: string; strokeWidth?: number }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const ShieldCheck = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+const Users = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+);
+
+const COMPANY_PHONE = '+91 91759 74749';
+const COMPANY_PHONE_TEL = 'tel:+919175974749';
 
 interface NavbarProps {
   activePage?: ActivePage;
@@ -30,97 +81,78 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Track scroll position to transition header from transparent to solid blue on inner pages
   useEffect(() => {
+    // Header is always solid on the home page; only inner pages start transparent
+    if (!isInnerPage) {
+      setIsScrolled(true);
+      return;
+    }
+
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 20;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, [isInnerPage]);
 
-  // Dynamic contrast & footer collision detection for left social rail and right back-to-top rail
+  // Dynamic contrast & footer collision detection for left social rail and right back-to-top rail (desktop >= 1024px only)
+  // Uses 100% asynchronous IntersectionObserver to eliminate forced reflow and layout thrashing
   useEffect(() => {
-    const evaluateRailContrast = () => {
-      // 1. Footer collision detection - stop rails before overlapping footer
-      const footer = document.getElementById('site-footer') || document.querySelector('footer');
-      let shouldHide = false;
+    if (typeof window === 'undefined' || window.innerWidth < 1024) return;
 
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        // The bottom edge of the vertically centered rail (50vh + approx 135px half-height)
-        const railBottom = window.innerHeight * 0.5 + 135;
-        // Stop (hide) the rails before they can ever overlap the footer
-        if (footerRect.top <= railBottom + 30) {
-          shouldHide = true;
-        }
-      }
-
-      if (leftRailRef.current) {
-        leftRailRef.current.style.opacity = shouldHide ? '0' : '1';
-        leftRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
-      }
-
-      if (rightRailRef.current) {
-        rightRailRef.current.style.opacity = shouldHide ? '0' : '1';
-        rightRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
-      }
-
-      // The vertical center where rails are fixed
-      const railY = window.innerHeight * 0.5;
-
-      // 2. Check all elements with data-theme="light"
-      const lightElements = document.querySelectorAll('[data-theme="light"]');
-      let overLight = false;
-
-      for (let i = 0; i < lightElements.length; i++) {
-        const rect = lightElements[i].getBoundingClientRect();
-        if (rect.top <= railY && rect.bottom >= railY) {
-          overLight = true;
-          break;
-        }
-      }
-
-      // 3. Secondary check: elements at left and right rail coordinates
-      if (!overLight) {
-        const leftElements = document.elementsFromPoint(24, railY) || [];
-        const rightElements = document.elementsFromPoint(window.innerWidth - 24, railY) || [];
-        const allAtRails = [...leftElements, ...rightElements];
-
-        for (const el of allAtRails) {
-          if (!el) continue;
-          if (el.getAttribute('data-theme') === 'light' || el.closest('[data-theme="light"]')) {
-            overLight = true;
-            break;
+    // 1. Observe light sections intersecting the middle band of the viewport
+    const intersectingLightSections = new Set<Element>();
+    const contrastObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersectingLightSections.add(entry.target);
+          } else {
+            intersectingLightSections.delete(entry.target);
           }
-          const style = window.getComputedStyle(el);
-          const bg = style.backgroundColor;
-          if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
-            const match = bg.match(/\d+/g);
-            if (match && match.length >= 3) {
-              const [r, g, b] = match.map(Number);
-              const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-              if (brightness > 160) {
-                overLight = true;
-                break;
-              }
-            }
-          }
+        });
+        setIsOverLight(intersectingLightSections.size > 0);
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    );
+
+    const lightElements = document.querySelectorAll('[data-theme="light"]');
+    lightElements.forEach((el) => contrastObserver.observe(el));
+
+    // 2. Observe footer approaching the rails to fade them out smoothly
+    const footerObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        const shouldHide = !!entry?.isIntersecting;
+        if (leftRailRef.current) {
+          leftRailRef.current.style.opacity = shouldHide ? '0' : '1';
+          leftRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
         }
-      }
+        if (rightRailRef.current) {
+          rightRailRef.current.style.opacity = shouldHide ? '0' : '1';
+          rightRailRef.current.style.pointerEvents = shouldHide ? 'none' : 'auto';
+        }
+      },
+      { rootMargin: '0px 0px -35% 0px', threshold: 0 }
+    );
 
-      setIsOverLight(prev => (prev !== overLight ? overLight : prev));
-    };
+    const footer = document.getElementById('site-footer') || document.querySelector('footer');
+    if (footer) {
+      footerObserver.observe(footer);
+    }
 
-    window.addEventListener('scroll', evaluateRailContrast, { passive: true });
-    window.addEventListener('resize', evaluateRailContrast, { passive: true });
-    evaluateRailContrast();
-
-    const timer = setTimeout(evaluateRailContrast, 100);
     return () => {
-      window.removeEventListener('scroll', evaluateRailContrast);
-      window.removeEventListener('resize', evaluateRailContrast);
-      clearTimeout(timer);
+      contrastObserver.disconnect();
+      footerObserver.disconnect();
     };
   }, [location.pathname]);
 
@@ -166,7 +198,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             : 'bg-[#00153f] border-b border-[#0a296b]/80 shadow-md backdrop-blur-md'
         }`}
       >
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-24 flex items-center justify-between">
+        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
           
           {/* Official Brand Logo */}
           <Link
@@ -219,17 +251,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Phone Number between FAQs and Connect Us */}
             <a
-              href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
+              href={COMPANY_PHONE_TEL}
               className="flex items-center gap-2 text-slate-200 hover:text-[#f7985f] transition font-semibold text-[15px] shrink-0"
               title="Call B&B Constro"
             >
               <Phone className="w-3.5 h-3.5 text-[#f7985f] stroke-[1.2]" strokeWidth={1.2} />
-              <span>{STATUTORY_DATA.phone}</span>
+              <span>{COMPANY_PHONE}</span>
             </a>
           </nav>
 
           {/* Right Action Icons Group */}
-          <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-2.5 sm:gap-3.5">
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMobileMenuOpen(v => !v)}
@@ -239,11 +271,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
 
-            {/* Connect Us Button */}
+            {/* Connect Us Button (Desktop & Tablet >= sm) */}
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-[3px] bg-transparent border border-white text-white hover:bg-white hover:text-slate-950 font-[300] text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95 shrink-0 cursor-pointer"
-              aria-label="Connect With B&B Constro"
+              className="hidden sm:inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-[3px] bg-transparent border border-white text-white hover:bg-white hover:text-slate-950 font-[300] text-xs sm:text-sm tracking-wide transition-all shadow-md active:scale-95 shrink-0 cursor-pointer"
+              aria-label="Connect Us"
             >
               <span className="font-[300]">Connect Us</span>
               <LongTailArrowRight className="w-6 h-3 stroke-[1]" strokeWidth={1} />
@@ -319,12 +351,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               </div>
 
-              {[
+              {([
                 { path: '/services', label: 'Capabilities' },
                 { path: '/projects', label: 'Success Stories' },
                 { path: '/amc', label: 'AMC Plans' },
                 { path: '/faqs', label: 'FAQs' },
-              ].map((item) => (
+              ] as { path: string; label: string; hasDropdown?: boolean }[]).map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
@@ -342,12 +374,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Direct Phone Link between FAQs and Connect Us */}
               <a
-                href={`tel:${STATUTORY_DATA.phone.replace(/\s+/g, '')}`}
+                href={COMPANY_PHONE_TEL}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2.5 py-2.5 px-3 rounded-lg text-slate-200 hover:bg-slate-800/60 hover:text-[#f7985f] transition text-[15px] font-semibold"
               >
                 <Phone className="w-4 h-4 text-[#f7985f] stroke-[1.2]" strokeWidth={1.2} />
-                <span>{STATUTORY_DATA.phone}</span>
+                <span>{COMPANY_PHONE}</span>
               </a>
 
               <Link

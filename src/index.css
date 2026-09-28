@@ -19,11 +19,27 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    background-color: #00153f;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     background-color: #00153f;
     color: #c0c0eb;
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -119,6 +135,8 @@
   left: 0;
   z-index: 0;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .watermark-text-light {
@@ -136,6 +154,8 @@
   left: 0;
   z-index: 0;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 @keyframes spin-slow {
@@ -915,4 +935,51 @@
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* ── Hero High-Performance Zero-Dependency Animations ────── */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-animate-card {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-animate-title {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.hero-animate-desc {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-animate-btn {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+.hero-animate-play {
+  animation: heroScaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.hero-animate-bottom {
+  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
