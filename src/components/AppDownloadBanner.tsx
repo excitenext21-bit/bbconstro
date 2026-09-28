@@ -17,8 +17,12 @@ export const AppDownloadBanner: React.FC<AppDownloadBannerProps> = ({ onOpenBook
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0 opacity-20">
           <img
-            src="https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=1600&q=80"
+            src="/assets/services-banner.jpg"
             alt="HVAC Facility Background"
+            width={1200}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

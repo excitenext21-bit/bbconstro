@@ -48,7 +48,7 @@ export const VideoTourModal: React.FC<VideoTourModalProps> = ({
           ) : (
             <>
               <img
-                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2600&q=85"
+                src="/assets/hero-poster.webp"
                 alt="360 HVAC Engineering Tour"
                 className="w-full h-full object-cover opacity-60"
               />

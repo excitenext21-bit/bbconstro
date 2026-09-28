@@ -40,7 +40,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ onSelectCaseSt
       id: '03',
       title: 'High-Efficiency Cooling At Solitaire Business Hub.',
       desc: 'Central water-cooled screw chillers with smart variable pumping and building management automation for 45 enterprise corporate suites.',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80',
+      image: '/assets/central-chiller-plant-systems.jpg',
       specs: '550 TR Chillers • 18% Energy Savings'
     }
   ];

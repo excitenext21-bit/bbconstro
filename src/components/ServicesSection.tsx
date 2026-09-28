@@ -70,7 +70,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       ],
       icon: Fan,
       animClass: 'animate-hvac-fan',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+      image: '/assets/why-choose-us-banner.jpg',
       equipmentTag: 'NBC 2016 Fire Safety',
       equipmentSubtitle: '300°C Fire Smoke Spill • Dual-Speed Induction Jet Ventilation'
     },
@@ -106,7 +106,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       ],
       icon: Activity,
       animClass: 'animate-hvac-pulse',
-      image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1200&q=80',
+      image: '/assets/our-vision.png',
       equipmentTag: 'ISO Class 5-8 Cleanroom',
       equipmentSubtitle: '99.99% Terminal HEPA Filtration • Positive Differential Cascades'
     },
@@ -142,7 +142,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       ],
       icon: Flame,
       animClass: 'animate-hvac-flame',
-      image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80',
+      image: '/assets/central-chiller-plant.jpg',
       equipmentTag: '60-90 Min Emergency SLA',
       equipmentSubtitle: 'Stocked OEM Compressors & VFDs • Immediate On-Site Dispatch'
     }

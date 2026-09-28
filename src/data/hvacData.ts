@@ -48,7 +48,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'HVAC Design & Engineering Consultancy',
     shortDesc: 'A detailed study of thermal loads, recommending optimal architectures while keeping a vigilant watch on capital cost and operational energy.',
     fullDesc: 'We structure complete thermodynamic and airflow designs for commercial complexes, corporate headquarters, high-end bungalows, and industrial facilities across Pune. Our scope spans heat-load modeling, technology selection (VRV/VRF vs Air/Water-Cooled Chillers), duct sizing, and building management integration.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/services-banner.jpg',
     features: [
       'Comprehensive heat load calculation & resource availability analysis',
       'Specialized ventilation: Staircase pressurisation & Lift lobby pressurisation',
@@ -70,7 +70,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Turnkey Project Execution & Retrofitting',
     shortDesc: 'Disciplined project execution adhering strictly to safety, timelines, quality, and industry standards with rigorous review milestones.',
     fullDesc: 'Our execution capabilities reflect rigorous built deliverables, continuous monitoring, and structured reviews. We implement comprehensive processes: Time, Cost, Quality, Change, Risk, Procurement, and Acceptance Management. Additionally, our specialized retrofitting capability upgrades legacy systems with zero operational disruption.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/vrv-vrf-central-systems.jpg',
     features: [
       'Strict execution frameworks: Time, Cost, Risk & Quality management',
       'Braze-free Lokring piping technique for swift, zero-hazard pipeline installs',
@@ -92,7 +92,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: '24/7 Emergency HVAC Breakdown & Repair',
     shortDesc: 'Immediate technician dispatch across Pune with guaranteed 60-90 min response time for chiller halts, gas leaks, and critical cooling failures.',
     fullDesc: 'A sudden HVAC breakdown in a Pune hospital, server room, commercial kitchen, or retail store creates immediate financial and operational jeopardy. Our dedicated emergency task force is on standby 24 hours a day, 365 days a year, stocked with genuine compressors, relays, refrigerant cylinders, and diagnostic tools.',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/central-chiller-plant-systems.jpg',
     features: [
       'Rapid 60-90 minute on-site dispatch across Pune & PCMC industrial belts',
       'Critical compressor diagnostics, rewinding, and immediate replacement',
@@ -114,7 +114,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Comprehensive Annual Maintenance Contracts (AMC)',
     shortDesc: 'Preventive and breakdown service contracts that enhance system efficiency, lower energy consumption by up to 20%, and eliminate sudden downtime.',
     fullDesc: 'Regular maintenance through AMCs for HVAC systems helps maintain peak thermodynamic efficiency, protects costly capital equipment, and improves indoor air quality. We offer three flexible tiers tailored to enterprise and residential client needs: Comprehensive, Semi-Comprehensive, and Preventive Labour contracts.',
-    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/amc-banner.jpg',
     features: [
       'Scheduled preventive visits: 3 mandatory visits per year (2 Dry + 1 Wet cleaning)',
       'High-pressure chemical coil wash removing deep microbial build-ups & scale',
@@ -340,7 +340,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'B&B Constro handled our 3,40,000 sq. ft. Daikin VRV project with surgical precision. Mr. Pravin Bakshi’s personal technical involvement delivered a 19% documented drop in our electricity bills. When an AHU sensor failed on a Sunday evening, their emergency team arrived within 50 minutes.',
     rating: 5,
     projectType: '3,40,000 Sq. Ft. VRV Installation & AMC',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80'
+    avatar: ''
   },
   {
     id: 'test-2',
@@ -351,7 +351,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'In hospital environments, HVAC failures are life-threatening. B&B Constro implemented positive-pressure laminar airflow in our 4 operation theatres. Their emergency breakdown dispatch has saved us during monsoon power surges twice. We trust only them for our Annual Maintenance Contract.',
     rating: 5,
     projectType: 'Modular OT HVAC & Comprehensive AMC',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80'
+    avatar: ''
   },
   {
     id: 'test-3',
@@ -362,7 +362,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'The Lokring braze-free piping technique they executed across our plant was groundbreaking. Zero flames, zero permits hold-up, 140 meters laid in 1 single day! It has been three continuous years without even a minor gas leakage or vibration complaint. True engineering mastery.',
     rating: 5,
     projectType: 'Industrial Cold-Joint Refrigerant Infrastructure',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=250&q=80'
+    avatar: ''
   },
   {
     id: 'test-4',
@@ -373,7 +373,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'Our banquet halls host high-profile weddings with 800+ guests where cooling must adjust instantaneously. B&B Constro redesigned our ducted chillers and handles our Semi-Comprehensive AMC. Their engineers are well-mannered, uniformed, and always punctual.',
     rating: 5,
     projectType: 'Hospitality Chiller Retrofit & AMC',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80'
+    avatar: ''
   }
 ];
 

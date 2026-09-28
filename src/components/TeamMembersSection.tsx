@@ -9,25 +9,25 @@ interface TeamMembersSectionProps {
 export const TeamMembersSection: React.FC<TeamMembersSectionProps> = ({ onContactTeam }) => {
   const members = [
     {
-      name: 'Michel Smith',
+      name: 'Rajesh Sharma',
       role: 'Senior HVAC Project Lead',
       experience: '14+ Years (Ex-Voltas)',
       phone: '+91 772000 7392',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'
+      image: '/assets/team-specialist-1.jpg'
     },
     {
-      name: 'Sara Prova',
+      name: 'Pooja Kulkarni',
       role: 'MEP Thermal Design Lead',
       experience: 'B.E. Mechanical (ISHRAE)',
       phone: '+91 772000 7392',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'
+      image: '/assets/team-specialist-2.jpg'
     },
     {
-      name: 'Janny Mari',
+      name: 'Amit Deshpande',
       role: '24/7 Breakdown Dispatch Head',
       experience: '10+ Years Field Logistics',
       phone: '+91 772000 7392',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
+      image: '/assets/team-specialist-3.jpg'
     }
   ];
 
@@ -78,6 +78,10 @@ export const TeamMembersSection: React.FC<TeamMembersSectionProps> = ({ onContac
                 <img
                   src={member.image}
                   alt={member.name}
+                  width={480}
+                  height={640}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#041a4a] via-transparent to-transparent" />

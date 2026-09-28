@@ -44,8 +44,12 @@ export const ModernApartmentSpotlight: React.FC<ModernApartmentSpotlightProps> =
             <div className="flex items-center gap-6 pt-4 border-t border-slate-300 w-full">
               <div className="flex items-center gap-3">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80"
+                  src="/director-pravin-bakshi.jpg"
                   alt={DIRECTOR_INFO.name}
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full object-cover border-2 border-white shadow"
                 />
                 <div>
@@ -72,8 +76,12 @@ export const ModernApartmentSpotlight: React.FC<ModernApartmentSpotlightProps> =
           <div className="lg:col-span-6 relative">
             <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-slate-200 shadow-xl border border-slate-300/60 relative group">
               <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                src="/assets/projects-banner.jpg"
                 alt="Precision HVAC Architectural Living"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
 

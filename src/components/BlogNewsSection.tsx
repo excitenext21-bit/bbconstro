@@ -15,7 +15,7 @@ export const BlogNewsSection: React.FC<BlogNewsSectionProps> = ({ onOpenBooking 
       author: 'Mr. Pravin Bakshi',
       title: 'Energy Trends That Will Shape The Future Of Sustainable Architecture In Pune',
       excerpt: 'Appropriately optimize commercial HVAC networks rather than magnetic experiences. Intrinsicly actualize resource-leveling methodologies for high-rise corporate towers.',
-      image: 'https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=800&q=80',
+      image: '/assets/services-banner.jpg',
       isReversed: false
     },
     {
@@ -25,7 +25,7 @@ export const BlogNewsSection: React.FC<BlogNewsSectionProps> = ({ onOpenBooking 
       author: 'Technical Team',
       title: 'Why Braze-Free Lokring Piping Eliminates Hot-Work Hazards In Active Facilities',
       excerpt: 'Appropriately optimize industrial refrigerant piping networks rather than hazardous open flames. Certified mechanical joints deliver zero fire-risk in high-tech cleanrooms.',
-      image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+      image: '/assets/vrv-vrf-central-systems.jpg',
       isReversed: true
     }
   ];
